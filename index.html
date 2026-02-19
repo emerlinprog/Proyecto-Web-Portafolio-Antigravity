@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orlando Linares | Strategy & Architecture Elite</title>
+    <!-- SEO -->
+    <meta name="description"
+        content="Orlando Linares - Elite Business Architect. Estrategia Digital, IA y Gestión Pública con acreditaciones globales (MIT, FGU, UNI).">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#05070a',
+                        surface: '#0a0d14',
+                        accent: '#22d3ee',
+                        slate: { 800: '#1e293b', 900: '#0f172a', 950: '#020617' }
+                    },
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    animation: {
+                        'slow-pan': 'slow-pan 20s ease-in-out infinite',
+                        'float-soft': 'float-soft 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 5s ease-in-out infinite',
+                        'reveal-up': 'reveal-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        'slow-pan': {
+                            '0%, 100%': { backgroundPosition: 'left center' },
+                            '50%': { backgroundPosition: 'right center' }
+                        },
+                        'float-soft': {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-10px) rotate(1deg)' }
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: 0.1, transform: 'scale(1)' },
+                            '50%': { opacity: 0.25, transform: 'scale(1.1)' }
+                        },
+                        'reveal-up': {
+                            '0%': { opacity: 0, transform: 'translateY(40px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* LUXURY SYSTEM DESIGN */
+        html,
+        body {
+            background-color: #05070a;
+            color: #f8fafc;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+
+        /* FLUID TYPOGRAPHY SYSTEM (CLAMP) */
+        .h-hero {
+            font-size: clamp(3rem, 12vw, 11rem);
+            font-weight: 800;
+            line-height: 0.85;
+            letter-spacing: -0.04em;
+        }
+
+        .h-section {
+            font-size: clamp(2rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .p-main {
+            font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+            line-height: 1.6;
+            font-weight: 400;
+            color: #94a3b8;
+        }
+
+        .p-small {
+            font-size: clamp(0.75rem, 0.8vw, 0.875rem);
+            letter-spacing: 0.4em;
+            font-weight: 900;
+            color: #22d3ee;
+            text-transform: uppercase;
+        }
+
+        /* MESH BACKGROUNDS & LAYERED BLURS */
+        .mesh-bg {
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(34, 211, 238, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(15, 23, 42, 0.5) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.3;
+            z-index: -10;
+        }
+
+        /* BENTO PROPORTIONAL CARDS */
+        .bento-card-elite {
+            @apply relative overflow-hidden bg-white/[0.01] border border-white/[0.08] rounded-[3rem] p-10 lg:p-14 backdrop-blur-2xl transition-all duration-700 hover:border-accent/40 hover:bg-white/[0.03];
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .reveal-node {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .chip-elite {
+            @apply px-6 py-2 bg-white/[0.03] border border-white/[0.06] rounded-xl text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-white hover:border-accent/30 hover:bg-accent/5 transition-all duration-500 cursor-default;
+        }
+
+        /* GLASS LAYER */
+        .glass-layer {
+            @apply absolute w-[500px] h-[500px] rounded-full blur-[120px] opacity-[0.06] pointer-events-none;
+        }
+
+        /* SECTION PADDING PROPORTIONS */
+        section {
+            @apply px-8 md:px-20 lg:px-32 py-24 lg:py-40 max-w-[1700px] mx-auto;
+        }
+    </style>
+</head>
+
+<body class="selection:bg-accent selection:text-dark">
+
+    <div class="mesh-bg"></div>
+
+    <!-- MAIN GRID CONTAINER -->
+    <main class="relative z-10 w-full overflow-hidden">
+
+        <!-- HERO: CREATIVE COMPOSITION -->
+        <section class="min-h-screen flex flex-col justify-center relative">
+            <div class="glass-layer -top-40 -left-40 bg-accent animate-float-soft"></div>
+
+            <div class="z-20">
+                <p class="p-small mb-12 opacity-0 animate-[reveal-up_1.2s_ease-out_forwards]">Arquitecto de Negocios
+                    Élite</p>
+                <h1 class="h-hero mb-20 opacity-0 animate-[reveal-up_1.2s_0.2s_ease-out_forwards]">
+                    Orlando<br />
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/10">Linares</span>
+                </h1>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 z-20 items-end">
+                <div class="lg:col-span-8 overflow-hidden">
+                    <p class="p-main opacity-0 animate-[reveal-up_1.2s_0.4s_ease-out_forwards]">
+                        Potenciando el valor corporativo mediante la orquestación táctica de <br />
+                        <span
+                            class="text-white font-semibold italic underline decoration-accent/30 underline-offset-8">Inteligencia
+                            Artificial</span> y procesos de alto rendimiento.
+                    </p>
+                </div>
+                <div
+                    class="lg:col-span-4 flex flex-col items-start lg:items-end gap-6 opacity-0 animate-[reveal-up_1.2s_0.6s_ease-out_forwards]">
+                    <div
+                        class="text-[10px] font-black text-slate-600 uppercase tracking-[0.6em] border-r-2 border-accent pr-4 lg:text-right">
+                        MIT Accredited <br /> Florida Global Univ <br /> UNI Excellence
+                    </div>
+                </div>
+            </div>
+
+            <!-- DECORATIVE SCROLL INDICATOR -->
+            <div class="absolute bottom-12 left-8 md:left-20 lg:left-32 animate-bounce opacity-20 hidden md:block">
+                <div class="w-[1px] h-20 bg-gradient-to-t from-accent to-transparent"></div>
+            </div>
+        </section>
+
+        <!-- SOBRE MÍ: BALANCED PROPORTIONS -->
+        <section class="reveal relative">
+            <div class="glass-layer top-0 right-0 bg-accent animate-pulse-glow"></div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 lg:gap-32 items-start relative z-10">
+                <div class="lg:col-span-5 flex flex-col gap-8">
+                    <span class="p-small">Trayectoria Ejecutiva</span>
+                    <h2 class="h-section text-white lowercase">Estrategia. <br /> <span
+                            class="text-accent underline decoration-accent/10">Rigor</span>. Escala.</h2>
+                </div>
+                <div class="lg:col-span-7 flex flex-col gap-12 pt-12">
+                    <p class="p-main text-slate-300">
+                        Como líder en arquitectura organizacional, mi visión se fundamenta en la unión del rigor
+                        administrativo global y el potencial de las tecnologías exponenciales.
+                    </p>
+                    <p class="p-main">
+                        Diseño ecosistemas de negocio donde la <span class="text-white font-medium">IA Generativa</span>
+                        no es un añadido, sino la base de una eficiencia operativa autónoma y escalable.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-12 mt-8 py-12 border-y border-white/5">
+                        <div class="group">
+                            <i data-lucide="compass"
+                                class="w-10 h-10 text-accent mb-6 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500"></i>
+                            <h4 class="text-xs font-black text-white uppercase tracking-widest mb-2">Visión Estratégica
+                            </h4>
+                            <p class="text-sm text-slate-500 font-bold uppercase tracking-wider">Arquitectura de Valor
+                            </p>
+                        </div>
+                        <div class="group">
+                            <i data-lucide="shield-check"
+                                class="w-10 h-10 text-white opacity-40 mb-6 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-500"></i>
+                            <h4 class="text-xs font-black text-white uppercase tracking-widest mb-2">Compromiso Ético
+                            </h4>
+                            <p class="text-sm text-slate-500 font-bold uppercase tracking-wider">Integridad SERVIR</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AUTHORITY: CREATIVE BENTO -->
+        <section class="reveal">
+            <span class="p-small mb-12 block">Dominios de Autoridad</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-12">
+                <!-- CARD 01 -->
+                <div class="bento-card-elite group">
+                    <div class="flex flex-col h-full gap-20">
+                        <div class="flex justify-between items-start">
+                            <div
+                                class="p-6 bg-accent/5 rounded-3xl group-hover:bg-accent group-hover:text-dark transition-all duration-700">
+                                <i data-lucide="layout-dashboard" class="w-8 h-8"></i>
+                            </div>
+                            <span class="text-[9px] font-black text-slate-700 uppercase tracking-[0.6em]">PMO
+                                Master</span>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl lg:text-4xl font-extrabold text-white uppercase mb-6 tracking-tight">
+                                Management</h3>
+                            <p class="p-main text-base lg:text-lg mb-0 text-slate-400">Dirección estratégica bajo
+                                **PMBOK 7ª**. Control avanzado de recursos y viabilidad económica sistémica.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD 02 -->
+                <div class="bento-card-elite group lg:mt-12">
+                    <div class="flex flex-col h-full gap-20">
+                        <div class="flex justify-between items-start">
+                            <div
+                                class="p-6 bg-white/5 rounded-3xl group-hover:bg-white group-hover:text-dark transition-all duration-700">
+                                <i data-lucide="cpu" class="w-8 h-8"></i>
+                            </div>
+                            <span class="text-[9px] font-black text-slate-700 uppercase tracking-[0.6em]">MIT
+                                Digital</span>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl lg:text-4xl font-extrabold text-white uppercase mb-6 tracking-tight">
+                                Ecosistemas IA</h3>
+                            <p class="p-main text-base lg:text-lg mb-0 text-slate-400">Implementación de arquitecturas
+                                de agentes y flujos inteligentes para la escala organizacional autónoma.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD 03 -->
+                <div class="bento-card-elite group -mt-0 lg:-mt-12">
+                    <div class="flex flex-col h-full gap-20">
+                        <div class="flex justify-between items-start">
+                            <div
+                                class="p-6 bg-accent/5 rounded-3xl group-hover:bg-accent group-hover:text-dark transition-all duration-700">
+                                <i data-lucide="bar-chart-big" class="w-8 h-8"></i>
+                            </div>
+                            <span
+                                class="text-[9px] font-black text-slate-700 uppercase tracking-[0.6em]">Analytics</span>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl lg:text-4xl font-extrabold text-white uppercase mb-6 tracking-tight">
+                                Data Strategy</h3>
+                            <p class="p-main text-base lg:text-lg mb-0 text-slate-400">Decisiones basadas en evidencia
+                                mediante Power BI, Lenguaje DAX y modelamiento estadístico en R.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD 04 -->
+                <div class="bento-card-elite group">
+                    <div class="flex flex-col h-full gap-20">
+                        <div class="flex justify-between items-start">
+                            <div
+                                class="p-6 bg-white/5 rounded-3xl group-hover:bg-white group-hover:text-dark transition-all duration-700">
+                                <i data-lucide="workflow" class="w-8 h-8"></i>
+                            </div>
+                            <span class="text-[9px] font-black text-slate-700 uppercase tracking-[0.6em]">BABOK
+                                V3</span>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl lg:text-4xl font-extrabold text-white uppercase mb-6 tracking-tight">
+                                Business Arch</h3>
+                            <p class="p-main text-base lg:text-lg mb-0 text-slate-400">Diseño táctico de procesos
+                                corporativos y modelamiento BPMN bajo estándares internacionales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS: MASONRY GRID LAYOUT -->
+        <section class="reveal">
+            <span class="p-small mb-12 block">Competencias & Stack</span>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-24 lg:gap-20 mt-16 px-4">
+                <div class="relative group">
+                    <h4 class="text-sm font-black text-white uppercase tracking-[0.5em] mb-12 flex items-center gap-4">
+                        <span class="w-12 h-[1px] bg-accent"></span> Management
+                    </h4>
+                    <div class="flex flex-wrap gap-4">
+                        <span class="chip-elite">PMBOK 7ª</span>
+                        <span class="chip-elite">Scrum Agile</span>
+                        <span class="chip-elite">MS Project</span>
+                        <span class="chip-elite">SIAF - SIGA</span>
+                        <span class="chip-elite">Logística RP</span>
+                        <span class="chip-elite">SEACE 3.0</span>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <h4 class="text-sm font-black text-white uppercase tracking-[0.5em] mb-12 flex items-center gap-4">
+                        <span class="w-12 h-[1px] bg-white opacity-20"></span> Technology
+                    </h4>
+                    <div class="flex flex-wrap gap-4">
+                        <span class="chip-elite">Python AI</span>
+                        <span class="chip-elite">R-Studio</span>
+                        <span class="chip-elite">Power BI Elite</span>
+                        <span class="chip-elite">Prompt Eng</span>
+                        <span class="chip-elite">SAP ERP</span>
+                        <span class="chip-elite">Agentic IA</span>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <h4 class="text-sm font-black text-white uppercase tracking-[0.5em] mb-12 flex items-center gap-4">
+                        <span class="w-12 h-[1px] bg-accent"></span> Frameworks
+                    </h4>
+                    <div class="flex flex-wrap gap-4">
+                        <span class="chip-elite">BABOK V3</span>
+                        <span class="chip-elite">Bizagi BPMN</span>
+                        <span class="chip-elite">Lean Sigma</span>
+                        <span class="chip-elite">Gestión Pública</span>
+                        <span class="chip-elite">Integridad</span>
+                        <span class="chip-elite">Auditoría</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER: CREATIVE CLOSURE -->
+        <footer class="reveal pt-40 md:pt-60 overflow-hidden relative">
+            <div class="mesh-bg opacity-10 scale-150 -rotate-12"></div>
+            <div
+                class="max-w-[1700px] mx-auto px-8 md:px-20 lg:px-32 flex flex-col items-center text-center gap-24 pb-40">
+                <div class="relative">
+                    <span class="p-small block mb-12">Next Step</span>
+                    <h2 class="h-hero mb-20">
+                        Let's<br />
+                        <span class="text-accent underline decoration-accent/10">Build</span>
+                    </h2>
+                    <p class="p-main max-w-2xl mx-auto italic mb-16">Estrategia operativa para la era inteligente.</p>
+                    <button onclick="window.location.href='mailto:contact@orlando.com'"
+                        class="group relative px-20 lg:px-32 py-10 lg:py-14 bg-white text-dark rounded-full font-black text-sm lg:text-base uppercase tracking-[0.4em] overflow-hidden hover:scale-105 transition-all shadow-2xl">
+                        <span class="relative z-10">Contactar Consultoría</span>
+                        <div class="absolute inset-x-0 bottom-0 h-1 bg-accent/20"></div>
+                    </button>
+                </div>
+
+                <div
+                    class="w-full pt-32 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12 text-[10px] font-black text-slate-800 uppercase tracking-[0.6em]">
+                    <div class="flex items-center gap-8">
+                        <p>Orlando Linares © 2026</p>
+                        <div class="w-1 h-1 bg-slate-900 rounded-full"></div>
+                        <p>Business Architect Elite</p>
+                    </div>
+                    <div class="flex gap-12">
+                        <a href="#" class="hover:text-accent transition-colors">LinkedIn</a>
+                        <a href="#" class="hover:text-accent transition-colors text-white/5">BUILD V.11.0 CREATIVE</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+
+        // Reveal Engine
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-node');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.bento-card-elite, section, footer').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
