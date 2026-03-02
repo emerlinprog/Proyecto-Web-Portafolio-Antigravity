@@ -54,7 +54,39 @@
         }
         .desaturated-graphic {
             filter: grayscale(1) contrast(1.5) brightness(0.8);
-        }.section-container {
+        }
+        /* --- Efectos Premium --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .spotlight-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .spotlight-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(
+                800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+                rgba(57, 255, 20, 0.08),
+                transparent 40%
+            );
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .spotlight-card:hover::before {
+            opacity: 1;
+        }
+        .section-container {
             width: 100%;
             border-bottom: var(--border-thick) solid var(--text-off-white);
         }
@@ -594,6 +626,47 @@
         }
 
         setTimeout(typeWriter, 1000);
+
+        // --- EFECTOS PREMIUM ---
+
+        // 1. Reveal on Scroll (Aparición Dinámica)
+        const revealElements = document.querySelectorAll('h1, h2, .max-w-2xl, #ecosistemas .grid > div, #marcos .grid > div, #sectores .grid > div, form, .flex.flex-wrap.gap-4');
+        revealElements.forEach((el, i) => {
+            el.classList.add('reveal');
+            // Cascada para elementos de las cuadrículas
+            if (el.parentElement.classList.contains('grid') || el.classList.contains('flex-wrap')) {
+                const index = Array.from(el.parentElement.children).indexOf(el);
+                el.style.transitionDelay = `${index * 150}ms`;
+            }
+        });
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // 2. Spotlight Glow Tracker (Rastreador de Mouse)
+        const spotlightCards = document.querySelectorAll('#ecosistemas .grid > div, #sectores .grid > div');
+        spotlightCards.forEach(card => card.classList.add('spotlight-card'));
+
+        window.addEventListener('mousemove', (e) => {
+            spotlightCards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
     </script>
 </body>
 
