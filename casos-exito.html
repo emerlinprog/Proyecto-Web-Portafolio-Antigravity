@@ -5,15 +5,15 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <!-- Meta SEO & Open Graph -->
     <title>Casos de Éxito | Orlando Linares</title>
     <meta name="description"
         content="Casos de estudio reales sobre Arquitectura de Negocios, optimización de procesos ISO y Data Intelligence. Transformando corporaciones con metodologías probadas y estrategias de IA." />
     <meta name="author" content="Orlando Linares" />
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Incluyendo font Inter para legibilidad ejecutiva (sans-serif) y Roboto Condensed para titulos (H2) -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700;900&family=Inter:wght@400;600;700&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
@@ -28,15 +28,14 @@
         body {
             background-color: var(--bg-charcoal);
             color: var(--text-off-white);
-            font-family: 'Libre+Baskerville', serif;
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
-        h1, h2, h3, h4, .font-heading {
+        h1, h2, .font-heading {
             font-family: 'Roboto Condensed', sans-serif;
             text-transform: uppercase;
             letter-spacing: -0.02em;
         }
-        .brutalist-border { border: var(--border-thick) solid var(--text-off-white); }
         .cta-neon {
             background-color: var(--accent-neon);
             color: black;
@@ -54,8 +53,6 @@
             width: 100%;
             border-bottom: var(--border-thick) solid var(--text-off-white);
         }
-        
-        /* Efectos Premium */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -64,6 +61,29 @@
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
+        }
+        .minimalist-cta {
+            border: 2px solid var(--text-off-white);
+            color: var(--text-off-white);
+            font-family: 'Roboto Condensed', sans-serif;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+        .minimalist-cta:hover {
+            background-color: var(--text-off-white);
+            color: black;
+        }
+        .tag {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--accent-neon);
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            text-transform: uppercase;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -111,149 +131,284 @@
                 <div class="lg:col-span-11 p-8 md:p-16">
                     <h1 class="text-6xl md:text-8xl font-black mb-8 scramble-text">CASOS DE ESTUDIO</h1>
                     <p
-                        class="text-xl md:text-2xl font-serif italic max-w-4xl border-l-[4px] border-[var(--accent-neon)] pl-6 reveal">
-                        Despliegue de arquitecturas de negocio, automatización mediante IA, y modelamiento de datos para
-                        corporaciones líderes en los sectores Público y Retail.
+                        class="text-xl md:text-2xl font-semibold max-w-4xl border-l-[4px] border-[var(--accent-neon)] pl-6 reveal">
+                        Arquitectura de negocios escalable, respaldada por soluciones robustas comprobadas en la praxis
+                        ejecutiva.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- CASO 1: SECTOR PUBLICO / GOBIERNO ORIGINAL -->
-        <section class="section-container bg-white text-black">
-            <div class="grid lg:grid-cols-2">
-                <div class="p-8 md:p-16 border-b-2 lg:border-b-0 lg:border-r-2 border-black reveal">
-                    <div class="mb-4 flex flex-wrap gap-2">
-                        <span class="bg-black text-white font-heading text-xs px-3 py-1">ISO 9001 / 27001</span>
-                        <span class="bg-black text-white font-heading text-xs px-3 py-1">SECTOR GUBERNAMENTAL</span>
-                    </div>
-                    <h2 class="text-4xl md:text-5xl font-black mb-6">Modernización Digital e Interoperabilidad en
-                        Entidad Estatal</h2>
-
-                    <h3
-                        class="text-xl font-heading font-bold mt-8 mb-2 underline decoration-2 decoration-[var(--accent-neon)]">
-                        El Desafío (Contexto PESTLE)</h3>
-                    <p class="font-serif text-sm leading-relaxed mb-6 opacity-80">
-                        Una importante entidad gubernamental de recaudación fiscal enfrentaba altos tiempos de
-                        procesamiento manual, silos de información desconectados, y vulnerabilidades en la integridad de
-                        los datos. El requerimiento principal exigía reducir el tiempo de atención ciudadana y al mismo
-                        tiempo cumplir con los estrictos estándares nacionales de Gobierno Digital.
-                    </p>
-
-                    <h3
-                        class="text-xl font-heading font-bold mt-8 mb-2 underline decoration-2 decoration-[var(--accent-neon)]">
-                        Arquitectura y Solución</h3>
-                    <p class="font-serif text-sm leading-relaxed mb-6 opacity-80">
-                        Se lideró un proyecto de reingeniería de procesos bajo la <strong>Metodología BABOK v3</strong>
-                        y estándares <strong>PMBOK</strong>. Se implementó una arquitectura basada en Power Platform
-                        conectada a una Data Warehouse centralizada. Los flujos documentales fueron modelados en BPMN y
-                        automatizados mediante flujos RPA (Robotic Process Automation), alineando toda la estructura
-                        bajo certificación ISO 27001 para la seguridad de la información ciudadana.
-                    </p>
-                </div>
-                <div class="p-8 md:p-16 bg-zinc-100 flex flex-col justify-center reveal">
-                    <div class="border-[2px] border-black p-8 bg-white relative">
-                        <div
-                            class="absolute -top-4 -left-4 bg-[var(--accent-neon)] border-2 border-black w-12 h-12 flex items-center justify-center">
-                            <span class="material-symbols-outlined font-bold text-black text-2xl">monitoring</span>
-                        </div>
-                        <h3 class="font-heading font-black text-2xl mb-6 mt-4">Resultados Cuantitativos</h3>
-                        <ul class="space-y-4 font-serif text-sm">
-                            <li class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-green-600">arrow_downward</span>
-                                <div><strong>-65% en Tiempos de Respuesta:</strong> de 14 días convencionales a solo 4.5
-                                    días en aprobaciones administrativas.</div>
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-[var(--accent-neon)]">done_all</span>
-                                <div><strong>Nula Fuga de Datos (0 Incidencias):</strong> Cumplimiento total ISO 27001
-                                    en la transferencia de datos.</div>
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-[var(--accent-neon)]">speed</span>
-                                <div><strong>100% de Trazabilidad:</strong> Monitoreo de expedientes en tiempo real
-                                    conectado a tableros ejecutivos en Power BI.</div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CASO 2: RETAIL & CADENA DE SUMINISTRO -->
-        <section class="section-container bg-zinc-900">
+        <!-- CASO 01 -->
+        <section class="section-container">
             <div class="grid lg:grid-cols-2">
                 <div
-                    class="p-8 md:p-16 flex flex-col justify-center order-2 lg:order-1 border-t-2 lg:border-t-0 lg:border-r-2 border-white reveal">
-                    <div class="border-[2px] border-white p-8 bg-black relative">
-                        <div
-                            class="absolute -top-4 -left-4 bg-white text-black border-2 border-white w-12 h-12 flex items-center justify-center">
-                            <span class="material-symbols-outlined font-bold text-black text-2xl">insights</span>
+                    class="p-8 md:p-16 border-b-2 lg:border-b-0 lg:border-r-2 border-white reveal flex flex-col justify-center">
+                    <div class="mb-6 flex flex-wrap gap-2">
+                        <span class="bg-white text-black font-heading text-xs px-3 py-1 font-bold">SECTOR PÚBLICO</span>
+                        <span class="bg-white text-black font-heading text-xs px-3 py-1 font-bold">CASO 01</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-black mb-10 leading-tight">MODERNIZACIÓN Y GOBIERNO DIGITAL
+                    </h2>
+
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-lg font-heading font-black text-[var(--accent-neon)] mb-2 tracking-widest">
+                                EL DESAFÍO ESTRATÉGICO</h3>
+                            <p class="text-sm md:text-base leading-relaxed opacity-90 text-balance">
+                                Fragmentación de silos de información y procesos manuales que comprometen la integridad
+                                del dato ciudadano.
+                            </p>
                         </div>
-                        <h3 class="font-heading font-black text-2xl mb-6 mt-4">Impacto Corporativo</h3>
-                        <ul class="space-y-4 font-serif text-sm">
-                            <li class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-[var(--accent-neon)]">trending_up</span>
-                                <div><strong>Ahorro Operativo Anual superior al 24%:</strong> tras la eliminación de
-                                    tareas repetitivas en facturación.</div>
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-[var(--accent-neon)]">inventory</span>
-                                <div><strong>Reducción de Quiebres de Stock (Out-of-Stock):</strong> del 15% al 3%
-                                    gracias al análisis predictivo.</div>
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-[var(--accent-neon)]">hub</span>
-                                <div><strong>Escalabilidad Sostenible:</strong> Arquitectura normalizada lista para
-                                    escalar operaciones a nivel nacional sin aumentar la fuerza de entrada de datos
-                                    (Data Entry).</div>
-                            </li>
-                        </ul>
+
+                        <div>
+                            <h3 class="text-lg font-heading font-black text-[var(--accent-neon)] mb-2 tracking-widest">
+                                ARQUITECTURA DE SOLUCIÓN</h3>
+                            <ul class="list-none space-y-3 text-sm md:text-base opacity-90">
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="material-symbols-outlined text-[var(--accent-neon)] text-xl shrink-0">dataset</span>
+                                    <span>Diseño de un modelo de datos relacional y dimensional (OLTP a OLAP) para
+                                        asegurar trazabilidad institucional.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="material-symbols-outlined text-[var(--accent-neon)] text-xl shrink-0">schema</span>
+                                    <span>Implementación de flujos de orquestación mediante Power Automate, eliminando
+                                        la redundancia documental.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="material-symbols-outlined text-[var(--accent-neon)] text-xl shrink-0">verified_user</span>
+                                    <span>Aplicación de controles de seguridad de la información bajo el estándar ISO
+                                        27001.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="border-l-4 border-white pl-4 py-1">
+                            <h3 class="text-sm font-heading font-black text-white mb-1 tracking-widest opacity-50">
+                                IMPACTO EJECUTIVO</h3>
+                            <p class="text-lg md:text-xl font-bold italic text-balance">
+                                "Arquitectura de interoperabilidad alineada al marco de Gobierno Digital de la PCM,
+                                garantizando la disponibilidad y seguridad de activos críticos."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 mb-8 flex flex-wrap gap-2">
+                        <span class="tag">SQL Server</span>
+                        <span class="tag">Power Platform</span>
+                        <span class="tag">ISO 27001</span>
+                    </div>
+
+                    <div>
+                        <a href="index.html#contacto" class="minimalist-cta magnetic-btn">Solicitar Diagnóstico de
+                            Arquitectura Similar</a>
                     </div>
                 </div>
-                <div class="p-8 md:p-16 order-1 lg:order-2 reveal">
-                    <div class="mb-4 flex flex-wrap gap-2">
-                        <span class="bg-white text-black font-heading text-xs px-3 py-1">DATA INTELLIGENCE & IA</span>
-                        <span class="bg-white text-black font-heading text-xs px-3 py-1">RETAIL B2B/B2C</span>
-                    </div>
-                    <h2 class="text-4xl md:text-5xl font-black mb-6">Optimización Logística y Minería de Datos
-                        Predictiva</h2>
-
-                    <h3
-                        class="text-xl font-heading font-bold mt-8 mb-2 underline decoration-2 decoration-[var(--accent-neon)]">
-                        El Contexto de Crisis</h3>
-                    <p class="font-serif text-sm leading-relaxed mb-6 opacity-80">
-                        Una gran cadena de distribución minorista experimentaba enormes sobrecostos operativos por
-                        fallos en sus modelos de inventario y compras sobredimensionadas. Su sistema legado era incapaz
-                        de procesar el creciente volumen de información y carecía de una vista única del cliente.
-                    </p>
-
-                    <h3
-                        class="text-xl font-heading font-bold mt-8 mb-2 underline decoration-2 decoration-[var(--accent-neon)]">
-                        Sinergia Tecnológica Implementada</h3>
-                    <p class="font-serif text-sm leading-relaxed mb-6 opacity-80">
-                        Se ejecutó un diagnóstico basado en la metodología <strong>Lean Six Sigma (Green Belt
-                            standard)</strong> detectando un desperdicio enorme de recursos. La intervención consistió
-                        en: la reestructuración completa del modelado de datos corporativo hasta la 3ra Forma Normal
-                        (3FN), y la posterior conexión de las bases SQL con potentes Dashboards Analíticos mediante
-                        R-Language y algoritmos de Machine Learning ligeros (IA) para predecir demandas cíclicas por
-                        temporada y región.
-                    </p>
+                <div class="relative overflow-hidden group min-h-[400px]">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80"
+                        alt="Nodos de Interoperabilidad"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 desaturated-graphic parallax-img" />
+                    <!-- Neon overlay para simular líneas verdes descritas en la indicación visual -->
+                    <div class="absolute inset-0 bg-green-900 mix-blend-color opacity-30"></div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA FINAL -->
-        <section class="section-container bg-black py-16">
-            <div class="max-w-screen-xl mx-auto px-8 text-center reveal">
-                <span class="material-symbols-outlined text-6xl text-[var(--accent-neon)] mb-6">rocket_launch</span>
-                <h2 class="text-4xl md:text-6xl font-black mb-6 scramble-text">RESULTADOS REPLICABLES</h2>
-                <p class="text-xl font-serif max-w-2xl mx-auto opacity-80 italic mb-12">
-                    Nuestra metodología no depende de la suerte de un sector específico, sino de arquitectura
-                    sistemática y escalable. Estos mismos resultados son aplicables a su infraestructura actual.
+        <!-- CASO 02 -->
+        <section class="section-container bg-[#18181b] border-b-2 border-white">
+            <div class="grid lg:grid-cols-2">
+                <!-- Imagen Primero en Móvil, Segundo en Desktop -->
+                <div
+                    class="relative overflow-hidden group min-h-[400px] order-2 lg:order-1 border-t-2 border-white lg:border-t-0 lg:border-r-2">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80"
+                        alt="Blueprint de Procesos"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 parallax-img"
+                        style="filter: grayscale(1) invert(1) contrast(1.2);" />
+                </div>
+
+                <div class="p-8 md:p-16 reveal flex flex-col justify-center order-1 lg:order-2">
+                    <div class="mb-6 flex flex-wrap gap-2">
+                        <span class="bg-white text-black font-heading text-xs px-3 py-1 font-bold">MADIMSA-OFINSA</span>
+                        <span class="bg-white text-black font-heading text-xs px-3 py-1 font-bold">CASO 02</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-black mb-10 leading-tight">ESTANDARIZACIÓN Y ESCALABILIDAD B2B
+                    </h2>
+
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-lg font-heading font-black text-[var(--accent-neon)] mb-2 tracking-widest">
+                                EL DESAFÍO ESTRATÉGICO</h3>
+                            <p class="text-sm md:text-base leading-relaxed opacity-90 text-balance">
+                                Carencia de instrumentos de gestión formalizados, limitando la delegación de funciones y
+                                la expansión internacional.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-heading font-black text-[var(--accent-neon)] mb-2 tracking-widest">
+                                ARQUITECTURA DE SOLUCIÓN</h3>
+                            <ul class="list-none space-y-3 text-sm md:text-base opacity-90">
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="material-symbols-outlined text-[var(--accent-neon)] text-xl shrink-0">menu_book</span>
+                                    <span>Elaboración técnica de Manuales de Organización y Funciones (MOF) y
+                                        Procedimientos Operativos Estándar (POE).</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="material-symbols-outlined text-[var(--accent-neon)] text-xl shrink-0">account_tree</span>
+                                    <span>Mapeo de procesos críticos bajo metodología BPMN para identificar y eliminar
+                                        cuellos de botella operativos.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="material-symbols-outlined text-[var(--accent-neon)] text-xl shrink-0">rule</span>
+                                    <span>Estructuración de la base normativa necesaria para futuras certificaciones de
+                                        calidad ISO 9001.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="border-l-4 border-white pl-4 py-1">
+                            <h3 class="text-sm font-heading font-black text-white mb-1 tracking-widest opacity-50">
+                                IMPACTO EJECUTIVO</h3>
+                            <p class="text-lg md:text-xl font-bold italic text-balance">
+                                "Consolidación de la estructura organizacional, logrando una base operativa 100%
+                                auditable y escalable para servicios de consultoría global."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 mb-8 flex flex-wrap gap-2">
+                        <span class="tag">Bizagi</span>
+                        <span class="tag">BPMN 2.0</span>
+                        <span class="tag">ISO 9001</span>
+                    </div>
+
+                    <div>
+                        <a href="index.html#contacto" class="minimalist-cta magnetic-btn">Solicitar Diagnóstico de
+                            Arquitectura Similar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASO 03 -->
+        <section class="section-container">
+            <div class="grid lg:grid-cols-2">
+                <div
+                    class="p-8 md:p-16 border-b-2 lg:border-b-0 lg:border-r-2 border-white reveal flex flex-col justify-center">
+                    <div class="mb-6 flex flex-wrap gap-2">
+                        <span class="bg-white text-black font-heading text-xs px-3 py-1 font-bold">LOGÍSTICA &
+                            DATOS</span>
+                        <span class="bg-white text-black font-heading text-xs px-3 py-1 font-bold">CASO 03</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-black mb-10 leading-tight">INTELIGENCIA DE NEGOCIOS Y
+                        OPTIMIZACIÓN</h2>
+
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-lg font-heading font-black text-[var(--accent-neon)] mb-2 tracking-widest">
+                                EL DESAFÍO ESTRATÉGICO</h3>
+                            <p class="text-sm md:text-base leading-relaxed opacity-90 text-balance">
+                                Ineficiencia en la proyección de demanda y falta de visibilidad en tiempo real de los
+                                indicadores clave de desempeño (KPIs).
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-heading font-black text-[var(--accent-neon)] mb-2 tracking-widest">
+                                ARQUITECTURA DE SOLUCIÓN</h3>
+                            <ul class="list-none space-y-3 text-sm md:text-base opacity-90">
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="material-symbols-outlined text-[var(--accent-neon)] text-xl shrink-0">database</span>
+                                    <span>Normalización de bases de datos operativas (1FN a 3FN) para garantizar la
+                                        limpieza y precisión de la información.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="material-symbols-outlined text-[var(--accent-neon)] text-xl shrink-0">finance</span>
+                                    <span>Desarrollo de modelos analíticos en R-Language para la ejecución de
+                                        estadística predictiva sobre tendencias de consumo.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="material-symbols-outlined text-[var(--accent-neon)] text-xl shrink-0">dashboard</span>
+                                    <span>Visualización avanzada de datos mediante Power BI, integrando 220 horas de
+                                        especialización técnica en el diseño de tableros ejecutivos.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="border-l-4 border-white pl-4 py-1">
+                            <h3 class="text-sm font-heading font-black text-white mb-1 tracking-widest opacity-50">
+                                IMPACTO EJECUTIVO</h3>
+                            <p class="text-lg md:text-xl font-bold italic text-balance">
+                                "Optimización de la cadena de suministro mediante analítica avanzada, reduciendo
+                                márgenes de error en adquisiciones y maximizando el ROI proyectado."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 mb-8 flex flex-wrap gap-2">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">R-Language</span>
+                        <span class="tag">SQL Server</span>
+                    </div>
+
+                    <div>
+                        <a href="index.html#contacto" class="minimalist-cta magnetic-btn">Solicitar Diagnóstico de
+                            Arquitectura Similar</a>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden group min-h-[400px]">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80"
+                        alt="Dashboard Analítico"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 desaturated-graphic parallax-img"
+                        style="filter: grayscale(1) contrast(1.2) brightness(0.6);" />
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL Y CERTIFICACIONES -->
+        <section class="section-container bg-[#121212] py-20 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10"
+                style="background-image: radial-gradient(var(--accent-neon) 1px, transparent 1px); background-size: 30px 30px;">
+            </div>
+
+            <div class="max-w-screen-xl mx-auto px-8 text-center reveal relative z-10">
+                <div class="inline-flex items-center justify-center p-4 bg-white text-black mb-8 rounded-full">
+                    <span class="material-symbols-outlined text-4xl">verified</span>
+                </div>
+
+                <h2 class="text-4xl md:text-5xl font-black mb-6 scramble-text">CALIDAD ARQUITECTÓNICA COMPROBADA</h2>
+
+                <p class="text-xl max-w-3xl mx-auto text-balance mb-12 opacity-90">
+                    La rigurosidad técnica de cada modelo se respalda por métricas de excelencia absolutas, garantizando
+                    la viabilidad de cualquier transformación corporativa.
                 </p>
+
+                <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
+                    <div
+                        class="border-2 border-[var(--accent-neon)] p-6 text-center min-w-[280px] bg-[#121212] shadow-[4px_4px_0_var(--accent-neon)]">
+                        <div class="text-[var(--accent-neon)] text-4xl font-black font-heading mb-2">PIT-UNI</div>
+                        <div class="text-white text-md tracking-widest font-bold font-heading">CERTIFICACIÓN TÉCNICA
+                            2026</div>
+                    </div>
+                    <div
+                        class="border-2 border-[var(--text-off-white)] p-6 text-center min-w-[280px] bg-[#121212] shadow-[4px_4px_0_var(--text-off-white)]">
+                        <div class="text-[var(--text-off-white)] text-4xl font-black font-heading mb-2">20/20</div>
+                        <div class="text-[var(--accent-neon)] text-md tracking-widest font-bold font-heading">
+                            CALIFICACIÓN DE EXCELENCIA</div>
+                    </div>
+                </div>
+
                 <a href="index.html#contacto"
-                    class="cta-neon px-12 py-6 text-xl md:text-2xl border-4 border-black shadow-[8px_8px_0px_white] inline-block magnetic-btn"
+                    class="cta-neon px-12 py-6 text-xl md:text-2xl border-4 border-white shadow-[8px_8px_0px_white] inline-block magnetic-btn"
                     style="color: black !important;">
                     EVALUAR MI INFRAESTRUCTURA HOY
                 </a>
@@ -268,16 +423,15 @@
                 <span class="material-symbols-outlined text-3xl bg-white text-black p-2">architecture</span>
                 <span class="font-heading font-black text-xl">ORLANDO LINARES | AI ARCHITECT</span>
             </div>
-            <div class="text-left md:text-right font-serif italic text-xs opacity-50">
-                © 2026 DESIGNED & DEVELOPED BY ORLANDO LINARES.<br />CASOS HIPOTÉTICOS PROTEGIDOS BAJO NDA.
+            <div class="text-left md:text-right text-xs opacity-50 font-sans font-bold">
+                © 2026 DESIGNED & DEVELOPED BY ORLANDO LINARES.<br />
+                DATOS DE CLIENTES CORPORATIVOS PROTEGIDOS POR NDA.
             </div>
         </div>
     </footer>
 
     <script>
-        // Efectos dinámicos ligeros...
-
-        // 1. Reveal animado
+        // Reveal animado
         const revealElements = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -289,14 +443,14 @@
         }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
         revealElements.forEach(el => revealObserver.observe(el));
 
-        // 2. Cursor Track (Neo)
+        // Cursor Tracker
         const cursor = document.getElementById('custom-cursor');
         if (cursor) {
             window.addEventListener('mousemove', (e) => {
                 cursor.style.setProperty('--cx', `${e.clientX - 20}px`);
                 cursor.style.setProperty('--cy', `${e.clientY - 20}px`);
             });
-            document.querySelectorAll('a, button').forEach(el => {
+            document.querySelectorAll('a, button, .magnetic-btn').forEach(el => {
                 el.addEventListener('mouseenter', () => {
                     cursor.style.setProperty('--cscale', '1.6');
                     cursor.style.setProperty('--cbg', 'var(--accent-neon)');
@@ -310,20 +464,17 @@
             });
         }
 
-        // 3. Text scramble effect
+        // Text scramble effect
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
         const scrambleElements = document.querySelectorAll('.scramble-text');
-
         const scrambleObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const target = entry.target;
                     if (target.dataset.scrambled === "true") return;
                     target.dataset.scrambled = "true";
-
                     const originalText = target.innerText;
                     target.setAttribute('data-value', originalText);
-
                     let iterations = 0;
                     const interval = setInterval(() => {
                         target.innerText = originalText.split("")
@@ -346,6 +497,33 @@
         }, { threshold: 0.5 });
         scrambleElements.forEach(el => scrambleObserver.observe(el));
 
+        // Parallax Effect
+        const parallaxImages = document.querySelectorAll('.parallax-img');
+        window.addEventListener('scroll', () => {
+            const windowHeight = window.innerHeight;
+            parallaxImages.forEach(img => {
+                const parentRect = img.parentElement.getBoundingClientRect();
+                if (parentRect.top <= windowHeight && parentRect.bottom >= 0) {
+                    const distanceFromCenter = (parentRect.top + parentRect.height / 2) - (windowHeight / 2);
+                    const speed = 0.12;
+                    img.style.transform = `translateY(${distanceFromCenter * speed}px) scale(1.15)`;
+                }
+            });
+        });
+
+        // Botones Magnéticos
+        const magneticBtns = document.querySelectorAll('.magnetic-btn');
+        magneticBtns.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0px, 0px)';
+            });
+        });
     </script>
 </body>
 
