@@ -761,13 +761,21 @@
             });
         });
 
-        // 6. Efecto Parallax en las fotografías de fondo
+        // 6. Efecto Parallax Corregido (Ajustado al centro del Viewport)
         const parallaxImages = document.querySelectorAll('.parallax-img');
         window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
             parallaxImages.forEach(img => {
-                const speed = 0.1;
-                img.style.transform = `translateY(${scrollY * speed}px) scale(1.15)`;
+                // Posición de la caja real que contiene a la imagen
+                const parentRect = img.parentElement.getBoundingClientRect();
+                // Si la caja está visible en la pantalla del usuario
+                if (parentRect.top <= windowHeight && parentRect.bottom >= 0) {
+                    // Calcula la diferencia entre el centro de la pantalla y el centro de la imagen
+                    const distanceFromCenter = (parentRect.top + parentRect.height / 2) - (windowHeight / 2);
+                    const speed = 0.12;
+                    // Se mueve suavemente solo basado en su posición en pantalla
+                    img.style.transform = `translateY(${distanceFromCenter * speed}px) scale(1.15)`;
+                }
             });
         });
 
