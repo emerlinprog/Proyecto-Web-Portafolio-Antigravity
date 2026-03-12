@@ -32,7 +32,7 @@
         :root {
             --bg-charcoal: #121212;
             --text-off-white: #f4f4f4;
-            --accent-neon: #39FF14;--border-thick: 2px;
+            --accent-neon: #00E5FF;--border-thick: 2px;
         }
         html { scroll-behavior: smooth; }
         body {
@@ -91,7 +91,7 @@
             pointer-events: none;
             background: radial-gradient(
                 800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-                rgba(57, 255, 20, 0.08),
+                rgba(0, 229, 255, 0.08),
                 transparent 40%
             );
             z-index: 10;
@@ -128,7 +128,7 @@
     <div id="custom-cursor"
         class="fixed top-0 left-0 pointer-events-none z-[9999] w-10 h-10 rounded-full border-2 border-[var(--accent-neon)] transition-all duration-[75ms] ease-out hidden md:flex items-center justify-center mix-blend-difference"
         style="transform: translate3d(var(--cx, -100px), var(--cy, -100px), 0) scale(var(--cscale, 1)); background-color: var(--cbg, transparent);">
-        <div class="w-1.5 h-1.5 bg-[var(--accent-neon)] rounded-full shadow-[0_0_8px_#39FF14]"></div>
+        <div class="w-1.5 h-1.5 bg-[var(--accent-neon)] rounded-full shadow-[0_0_8px_#00E5FF]"></div>
     </div>
     <header class="section-container sticky top-0 z-50 bg-[#121212] transition-colors">
         <div
