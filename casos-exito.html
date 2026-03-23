@@ -6,100 +6,43 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-    <title>Casos de Éxito | Orlando Linares</title>
+    <title>Casos de Éxito | Orlando Linares | Arquitectura & IA</title>
     <meta name="description"
-        content="Casos de estudio reales sobre Arquitectura de Negocios, optimización de procesos ISO y Data Intelligence. Transformando corporaciones con metodologías probadas y estrategias de IA." />
+        content="Explora los casos de estudio de Orlando Linares: Modernización del estado, optimización B2B e Inteligencia de Negocios con Power BI y R-Language. Resultados reales y escalables." />
+    <meta name="keywords" content="Casos de éxito Orlando Linares, Modernización Estado, Gobierno Digital, BPMN, SQL Server, Power Platform, Inteligencia de Negocios, Power BI" />
     <meta name="author" content="Orlando Linares" />
+    <link rel="canonical" href="https://www.orlandolinares.com/casos-exito" />
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="Casos de Éxito | Proyectos de Consultoría y Arquitectura de Negocios" />
+    <meta property="og:description"
+        content="Resumen ejecutivo de transformaciones digitales y optimización de procesos ISO lideradas por Orlando Linares." />
+    <meta property="og:image"
+        content="https://www.orlandolinares.com/favicon.svg" />
+    <meta property="og:url" content="https://www.orlandolinares.com/casos-exito" />
+    <meta property="og:type" content="article" />
+
+    <link rel="stylesheet" href="style.css" />
     <!-- Incluyendo font Inter para legibilidad ejecutiva (sans-serif) y Roboto Condensed para titulos (H2) -->
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700;900&family=Inter:wght@400;600;700&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
-    <style type="text/tailwindcss">
-        :root {
-            --bg-charcoal: #121212;
-            --text-off-white: #f4f4f4;
-            --accent-neon: #00E5FF;
-            --border-thick: 2px;
-        }
-        html { scroll-behavior: smooth; }
-        body {
-            background-color: var(--bg-charcoal);
-            color: var(--text-off-white);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-        h1, h2, .font-heading {
-            font-family: 'Roboto Condensed', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-        }
-        .cta-neon {
-            background-color: var(--accent-neon);
-            color: black;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-family: 'Roboto Condensed', sans-serif;
-            transition: all 0.1s ease;
-        }
-        .cta-neon:hover {
-            box-shadow: 4px 4px 0px white;
-            transform: translate(-2px, -2px);
-        }
-        .desaturated-graphic { filter: grayscale(1) contrast(1.5) brightness(0.8); }
-        .section-container {
-            width: 100%;
-            border-bottom: var(--border-thick) solid var(--text-off-white);
-        }
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .minimalist-cta {
-            border: 2px solid var(--text-off-white);
-            color: var(--text-off-white);
-            font-family: 'Roboto Condensed', sans-serif;
-            text-transform: uppercase;
-            font-weight: bold;
-            padding: 0.75rem 1.5rem;
-            transition: all 0.2s ease;
-            display: inline-block;
-        }
-        .minimalist-cta:hover {
-            background-color: var(--text-off-white);
-            color: black;
-        }
-        .tag {
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: var(--accent-neon);
-            font-family: 'Roboto Condensed', sans-serif;
-            font-size: 0.75rem;
-            padding: 0.25rem 0.75rem;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-    </style>
 </head>
 
 <body class="antialiased selection:bg-[#39FF14] selection:text-black">
+    <!-- Cinematic Noise Overlay -->
+    <div class="noise-overlay"></div>
+
     <!-- Cursor Personalizado Neón -->
-    <div id="custom-cursor"
-        class="fixed top-0 left-0 pointer-events-none z-[9999] w-10 h-10 rounded-full border-2 border-[var(--accent-neon)] transition-all duration-[75ms] ease-out hidden md:flex items-center justify-center mix-blend-difference"
-        style="transform: translate3d(var(--cx, -100px), var(--cy, -100px), 0) scale(var(--cscale, 1)); background-color: var(--cbg, transparent);">
-        <div class="w-1.5 h-1.5 bg-[var(--accent-neon)] rounded-full shadow-[0_0_8px_#00E5FF]"></div>
+    <div id="custom-cursor" class="hidden md:flex">
+        <div class="dot"></div>
     </div>
 
     <header class="section-container sticky top-0 z-50 bg-[#121212] transition-colors">
         <div
-            class="flex flex-col md:flex-row items-stretch border-b-[2px] border-white backdrop-blur-md bg-[#121212]/90">
+            class="flex flex-col md:flex-row items-stretch border-b-[2px] border-white glass-nav">
             <div
                 class="p-6 md:p-8 flex-1 border-b-[2px] md:border-b-0 md:border-r-[2px] border-white flex justify-between md:justify-start items-center gap-4 bg-white text-black">
                 <a href="index.html" class="flex items-center gap-4 hover:opacity-75 transition-opacity cursor-pointer">
@@ -210,7 +153,7 @@
                 </div>
                 <div class="relative overflow-hidden group min-h-[400px]">
                     <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80"
-                        alt="Nodos de Interoperabilidad"
+                        alt="Ecosistema de datos y interoperabilidad para Gobierno Digital"
                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 desaturated-graphic parallax-img" />
                     <!-- Neon overlay para simular líneas verdes descritas en la indicación visual -->
                     <div class="absolute inset-0 bg-green-900 mix-blend-color opacity-30"></div>
@@ -225,7 +168,7 @@
                 <div
                     class="relative overflow-hidden group min-h-[400px] order-2 lg:order-1 border-t-2 border-white lg:border-t-0 lg:border-r-2">
                     <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80"
-                        alt="Blueprint de Procesos"
+                        alt="Documentación técnica y planos de procesos de negocio BPMN"
                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 parallax-img"
                         style="filter: grayscale(1) invert(1) contrast(1.2);" />
                 </div>
@@ -431,7 +374,22 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
     <script>
+        // Lenis Smooth Scroll Initialization
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            orientation: 'vertical',
+            smoothWheel: true,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
         // Reveal animado
         const revealElements = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
