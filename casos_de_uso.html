@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Casos de Uso | Business Architecture Agency — Orlando Linares</title>
+  <meta name="description" content="Evidencia de impacto institucional y corporativo. Casos reales de arquitectura empresarial, orquestación de IA y rediseño de procesos."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/index.css"/>
+  <style>
+    body { font-family: 'Geist', sans-serif; scroll-behavior: smooth; }
+    
+    /* Industrial Background Texture */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+      background-size: 100px 100px, 100px 100px, 20px 20px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(circle at center, transparent 0%, rgba(10, 10, 12, 0.9) 100%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.80' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: -1;
+      mix-blend-mode: overlay;
+    }
+
+    @keyframes scanline {
+      0% { transform: translateY(-100vh); opacity: 0; }
+      50% { opacity: 0.5; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    @keyframes entrance {
+      0% { filter: blur(20px); opacity: 0; transform: translateY(20px); }
+      100% { filter: blur(0); opacity: 1; transform: translateY(0); }
+    }
+
+    .scanline {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--primary), transparent);
+      z-index: 100;
+      pointer-events: none;
+      animation: scanline 10s linear infinite;
+      box-shadow: 0 0 15px var(--primary);
+    }
+
+    body {
+      animation: entrance 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .glass-card {
+      background: linear-gradient(rgba(24, 24, 28, 0.8), rgba(24, 24, 28, 0.8)) padding-box,
+                  radial-gradient(400px circle at var(--x) var(--y), rgba(150, 203, 255, 0.3), transparent 40%) border-box;
+      border: 1px solid transparent;
+      backdrop-filter: blur(24px) saturate(180%);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Interactive Spotlight */
+    .spotlight {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        600px circle at var(--x) var(--y),
+        rgba(150, 203, 255, 0.08),
+        transparent 40%
+      );
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .glass-card:hover .spotlight {
+      opacity: 1;
+    }
+
+    /* Reveal Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      filter: blur(10px);
+      transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .magnetic {
+      display: inline-block;
+      transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col">
+  <div class="scanline"></div>
+
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="relative pt-40 pb-24 px-6 overflow-hidden reveal">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-primary/5 blur-[120px] -z-10 rounded-full opacity-50"></div>
+      <div class="max-w-7xl mx-auto text-center">
+        <div class="font-mono text-[10px] tracking-[0.4em] text-on-surface-variant mb-4 uppercase">OL · 04 / Casos</div>
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-8">
+          <span class="material-symbols-outlined text-[14px]">verified</span>
+          Proven Performance
+        </span>
+        <h1 class="text-6xl md:text-8xl font-black tracking-tighter text-on-surface mb-8 leading-[0.9]">
+          Casos de <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-primary/50">Impacto.</span>
+        </h1>
+        <p class="text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+          Escenarios reales donde la arquitectura de negocios y la orquestación de IA resuelven problemas complejos y generan resultados medibles.
+        </p>
+      </div>
+    </section>
+
+    <!-- Case Studies Bento Grid -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+        <!-- Featured Product: AsistenteOECE -->
+        <div class="md:col-span-12 glass-card rounded-[2.5rem] overflow-hidden border border-primary/20 bg-primary/5 reveal">
+          <div class="spotlight"></div>
+          <div class="p-8 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="relative z-10">
+              <div class="flex items-center gap-3 mb-6">
+                <span class="text-[10px] font-black uppercase tracking-widest text-primary">Producto · GovTech</span>
+                <span class="px-2 py-0.5 rounded-full bg-primary/15 text-[8px] font-black border border-primary/30 text-primary uppercase tracking-widest">Beta en vivo</span>
+              </div>
+              <h3 class="text-4xl md:text-5xl font-black text-on-surface mb-6 leading-tight">AsistenteOECE</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed mb-8 max-w-xl">
+                Copiloto de contrataciones públicas para el Perú, alineado a la Ley 32069. Interpreta la normativa de la OECE (ex-OSCE), apoya la elaboración y revisión de bases, detecta riesgos y observaciones potenciales, y acelera la preparación de expedientes y propuestas.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span class="px-3 py-1 rounded-lg bg-surface-container border border-outline-variant text-[9px] font-bold text-primary tracking-widest">LEY 32069</span>
+                <span class="px-3 py-1 rounded-lg bg-surface-container border border-outline-variant text-[9px] font-bold text-primary tracking-widest">RAG NORMATIVO</span>
+                <span class="px-3 py-1 rounded-lg bg-surface-container border border-outline-variant text-[9px] font-bold text-primary tracking-widest">SECTOR PÚBLICO</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-6">
+                <a href="https://di9z3868.insforge.site/" target="_blank" rel="noopener" class="bg-primary text-background font-black px-8 py-4 rounded-2xl text-[10px] uppercase tracking-widest inline-flex items-center gap-2 shadow-xl shadow-primary/20 hover:scale-105 transition-transform">Probar el demo <span class="material-symbols-outlined text-sm">open_in_new</span></a>
+                <a href="agendar_diagnostico.html" class="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary hover:gap-4 transition-all">Agendar demo <span class="material-symbols-outlined text-xs">arrow_forward</span></a>
+              </div>
+            </div>
+            <div class="bg-surface-container/40 rounded-3xl p-8 border border-primary/10 relative z-10">
+              <h4 class="text-[10px] font-black uppercase tracking-widest text-primary mb-6">Fricción que resuelve</h4>
+              <div class="space-y-5">
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-primary text-base mt-0.5">menu_book</span>
+                  <span class="text-xs text-on-surface-variant leading-relaxed">Normativa extensa y cambiante difícil de rastrear manualmente.</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-primary text-base mt-0.5">rule</span>
+                  <span class="text-xs text-on-surface-variant leading-relaxed">Observaciones y nulidades por errores formales en las bases.</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-primary text-base mt-0.5">schedule</span>
+                  <span class="text-xs text-on-surface-variant leading-relaxed">Tiempos largos en la preparación de expedientes y propuestas.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 1: Sector Público (General) -->
+        <div class="md:col-span-8 glass-card rounded-[2.5rem] overflow-hidden border border-primary/10 reveal">
+          <div class="spotlight"></div>
+          <div class="p-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="relative z-10">
+              <span class="text-[10px] font-black uppercase tracking-widest text-primary mb-4 block">Impacto Institucional · Sector Público</span>
+              <h3 class="text-4xl font-black text-on-surface mb-6 leading-tight">Modernización de Operaciones Estatales</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed mb-8">
+                Orquestación de procesos críticos y soberanía documental para entidades gubernamentales. Implementación de sistemas de trazabilidad y gestión agéntica sobre infraestructuras seguras (ISO 27001).
+              </p>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span class="px-3 py-1 rounded-lg bg-surface-container border border-outline-variant text-[9px] font-bold text-primary tracking-widest">SOBERANÍA DE DATOS</span>
+                <span class="px-3 py-1 rounded-lg bg-surface-container border border-outline-variant text-[9px] font-bold text-primary tracking-widest">BPMN 2.0</span>
+              </div>
+              <a href="agendar_diagnostico.html" class="inline-flex items-center gap-2 mt-8 text-[10px] font-black uppercase tracking-widest text-primary hover:gap-4 transition-all">Ver Detalle <span class="material-symbols-outlined text-xs">arrow_forward</span></a>
+            </div>
+            <div class="bg-primary/5 rounded-3xl p-8 border border-primary/10 relative z-10 flex flex-col justify-center">
+              <h4 class="text-[10px] font-black uppercase tracking-widest text-primary mb-6">Métricas de Actividad</h4>
+              <div class="space-y-6">
+                <div>
+                  <div class="flex justify-between items-end mb-2">
+                    <span class="text-[9px] font-black uppercase text-on-surface-variant">Trazabilidad Documental</span>
+                    <span class="text-2xl font-black text-on-surface">100%</span>
+                  </div>
+                  <div class="w-full bg-surface-container rounded-full h-1">
+                    <div class="bg-primary h-1 rounded-full" style="width: 100%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between items-end mb-2">
+                    <span class="text-[9px] font-black uppercase text-on-surface-variant">Reducción de Burocracia</span>
+                    <span class="text-2xl font-black text-on-surface">-40%</span>
+                  </div>
+                  <div class="w-full bg-surface-container rounded-full h-1">
+                    <div class="bg-primary h-1 rounded-full" style="width: 70%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2: MADIMSA -->
+        <div class="md:col-span-4 glass-card rounded-[2.5rem] p-6 md:p-10 flex flex-col justify-between border border-tertiary/20 reveal">
+          <div class="spotlight"></div>
+          <div class="relative z-10">
+            <span class="text-[10px] font-black uppercase tracking-widest text-tertiary mb-6 block">Corporativo · Industrial</span>
+            <h3 class="text-3xl font-black text-on-surface mb-6 leading-tight">Grupo <br>MADIMSA</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Rediseño organizacional bajo modelo MCA, permitiendo escalamiento institucional sin dependencia de personas clave.
+            </p>
+            <a href="agendar_diagnostico.html" class="inline-flex items-center gap-2 mt-8 text-[10px] font-black uppercase tracking-widest text-tertiary hover:gap-4 transition-all">Ver Detalle <span class="material-symbols-outlined text-xs">arrow_forward</span></a>
+          </div>
+          <div class="pt-8 border-t border-outline-variant/20 relative z-10">
+            <div class="flex justify-between items-center">
+              <span class="text-[10px] font-black text-tertiary uppercase tracking-widest">Escalamiento</span>
+              <span class="text-2xl font-black text-on-surface">3X</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3: Arrendia.lat (SaaS) -->
+        <div class="md:col-span-5 glass-card rounded-[2.5rem] p-6 md:p-10 border border-primary/20 bg-primary/5 flex flex-col justify-between reveal">
+          <div class="spotlight"></div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="text-[10px] font-black uppercase tracking-widest text-primary">PropTech · SaaS Architecture</span>
+              <span class="px-2 py-0.5 rounded-full bg-surface-container text-[8px] font-black border border-outline-variant text-on-surface-variant uppercase tracking-widest">En desarrollo</span>
+            </div>
+            <h3 class="text-3xl font-black text-on-surface mb-4">Arrendia</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed mb-6">
+              Orquestación de un ecosistema digital completo para la gestión inmobiliaria: automatización de flujos de pago, tickets de mantenimiento y portal de inquilinos inteligente.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="px-3 py-1 rounded-lg bg-surface-container border border-outline-variant text-[8px] font-bold text-primary uppercase">Fintech Integration</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container border border-outline-variant text-[8px] font-bold text-primary uppercase">Automated Billing</span>
+            </div>
+            <a href="mailto:orlando@orlandolinares.com?subject=Lista%20de%20espera%20Arrendia" class="inline-flex items-center gap-2 mt-8 text-[10px] font-black uppercase tracking-widest text-primary hover:gap-4 transition-all">Unirse a la lista de espera <span class="material-symbols-outlined text-xs">arrow_forward</span></a>
+          </div>
+          <div class="mt-8 bg-surface-container/50 p-6 rounded-3xl text-center border border-primary/10 relative z-10">
+            <div class="text-5xl font-black text-primary mb-1">-65%</div>
+            <span class="text-[9px] font-black uppercase tracking-widest text-on-surface-variant">Objetivo · Cartera Vencida</span>
+          </div>
+        </div>
+
+        <!-- Case 4: Soberanía de Conocimiento -->
+        <div class="md:col-span-7 glass-card rounded-[2.5rem] p-6 md:p-10 relative overflow-hidden border border-tertiary/10 reveal">
+          <div class="spotlight"></div>
+          <div class="relative z-10 h-full flex flex-col">
+            <span class="text-[10px] font-black uppercase tracking-widest text-tertiary mb-6 block">Knowledge Management · AI</span>
+            <h3 class="text-3xl font-black text-on-surface mb-6 leading-tight">Soberanía del Conocimiento Institucional</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed mb-6 max-w-lg">
+              Diseño de sistemas de gestión documental con versionado agéntico. Eliminamos silos de información garantizando que el activo más valioso permanezca en la institución.
+            </p>
+            <a href="agendar_diagnostico.html" class="inline-flex items-center gap-2 mb-8 text-[10px] font-black uppercase tracking-widest text-tertiary hover:gap-4 transition-all">Ver Detalle <span class="material-symbols-outlined text-xs">arrow_forward</span></a>
+            <div class="grid grid-cols-2 gap-4 mt-auto">
+              <div class="p-4 rounded-2xl bg-surface-container/50 border border-outline-variant/30 text-center">
+                <span class="text-[8px] font-black uppercase text-tertiary block mb-1">Acceso a Info</span>
+                <span class="text-xl font-black text-on-surface">5d → 4h</span>
+              </div>
+              <div class="p-4 rounded-2xl bg-surface-container/50 border border-outline-variant/30 text-center">
+                <span class="text-[8px] font-black uppercase text-tertiary block mb-1">Error Humano</span>
+                <span class="text-xl font-black text-on-surface">-92%</span>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -bottom-10 -right-10 opacity-10">
+            <span class="material-symbols-outlined text-[180px]">hub</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-32 px-6 text-center max-w-4xl mx-auto reveal">
+      <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-on-surface mb-8">¿Escalamos su impacto?</h2>
+      <p class="text-xl text-on-surface-variant mb-12">
+        Cada caso es único, pero el método de arquitectura es infalible. Agende una consulta para evaluar su potencial de transformación.
+      </p>
+      <a href="agendar_diagnostico.html" class="magnetic bg-primary text-background font-black px-12 py-5 rounded-2xl text-xs uppercase tracking-widest shadow-2xl shadow-primary/20 hover:scale-105 transition-all inline-flex items-center gap-3">
+        Agendar Diagnóstico
+        <span class="material-symbols-outlined">calendar_month</span>
+      </a>
+    </section>
+  </main>
+
+  <script src="nav.js" type="module"></script>
+  <script>
+    // Spotlight Effect
+    document.querySelectorAll('.glass-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--x', `${x}px`);
+        card.style.setProperty('--y', `${y}px`);
+      });
+    });
+
+    // Magnetic Button
+    const magneticBtn = document.querySelector('.magnetic');
+    if (magneticBtn) {
+      magneticBtn.addEventListener('mousemove', (e) => {
+        const rect = magneticBtn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        magneticBtn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+      });
+      magneticBtn.addEventListener('mouseleave', () => {
+        magneticBtn.style.transform = 'translate(0, 0)';
+      });
+    }
+
+    // Reveal Animations
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>MVP Studio | Business Architecture Agency — Orlando Linares</title>
+  <meta name="description" content="Validación operativa rápida. De la idea al prototipo funcional en 4 semanas. Reduzca el riesgo de inversión tecnológica con nuestro MVP Studio."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/index.css"/>
+  <style>
+    body { font-family: 'Geist', sans-serif; scroll-behavior: smooth; }
+    
+    /* Industrial Background Texture */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+      background-size: 100px 100px, 100px 100px, 20px 20px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(circle at center, transparent 0%, rgba(10, 10, 12, 0.9) 100%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.80' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: -1;
+      mix-blend-mode: overlay;
+    }
+
+    @keyframes scanline {
+      0% { transform: translateY(-100vh); opacity: 0; }
+      50% { opacity: 0.5; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    @keyframes entrance {
+      0% { filter: blur(20px); opacity: 0; transform: translateY(20px); }
+      100% { filter: blur(0); opacity: 1; transform: translateY(0); }
+    }
+
+    .scanline {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--primary), transparent);
+      z-index: 100;
+      pointer-events: none;
+      animation: scanline 10s linear infinite;
+      box-shadow: 0 0 15px var(--primary);
+    }
+
+    body {
+      animation: entrance 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .glass-card {
+      background: linear-gradient(rgba(24, 24, 28, 0.8), rgba(24, 24, 28, 0.8)) padding-box,
+                  radial-gradient(400px circle at var(--x) var(--y), rgba(150, 203, 255, 0.3), transparent 40%) border-box;
+      border: 1px solid transparent;
+      backdrop-filter: blur(24px) saturate(180%);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Interactive Spotlight */
+    .spotlight {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        600px circle at var(--x) var(--y),
+        rgba(150, 203, 255, 0.08),
+        transparent 40%
+      );
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .glass-card:hover .spotlight {
+      opacity: 1;
+    }
+
+    /* Reveal Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      filter: blur(10px);
+      transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col">
+  <div class="scanline"></div>
+
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="relative pt-40 pb-24 px-6 overflow-hidden reveal">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-tertiary/5 blur-[120px] -z-10 rounded-full opacity-50"></div>
+      <div class="max-w-7xl mx-auto text-center relative z-10">
+        <div class="font-mono text-[10px] tracking-[0.4em] text-on-surface-variant mb-4 uppercase">OL · 03 / MVP Studio</div>
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-[10px] font-black uppercase tracking-[0.2em] text-tertiary mb-8">
+          <span class="material-symbols-outlined text-[14px]">rocket_launch</span>
+          Engineering Factory
+        </span>
+        <h1 class="text-6xl md:text-8xl font-black tracking-tighter text-on-surface mb-8 leading-[0.9]">
+          MVP <span class="text-transparent bg-clip-text bg-gradient-to-r from-tertiary via-primary to-tertiary/50">Studio.</span>
+        </h1>
+        <p class="text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed mb-12">
+          De la idea a la validación operativa en ciclos de 4 semanas. Reducimos el riesgo de inversión mediante prototipado funcional de alto impacto.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
+          <a href="discovery-wizard.html" class="bg-primary text-background font-black px-10 py-5 rounded-xl text-[10px] uppercase tracking-[0.2em] shadow-2xl shadow-primary/20 hover:brightness-110 active:scale-[0.97] transition-all inline-flex items-center justify-center gap-3 w-full sm:w-auto">
+            Comenzar Diagnóstico
+            <span class="material-symbols-outlined text-sm">analytics</span>
+          </a>
+          <a href="#metodologia" class="px-10 py-5 text-[10px] uppercase tracking-[0.2em] rounded-xl border border-border/50 hover:bg-white/5 transition-all active:scale-[0.97] text-center text-foreground font-black w-full sm:w-auto">
+            Ver Metodología
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methodology Bento -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+        <!-- Featured Product: AsistenteOECE -->
+        <div class="md:col-span-12 glass-card rounded-[2.5rem] p-8 md:p-14 border border-primary/20 bg-primary/5 relative overflow-hidden group reveal">
+          <div class="spotlight"></div>
+          <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-[100px] group-hover:bg-primary/20 transition-all"></div>
+          <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-primary text-2xl">account_balance</span>
+                </div>
+                <div>
+                  <span class="text-[10px] font-black text-primary uppercase tracking-[0.3em]">Flagship Product · GovTech</span>
+                  <div class="flex items-center gap-2 mt-1">
+                    <h2 class="text-3xl font-black tracking-tighter text-on-surface">AsistenteOECE</h2>
+                    <span class="px-2 py-0.5 rounded-full bg-primary/15 text-[8px] font-black border border-primary/30 text-primary uppercase tracking-widest">Beta en vivo</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-on-surface-variant leading-relaxed mb-8 max-w-xl">
+                Copiloto de contrataciones públicas para el Perú, alineado a la Ley 32069. Interpreta la normativa de la OECE (ex-OSCE), asiste en la elaboración y revisión de bases, anticipa observaciones y reduce el tiempo de preparación de expedientes y propuestas.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-lg bg-surface-container border border-outline-variant text-[8px] font-bold text-primary uppercase">Ley 32069</span>
+                <span class="px-3 py-1 rounded-lg bg-surface-container border border-outline-variant text-[8px] font-bold text-primary uppercase">RAG Normativo</span>
+                <span class="px-3 py-1 rounded-lg bg-surface-container border border-outline-variant text-[8px] font-bold text-primary uppercase">Sector Público</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-6 mt-8">
+                <a href="https://di9z3868.insforge.site/" target="_blank" rel="noopener" class="bg-primary text-background font-black px-8 py-4 rounded-2xl text-[10px] uppercase tracking-widest inline-flex items-center gap-2 shadow-xl shadow-primary/20 hover:scale-105 transition-transform">
+                  Probar el demo <span class="material-symbols-outlined text-sm">open_in_new</span>
+                </a>
+                <a href="mailto:orlando@orlandolinares.com?subject=AsistenteOECE" class="text-primary text-[10px] font-black uppercase tracking-widest inline-flex items-center gap-2 hover:gap-4 transition-all">
+                  Hablar con el equipo <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+              <div class="p-6 rounded-2xl bg-surface-container/50 border border-outline-variant/30 flex items-start gap-4">
+                <span class="material-symbols-outlined text-primary">menu_book</span>
+                <div>
+                  <span class="text-sm font-bold text-on-surface block mb-1">Normativa siempre a mano</span>
+                  <span class="text-xs text-on-surface-variant leading-relaxed">Consulta la Ley 32069 y su reglamento en lenguaje natural.</span>
+                </div>
+              </div>
+              <div class="p-6 rounded-2xl bg-surface-container/50 border border-outline-variant/30 flex items-start gap-4">
+                <span class="material-symbols-outlined text-primary">rule</span>
+                <div>
+                  <span class="text-sm font-bold text-on-surface block mb-1">Menos observaciones</span>
+                  <span class="text-xs text-on-surface-variant leading-relaxed">Revisión asistida de bases para anticipar errores formales y nulidades.</span>
+                </div>
+              </div>
+              <div class="p-6 rounded-2xl bg-surface-container/50 border border-outline-variant/30 flex items-start gap-4">
+                <span class="material-symbols-outlined text-primary">bolt</span>
+                <div>
+                  <span class="text-sm font-bold text-on-surface block mb-1">Expedientes más rápido</span>
+                  <span class="text-xs text-on-surface-variant leading-relaxed">Acelera la preparación de propuestas y expedientes de contratación.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Big Card: Risk Reduction -->
+        <div class="md:col-span-8 glass-card rounded-[2.5rem] p-8 md:p-14 group relative overflow-hidden reveal">
+          <div class="spotlight"></div>
+          <div class="relative z-10 h-full flex flex-col">
+            <div class="w-16 h-16 rounded-2xl bg-tertiary/10 border border-tertiary/20 flex items-center justify-center mb-8">
+              <span class="material-symbols-outlined text-tertiary text-3xl">verified_user</span>
+            </div>
+            <h2 class="text-4xl font-black tracking-tighter text-on-surface mb-6">Fábrica de Validación</h2>
+            <p class="text-on-surface-variant text-lg leading-relaxed mb-10 max-w-2xl">
+              El 90% de los proyectos fallan por exceso de ingeniería inicial. Mi enfoque sustituye opiniones por datos de interacción real, construyendo solo lo necesario para validar la tesis de negocio.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-auto">
+              <div class="p-6 rounded-2xl bg-surface-container/50 border border-outline-variant/30">
+                <span class="text-[9px] font-black uppercase text-tertiary block mb-2 tracking-widest">Evidence Driven</span>
+                <span class="text-sm font-bold text-on-surface">Validación de Mercado</span>
+              </div>
+              <div class="p-6 rounded-2xl bg-surface-container/50 border border-outline-variant/30">
+                <span class="text-[9px] font-black uppercase text-tertiary block mb-2 tracking-widest">Efficiency</span>
+                <span class="text-sm font-bold text-on-surface">Coste de Error Mínimo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured MVP: Arrendia -->
+        <div class="md:col-span-4 glass-card rounded-[2.5rem] p-6 md:p-10 border border-primary/20 bg-primary/5 flex flex-col justify-between reveal">
+          <div class="spotlight"></div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-2 mb-6">
+              <span class="text-[10px] font-black uppercase tracking-widest text-primary">Featured Build</span>
+              <span class="px-2 py-0.5 rounded-full bg-surface-container text-[8px] font-black border border-outline-variant text-on-surface-variant uppercase tracking-widest">En desarrollo</span>
+            </div>
+            <h3 class="text-2xl font-black text-on-surface mb-4 leading-tight">Arrendia</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed mb-6">
+              De una hoja de cálculo a un ecosistema PropTech: automatización de cobros, tickets de mantenimiento y portal de inquilinos. Actualmente en construcción.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-lg bg-surface-container border border-outline-variant text-[8px] font-bold text-primary uppercase">PropTech</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container border border-outline-variant text-[8px] font-bold text-primary uppercase">Automated Billing</span>
+            </div>
+          </div>
+          <a href="mailto:orlando@orlandolinares.com?subject=Lista%20de%20espera%20Arrendia" class="mt-8 text-primary text-[10px] font-black uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all">
+            Unirse a la lista de espera <span class="material-symbols-outlined text-xs">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- Cards: Lab & Governance -->
+        <div class="md:col-span-6 glass-card rounded-[2.5rem] p-6 md:p-10 flex flex-col border border-outline-variant/20 reveal">
+          <div class="spotlight"></div>
+          <div class="relative z-10">
+            <div class="w-12 h-12 rounded-2xl bg-surface-container border border-outline-variant flex items-center justify-center mb-8">
+              <span class="material-symbols-outlined text-on-surface-variant">build</span>
+            </div>
+            <h3 class="text-2xl font-black text-on-surface mb-4">Laboratorio Low-Code</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Construimos prototipos funcionales con herramientas de despliegue masivo (No-Code/Low-Code), permitiendo pivotar ideas sin el lastre de deudas técnicas tempranas.
+            </p>
+          </div>
+        </div>
+
+        <div class="md:col-span-6 glass-card rounded-[2.5rem] p-6 md:p-10 flex flex-col border border-outline-variant/20 reveal">
+          <div class="spotlight"></div>
+          <div class="relative z-10">
+            <div class="w-12 h-12 rounded-2xl bg-surface-container border border-outline-variant flex items-center justify-center mb-8">
+              <span class="material-symbols-outlined text-on-surface-variant">psychology</span>
+            </div>
+            <h3 class="text-2xl font-black text-on-surface mb-4">Clarificación Estratégica</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Antes de escribir una sola línea de código, auditamos el proceso de negocio para asegurar que el MVP ataque el cuello de botella real de su organización.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-32 px-6 text-center max-w-4xl mx-auto reveal">
+      <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-on-surface mb-8">¿Materializamos su visión?</h2>
+      <p class="text-xl text-on-surface-variant mb-12">
+        Evitemos el desperdicio tecnológico. Empecemos con una sesión de clarificación para definir el alcance de su primer MVP.
+      </p>
+      <a href="discovery-wizard.html" class="bg-primary text-background px-10 py-5 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] flex items-center justify-center gap-4 mx-auto hover:brightness-110 transition-all shadow-2xl shadow-primary/20 active:scale-[0.97] w-fit">
+        Iniciar Diagnóstico Agéntico
+        <span class="material-symbols-outlined text-sm">psychology</span>
+      </a>
+    </section>
+  </main>
+
+  <script src="nav.js" type="module"></script>
+  <script>
+    // Spotlight Effect
+    document.querySelectorAll('.glass-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--x', `${x}px`);
+        card.style.setProperty('--y', `${y}px`);
+      });
+    });
+
+
+
+    // Reveal Animations
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

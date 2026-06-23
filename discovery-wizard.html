@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Clarificador Estratégico | Business Architecture Agency</title>
+  <meta name="description" content="Motor de diagnóstico agéntico para identificar fricciones operativas y trazar rutas de arquitectura e IA."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/index.css"/>
+  <style>
+    body { font-family: 'Geist', sans-serif; scroll-behavior: smooth; overflow: hidden; }
+    
+    /* Industrial Background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(150, 203, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(150, 203, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @keyframes scanline {
+      0% { transform: translateY(-100vh); opacity: 0; }
+      50% { opacity: 0.5; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    .scanline {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--primary), transparent);
+      z-index: 100;
+      pointer-events: none;
+      animation: scanline 10s linear infinite;
+      box-shadow: 0 0 15px var(--primary);
+    }
+
+    .glass-card {
+      background: rgba(24, 24, 28, 0.6);
+      backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(150, 203, 255, 0.1);
+    }
+
+    .step-indicator {
+      transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .step-active {
+      background: var(--primary);
+      box-shadow: 0 0 20px var(--primary);
+      width: 40px;
+    }
+
+    .wizard-option {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .wizard-option:hover {
+      background: rgba(150, 203, 255, 0.05);
+      border-color: rgba(150, 203, 255, 0.3);
+    }
+
+    .wizard-option.selected {
+      background: rgba(150, 203, 255, 0.1);
+      border-color: var(--primary);
+      box-shadow: 0 0 20px rgba(150, 203, 255, 0.1);
+    }
+
+    /* Shimmer Effect for Loader */
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .shimmer {
+      background: linear-gradient(90deg, transparent, rgba(150, 203, 255, 0.05), transparent);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col items-center justify-center p-6">
+  <div class="scanline"></div>
+
+  <!-- Wizard Container -->
+  <div class="w-full max-w-4xl relative">
+    
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <div class="flex justify-center gap-2 mb-2">
+        <div class="step-indicator w-8 h-1 rounded-full bg-surface-container step-active" data-step="1"></div>
+        <div class="step-indicator w-8 h-1 rounded-full bg-surface-container" data-step="2"></div>
+        <div class="step-indicator w-8 h-1 rounded-full bg-surface-container" data-step="3"></div>
+        <div class="step-indicator w-8 h-1 rounded-full bg-surface-container" data-step="4"></div>
+        <div class="step-indicator w-8 h-1 rounded-full bg-surface-container" data-step="5"></div>
+        <div class="step-indicator w-8 h-1 rounded-full bg-surface-container" data-step="6"></div>
+      </div>
+      <div id="step-counter" class="text-[10px] font-bold text-primary uppercase tracking-widest mb-6 text-center">Paso 1 de 6</div>
+      <h1 class="text-3xl font-black tracking-tighter uppercase mb-2">Discovery <span class="text-primary">Wizard</span></h1>
+      <p id="step-desc" class="text-[10px] font-black text-on-surface-variant uppercase tracking-[0.4em]">Fase 01: Contexto Organizacional</p>
+    </div>
+
+    <!-- Steps -->
+    <div id="wizard-steps" class="relative min-h-[400px]">
+      
+      <!-- Step 1: Organización -->
+      <div class="step-content block" id="step-1">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="publico_peru" data-key="org">
+            <span class="material-symbols-outlined text-primary">account_balance</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Sector Público</h3>
+              <p class="text-[10px] text-on-surface-variant">Interoperabilidad y gestión estatal.</p>
+            </div>
+          </div>
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="privado_corp" data-key="org">
+            <span class="material-symbols-outlined text-primary">corporate_fare</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Corporativo</h3>
+              <p class="text-[10px] text-on-surface-variant">Silos, KPIs y escalabilidad global.</p>
+            </div>
+          </div>
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="privado_mype" data-key="org">
+            <span class="material-symbols-outlined text-primary">rocket_launch</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">PYME / Startup</h3>
+              <p class="text-[10px] text-on-surface-variant">Agilidad y automatización de ventas.</p>
+            </div>
+          </div>
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="consultora" data-key="org">
+            <span class="material-symbols-outlined text-primary">engineering</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Consultora</h3>
+              <p class="text-[10px] text-on-surface-variant">Delivery y estandarización de activos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Fricción -->
+      <div class="step-content hidden" id="step-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="procesos_manuales" data-key="pain">
+            <span class="material-symbols-outlined text-primary">back_hand</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Procesos Manuales</h3>
+              <p class="text-[10px] text-on-surface-variant">Cuellos de botella y error humano.</p>
+            </div>
+          </div>
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="datos_silos" data-key="pain">
+            <span class="material-symbols-outlined text-primary">database_off</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Silos de Datos</h3>
+              <p class="text-[10px] text-on-surface-variant">Información fragmentada sin visión.</p>
+            </div>
+          </div>
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="cumplimiento" data-key="pain">
+            <span class="material-symbols-outlined text-primary">gavel</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Cumplimiento</h3>
+              <p class="text-[10px] text-on-surface-variant">Presión normativa y auditorías.</p>
+            </div>
+          </div>
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="ia_adoption" data-key="pain">
+            <span class="material-symbols-outlined text-primary">smart_toy</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Adopción IA</h3>
+              <p class="text-[10px] text-on-surface-variant">Falta de hoja de ruta clara.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 3: Stack Tecnológico (NUEVO) -->
+      <div class="step-content hidden" id="step-3">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="m365" data-key="stack">
+            <span class="material-symbols-outlined text-primary">cloud</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Microsoft 365</h3>
+              <p class="text-[10px] text-on-surface-variant">Power Platform, Azure, SharePoint.</p>
+            </div>
+          </div>
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="google" data-key="stack">
+            <span class="material-symbols-outlined text-primary">mail</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Google Workspace</h3>
+              <p class="text-[10px] text-on-surface-variant">Apps Script, GCP, Drive.</p>
+            </div>
+          </div>
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="erp" data-key="stack">
+            <span class="material-symbols-outlined text-primary">settings_applications</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Sistemas ERP / SAP</h3>
+              <p class="text-[10px] text-on-surface-variant">Sistemas legacy y core transaccional.</p>
+            </div>
+          </div>
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="mixto" data-key="stack">
+            <span class="material-symbols-outlined text-primary">hub</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Stack Heterogéneo</h3>
+              <p class="text-[10px] text-on-surface-variant">Múltiples herramientas desconectadas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Visión -->
+      <div class="step-content hidden" id="step-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="eficiencia" data-key="vision">
+            <span class="material-symbols-outlined text-primary">bolt</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Eficiencia (+30%)</h3>
+              <p class="text-[10px] text-on-surface-variant">Reducir tiempos y costos operativos.</p>
+            </div>
+          </div>
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="decision" data-key="vision">
+            <span class="material-symbols-outlined text-primary">insights</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Calidad de Datos</h3>
+              <p class="text-[10px] text-on-surface-variant">Decisiones ejecutivas informadas.</p>
+            </div>
+          </div>
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="escalabilidad" data-key="vision">
+            <span class="material-symbols-outlined text-primary">trending_up</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Escalamiento</h3>
+              <p class="text-[10px] text-on-surface-variant">Crecimiento sin deuda operativa.</p>
+            </div>
+          </div>
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="compliance" data-key="vision">
+            <span class="material-symbols-outlined text-primary">verified_user</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Certificación</h3>
+              <p class="text-[10px] text-on-surface-variant">Liderazgo en cumplimiento y ética.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5: Urgencia -->
+      <div class="step-content hidden" id="step-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="inmediato" data-key="urgency">
+            <span class="material-symbols-outlined text-red-400">priority_high</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Crítico / Inmediato</h3>
+              <p class="text-[10px] text-on-surface-variant">Está costando dinero o clientes ahora.</p>
+            </div>
+          </div>
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="corto" data-key="urgency">
+            <span class="material-symbols-outlined text-orange-400">schedule</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Importante (1-3 meses)</h3>
+              <p class="text-[10px] text-on-surface-variant">Necesito resolverlo en el corto plazo.</p>
+            </div>
+          </div>
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="medio" data-key="urgency">
+            <span class="material-symbols-outlined text-primary">event_note</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Estratégico (3-6 meses)</h3>
+              <p class="text-[10px] text-on-surface-variant">Planificación para el próximo semestre.</p>
+            </div>
+          </div>
+          <div class="wizard-option glass-card rounded-2xl p-6 border border-outline-variant/30 flex items-center gap-4" data-value="estrategico" data-key="urgency">
+            <span class="material-symbols-outlined text-on-surface-variant">explore</span>
+            <div>
+              <h3 class="font-black text-sm uppercase">Exploratorio</h3>
+              <p class="text-[10px] text-on-surface-variant">Solo quiero entender opciones a futuro.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 6: Finalize -->
+      <div class="step-content hidden" id="step-6">
+        <div class="glass-card rounded-3xl p-10 border border-primary/20 text-center">
+          <span class="material-symbols-outlined text-5xl text-primary mb-6 animate-pulse">lock</span>
+          <h2 class="text-2xl font-black text-on-surface mb-4 uppercase">Datos de Contacto</h2>
+          <p class="text-xs text-on-surface-variant mb-8 uppercase tracking-widest">Para enviar el Brief Estratégico a su correo</p>
+          
+          <div class="space-y-4 max-w-sm mx-auto">
+            <input type="text" id="user-name" placeholder="SU NOMBRE" required class="w-full bg-surface-container border border-outline-variant rounded-xl px-6 py-4 text-xs font-bold uppercase tracking-widest focus:border-primary outline-none transition-all">
+            <input type="email" id="user-email" placeholder="EMAIL INSTITUCIONAL" required class="w-full bg-surface-container border border-outline-variant rounded-xl px-6 py-4 text-xs font-bold uppercase tracking-widest focus:border-primary outline-none transition-all">
+            <button id="generate-btn" class="w-full bg-primary text-background font-black py-5 rounded-xl text-xs uppercase tracking-[0.2em] hover:opacity-90 transition-all shadow-2xl shadow-primary/20 mt-6">
+              Generar Análisis Agéntico
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loader (Overlay) -->
+      <div id="wizard-loader" class="hidden absolute inset-0 bg-background/80 backdrop-blur-xl z-50 flex flex-col items-center justify-center rounded-[2.5rem]">
+        <div class="relative w-24 h-24 mb-8">
+          <div class="absolute inset-0 border-2 border-primary/10 rounded-full"></div>
+          <div class="absolute inset-0 border-t-2 border-primary rounded-full animate-spin"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary animate-pulse">neurology</span>
+          </div>
+        </div>
+        <h3 class="text-xs font-black text-primary uppercase tracking-[0.5em] mb-2">Orquestando Agentes</h3>
+        <p id="loader-msg" class="text-[8px] text-on-surface-variant uppercase tracking-widest">Sintetizando arquitectura TO-BE...</p>
+      </div>
+
+      <!-- Result Screen -->
+      <div id="wizard-result" class="hidden absolute inset-0 bg-background z-50 overflow-y-auto custom-scrollbar p-8 rounded-[2.5rem] border border-primary/10">
+        <div class="flex justify-between items-center mb-8 border-b border-outline-variant/30 pb-4">
+          <h2 class="text-xl font-black text-primary uppercase tracking-tighter">Reporte Estratégico IA</h2>
+          <button onclick="location.reload()" class="text-[10px] font-black text-on-surface-variant uppercase hover:text-primary transition-colors">Nuevo Diagnóstico</button>
+        </div>
+        <div id="brief-content" class="prose prose-invert max-w-none text-on-surface-variant text-sm leading-relaxed">
+          <!-- AI Content Here -->
+        </div>
+        <div class="mt-12 p-8 rounded-3xl bg-primary/5 border border-primary/10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h4 class="text-sm font-black text-on-surface mb-1 uppercase tracking-tight">¿Siguiente paso?</h4>
+            <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Validar este reporte en una sesión de 45 minutos.</p>
+          </div>
+          <a href="agendar_diagnostico.html" class="bg-primary text-background font-black px-8 py-4 rounded-xl text-[10px] uppercase tracking-widest hover:scale-105 transition-transform shadow-xl shadow-primary/20">
+            Agendar Sesión
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <div class="mt-12 flex flex-col">
+      <div id="selection-error" class="hidden text-[10px] text-red-400 font-bold uppercase tracking-widest mb-4 text-right">Seleccione una opción para continuar</div>
+      <div id="wizard-nav" class="flex justify-between">
+        <button id="prev-btn" class="hidden text-[10px] font-black text-on-surface-variant uppercase tracking-widest hover:text-on-surface transition-colors">Volver</button>
+        <div class="flex-grow"></div>
+        <button id="next-btn" class="bg-surface-container border border-outline-variant text-on-surface font-black px-8 py-4 rounded-xl text-[10px] uppercase tracking-widest hover:bg-surface-container-high transition-all">Siguiente</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const state = {
+      step: 1,
+      totalSteps: 6,
+      data: {
+        org: null,
+        pain: null,
+        stack: null,
+        vision: null,
+        urgency: null,
+        name: '',
+        email: ''
+      }
+    };
+
+    const descriptions = [
+      "Fase 01: Contexto Organizacional",
+      "Fase 02: Punto de Fricción Crítico",
+      "Fase 03: Stack Tecnológico",
+      "Fase 04: Visión de Impacto",
+      "Fase 05: Nivel de Urgencia",
+      "Fase 06: Verificación de Identidad"
+    ];
+
+    const elements = {
+      counter: document.getElementById('step-counter'),
+      desc: document.getElementById('step-desc'),
+      selectionError: document.getElementById('selection-error'),
+      nextBtn: document.getElementById('next-btn'),
+      prevBtn: document.getElementById('prev-btn'),
+      loader: document.getElementById('wizard-loader'),
+      result: document.getElementById('wizard-result'),
+      brief: document.getElementById('brief-content'),
+      generateBtn: document.getElementById('generate-btn')
+    };
+
+    function updateUI() {
+      // Manejo de visibilidad de pasos
+      document.querySelectorAll('.step-content').forEach((el, index) => {
+        el.classList.toggle('hidden', index + 1 !== state.step);
+      });
+
+      // Actualizar indicadores visuales
+      document.querySelectorAll('.step-indicator').forEach(el => {
+        el.classList.remove('step-active', 'bg-primary');
+        const stepNum = parseInt(el.dataset.step);
+        if (stepNum === state.step) {
+          el.classList.add('step-active');
+        } else if (stepNum < state.step) {
+          el.classList.add('bg-primary/40');
+        }
+      });
+
+      // Actualizar textos
+      if (elements.desc) elements.desc.textContent = descriptions[state.step - 1];
+      if (elements.counter) elements.counter.textContent = `Paso ${state.step} de ${state.totalSteps}`;
+
+      // Gestión de botones
+      if (elements.prevBtn) elements.prevBtn.classList.toggle('hidden', state.step === 1);
+      if (elements.nextBtn) elements.nextBtn.classList.toggle('hidden', state.step === state.totalSteps);
+      
+      // Reset error
+      if (elements.selectionError) elements.selectionError.classList.add('hidden');
+    }
+
+    // Selección de opciones
+    document.querySelectorAll('.wizard-option').forEach(option => {
+      option.addEventListener('click', () => {
+        const key = option.dataset.key;
+        const val = option.dataset.value;
+        
+        // Limpiar otros de la misma categoría
+        document.querySelectorAll(`.wizard-option[data-key="${key}"]`).forEach(opt => {
+          opt.classList.remove('selected');
+        });
+        
+        option.classList.add('selected');
+        state.data[key] = val;
+        
+        // Avance automático
+        if (state.step < state.totalSteps) {
+          setTimeout(() => {
+            state.step++;
+            updateUI();
+          }, 400);
+        }
+      });
+    });
+
+    // Navegación Manual
+    if (elements.nextBtn) {
+      elements.nextBtn.onclick = () => {
+        const keys = ['org', 'pain', 'stack', 'vision', 'urgency'];
+        const currentKey = keys[state.step - 1];
+        
+        if (state.step < state.totalSteps && !state.data[currentKey]) {
+          if (elements.selectionError) elements.selectionError.classList.remove('hidden');
+          return;
+        }
+        
+        if (state.step < state.totalSteps) {
+          state.step++;
+          updateUI();
+        }
+      };
+    }
+
+    if (elements.prevBtn) {
+      elements.prevBtn.onclick = () => {
+        if (state.step > 1) {
+          state.step--;
+          updateUI();
+        }
+      };
+    }
+
+    // Generación del Reporte
+    if (elements.generateBtn) {
+      elements.generateBtn.onclick = async () => {
+        const name = document.getElementById('user-name').value.trim();
+        const email = document.getElementById('user-email').value.trim();
+
+        if (!name || !email) {
+          alert("Por favor ingrese su nombre y email para recibir el análisis.");
+          return;
+        }
+
+        state.data.name = name;
+        state.data.email = email;
+
+        elements.loader.classList.remove('hidden');
+        
+        const loaderMessages = [
+          "Analizando contexto organizacional...",
+          "Evaluando stack tecnológico...",
+          "Mapeando puntos de fricción...",
+          "Calculando ROI estratégico...",
+          "Sintetizando roadmap de 4 semanas...",
+          "Generando reporte final..."
+        ];
+        
+        let msgIndex = 0;
+        const msgInterval = setInterval(() => {
+          const msgEl = document.getElementById('loader-msg');
+          if (msgEl) msgEl.textContent = loaderMessages[msgIndex % loaderMessages.length];
+          msgIndex++;
+        }, 1200);
+
+        try {
+          const response = await fetch('/.netlify/functions/generate-brief', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              wizard: state.data,
+              name: state.data.name,
+              email: state.data.email
+            })
+          });
+
+          const result = await response.json();
+          
+          if (result.success) {
+            elements.brief.innerHTML = result.brief;
+            elements.result.classList.remove('hidden');
+          } else {
+            throw new Error(result.error || "Error en el servidor");
+          }
+        } catch (err) {
+          console.error("Error Wizard:", err);
+          let errorTitle = "Error de Conexión";
+          let errorMsg = "No pudimos procesar tu solicitud. Verifica que estás en el servidor oficial o intenta de nuevo.";
+          
+          if (window.location.protocol === 'file:') {
+            errorTitle = "Ejecución Local Detectada";
+            errorMsg = "Las funciones de IA requieren un servidor (Netlify Dev). Por favor, despliega el sitio o usa 'netlify dev'.";
+          }
+
+          elements.brief.innerHTML = `
+            <div class="p-6 bg-red-400/10 border border-red-400/20 rounded-2xl">
+              <p class="text-red-400 font-bold mb-2 uppercase text-xs">${errorTitle}</p>
+              <p class="text-xs">${errorMsg}</p>
+              <p class="text-[10px] text-on-surface-variant mt-4 uppercase">Si persiste, contacta a: hola@orlandolinares.com</p>
+            </div>
+          `;
+          elements.result.classList.remove('hidden');
+        } finally {
+          clearInterval(msgInterval);
+          elements.loader.classList.add('hidden');
+        }
+      };
+    }
+
+    // Inicialización
+    document.addEventListener('DOMContentLoaded', updateUI);
+    updateUI();
+  </script>
+</body>
+</html>
