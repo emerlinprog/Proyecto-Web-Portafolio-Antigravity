@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>AI Lab | Business Architecture Agency — Orlando Linares</title>
+  <meta name="description" content="Laboratorio de soluciones arquitectónicas e IA: Clarificador Estratégico, Frameworks de Prompt Engineering e investigación en LegalTech y PropTech."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/index.css"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <style>
+    body { font-family: 'Geist', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
+    
+    /* Global Industrial Background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(150, 203, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(150, 203, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(circle at center, transparent 0%, rgba(10, 10, 12, 0.9) 100%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.80' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: -1;
+      mix-blend-mode: overlay;
+    }
+
+    @keyframes scanline {
+      0% { transform: translateY(-100vh); opacity: 0; }
+      50% { opacity: 0.5; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    @keyframes entrance {
+      0% { filter: blur(20px); opacity: 0; transform: translateY(20px); }
+      100% { filter: blur(0); opacity: 1; transform: translateY(0); }
+    }
+
+    .scanline {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--primary), transparent);
+      z-index: 100;
+      pointer-events: none;
+      animation: scanline 10s linear infinite;
+      box-shadow: 0 0 15px var(--primary);
+    }
+
+    body {
+      animation: entrance 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .glass-card {
+      background: linear-gradient(rgba(24, 24, 28, 0.8), rgba(24, 24, 28, 0.8)) padding-box,
+                  radial-gradient(400px circle at var(--x) var(--y), rgba(150, 203, 255, 0.3), transparent 40%) border-box;
+      border: 1px solid transparent;
+      backdrop-filter: blur(24px) saturate(180%);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Interactive Spotlight */
+    .spotlight {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        600px circle at var(--x) var(--y),
+        rgba(150, 203, 255, 0.08),
+        transparent 40%
+      );
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .glass-card:hover .spotlight {
+      opacity: 1;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      filter: blur(10px);
+      transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .magnetic {
+      display: inline-block;
+      transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col">
+  <div class="scanline"></div>
+
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="relative pt-40 pb-24 px-6 overflow-hidden text-center reveal">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-tertiary/5 blur-[120px] -z-10 rounded-full opacity-50"></div>
+      <div class="max-w-4xl mx-auto">
+        <div class="font-mono text-[10px] tracking-[0.4em] text-on-surface-variant mb-4 uppercase">OL · 05 / AI Lab</div>
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-[10px] font-black uppercase tracking-[0.2em] text-tertiary mb-8">
+          <span class="material-symbols-outlined text-[14px]">science</span>
+          Research & Development Lab
+        </span>
+        <h1 class="text-6xl md:text-8xl font-black tracking-tighter text-on-surface mb-8 leading-[0.9]">
+          Soluciones <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-tertiary to-primary">Prototipadas.</span>
+        </h1>
+        <p class="text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+          Nuestras herramientas nacen de la necesidad operativa real. Desarrollamos frameworks y aplicaciones de IA diseñadas para resolver fricciones estructurales en el sector público y privado.
+        </p>
+      </div>
+    </section>
+
+    <!-- Lab Bento Grid -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        
+        <!-- Tool 1: Clarificador (Featured) -->
+        <div class="md:col-span-8 glass-card rounded-[2.5rem] p-8 md:p-14 relative overflow-hidden group reveal">
+          <div class="spotlight"></div>
+          <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-[100px] group-hover:bg-primary/20 transition-all"></div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-10">
+              <div class="w-16 h-16 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary text-3xl">psychology</span>
+              </div>
+              <div>
+                <span class="text-[10px] font-black text-primary uppercase tracking-[0.3em]">Flagship Solution</span>
+                <h2 class="text-4xl font-black tracking-tighter text-on-surface">Clarificador Estratégico</h2>
+              </div>
+            </div>
+            <p class="text-on-surface-variant text-lg leading-relaxed mb-12 max-w-2xl">
+              Un motor de diagnóstico agéntico que procesa las fricciones organizacionales y las traduce en una hoja de ruta técnica ejecutable. Utilizado para pre-validar implementaciones de IA en instituciones estatales.
+            </p>
+            <div class="flex flex-wrap gap-4 mb-12">
+              <div class="px-6 py-4 rounded-2xl bg-surface-container/50 border border-outline-variant/30 text-center flex-1 min-w-[120px]">
+                <span class="text-[10px] font-black text-primary block mb-1">FASE 1</span>
+                <span class="text-xs font-bold text-on-surface">Fricción</span>
+              </div>
+              <div class="px-6 py-4 rounded-2xl bg-surface-container/50 border border-outline-variant/30 text-center flex-1 min-w-[120px]">
+                <span class="text-[10px] font-black text-primary block mb-1">FASE 2</span>
+                <span class="text-xs font-bold text-on-surface">Escenario</span>
+              </div>
+              <div class="px-6 py-4 rounded-2xl bg-surface-container/50 border border-outline-variant/30 text-center flex-1 min-w-[120px]">
+                <span class="text-[10px] font-black text-primary block mb-1">FASE 3</span>
+                <span class="text-xs font-bold text-on-surface">Recursos</span>
+              </div>
+              <div class="px-6 py-4 rounded-2xl bg-surface-container/50 border border-outline-variant/30 text-center flex-1 min-w-[120px]">
+                <span class="text-[10px] font-black text-primary block mb-1">FASE 4</span>
+                <span class="text-xs font-bold text-on-surface">Hoja de Ruta</span>
+              </div>
+            </div>
+            <a href="discovery-wizard.html" class="bg-primary text-background font-black px-10 py-5 rounded-2xl text-sm uppercase tracking-widest inline-flex items-center gap-3 shadow-xl shadow-primary/20 hover:scale-105 transition-transform">
+              Iniciar Diagnóstico IA
+              <span class="material-symbols-outlined">psychology</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tool: AsistenteOECE (Flagship Product) -->
+        <div class="md:col-span-4 glass-card rounded-[2.5rem] p-6 md:p-10 flex flex-col justify-between group border border-primary/20 bg-primary/5 hover:border-primary/40 transition-all reveal">
+          <div class="spotlight"></div>
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center mb-8">
+              <span class="material-symbols-outlined text-primary">account_balance</span>
+            </div>
+            <div class="flex items-center gap-2 mb-6">
+              <h2 class="text-3xl font-black tracking-tight text-on-surface leading-tight">Asistente<br>OECE</h2>
+              <span class="px-2 py-0.5 rounded-full bg-primary/15 text-[8px] font-black border border-primary/30 text-primary uppercase tracking-widest self-start mt-1">Beta</span>
+            </div>
+            <p class="text-on-surface-variant leading-relaxed mb-8">
+              Copiloto de contrataciones públicas alineado a la Ley 32069. Interpreta la normativa de la OECE (ex-OSCE), asiste en la revisión de bases y anticipa observaciones.
+            </p>
+          </div>
+          <a href="https://di9z3868.insforge.site/" target="_blank" rel="noopener" class="text-primary text-[10px] font-black uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">
+            Probar el demo <span class="material-symbols-outlined text-xs">open_in_new</span>
+          </a>
+        </div>
+
+        <!-- Tool 2: Monster Prompts -->
+        <div class="md:col-span-6 glass-card rounded-[2.5rem] p-6 md:p-10 flex flex-col justify-between group border-tertiary/10 hover:border-tertiary/30 transition-all reveal">
+          <div class="spotlight"></div>
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-tertiary/10 border border-tertiary/20 flex items-center justify-center mb-8">
+              <span class="material-symbols-outlined text-tertiary">auto_awesome</span>
+            </div>
+            <h2 class="text-3xl font-black tracking-tight text-on-surface mb-6 leading-tight">Monster <br>Prompts</h2>
+            <p class="text-on-surface-variant leading-relaxed mb-8">
+              Framework de ingeniería de prompts diseñado para personal administrativo. Democratiza el acceso a la IA mediante metodologías de pensamiento crítico estructurado.
+            </p>
+          </div>
+          <a href="#" class="text-tertiary text-[10px] font-black uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">
+            Explorar Framework <span class="material-symbols-outlined text-xs">open_in_new</span>
+          </a>
+        </div>
+
+        <!-- Tool 3: Arrendia -->
+        <div class="md:col-span-6 glass-card rounded-[2.5rem] p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center border-outline-variant/20 hover:bg-surface-container/30 transition-colors reveal">
+          <div class="spotlight"></div>
+          <div class="w-full md:w-32 aspect-square rounded-3xl bg-surface-container-high border border-outline-variant flex items-center justify-center text-on-surface-variant">
+            <span class="material-symbols-outlined text-4xl">apartment</span>
+          </div>
+          <div class="flex-grow text-center md:text-left">
+            <div class="flex items-center gap-2 mb-2 justify-center md:justify-start">
+              <h3 class="text-2xl font-black text-on-surface uppercase tracking-tighter">Arrendia</h3>
+              <span class="px-2 py-0.5 rounded-full bg-surface-container text-[8px] font-black border border-outline-variant text-on-surface-variant uppercase tracking-widest">In Dev</span>
+            </div>
+            <p class="text-on-surface-variant text-sm mb-6">
+              Plataforma PropTech para la gestión inmobiliaria en Latinoamérica: automatización de cobros, tickets de mantenimiento y portal de inquilinos inteligente.
+            </p>
+            <a href="mailto:orlando@orlandolinares.com?subject=Lista%20de%20espera%20Arrendia" class="text-primary text-[10px] font-black uppercase tracking-widest">Lista de espera</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Lab Footer CTA -->
+    <section class="py-32 px-6 max-w-7xl mx-auto text-center border-t border-outline-variant/10 mt-20">
+      <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-on-surface mb-8">¿Necesita una solución <br>a medida?</h2>
+      <p class="text-xl text-on-surface-variant mb-12 max-w-2xl mx-auto">
+        Construimos herramientas que resuelven problemas específicos. Si su organización tiene una fricción repetitiva, podemos prototipar una solución en nuestro Lab.
+      </p>
+      <a href="agendar_diagnostico.html" class="bg-primary text-background font-black px-12 py-5 rounded-2xl text-sm uppercase tracking-widest hover:opacity-90 transition-opacity inline-flex items-center gap-3">
+        Consulte Disponibilidad del Lab
+        <span class="material-symbols-outlined">bolt</span>
+      </a>
+    </section>
+  </main>
+
+  <script src="nav.js" type="module"></script>
+  <script>
+    // Reveal Animation
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Spotlight Effect
+    document.querySelectorAll('.glass-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--x', `${x}px`);
+        card.style.setProperty('--y', `${y}px`);
+      });
+    });
+
+    // Magnetic Button
+    document.querySelectorAll('.magnetic').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0)';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,24 +1,25 @@
-# Netlify configuration for Orlando Linares Portfolio
 [build]
-  # Directory where the site's files are located
-  publish = "."
-
-  # Build command to compile Tailwind CSS
   command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[[redirects]]
+  # Permitir que los archivos HTML estáticos se sirvan primero
+  from = "/*.html"
+  to = "/:splat.html"
+  status = 200
+
+[[redirects]]
+  # Redirigir el resto al SPA de React
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
-    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
 
-[[headers]]
-  for = "/public/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/*.css"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"

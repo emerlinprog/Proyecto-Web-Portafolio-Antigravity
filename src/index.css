@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@theme {
+  --font-geist: "Geist", sans-serif;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-nav-button: hsl(var(--nav-button));
+  --color-hero-bg: hsl(var(--hero-bg));
+
+  /* Material-3 tokens usados por las páginas HTML (antes sin definir) */
+  --color-tertiary: hsl(var(--tertiary));
+  --color-on-primary: hsl(var(--primary-foreground));
+  --color-on-surface: hsl(var(--on-surface));
+  --color-on-surface-variant: hsl(var(--on-surface-variant));
+  --color-surface: hsl(var(--surface));
+  --color-surface-container-lowest: hsl(var(--surface-container-lowest));
+  --color-surface-container-low: hsl(var(--surface-container-low));
+  --color-surface-container: hsl(var(--surface-container));
+  --color-surface-container-high: hsl(var(--surface-container-high));
+  --color-outline-variant: hsl(var(--outline-variant));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  @keyframes fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(4px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scan {
+    0% { transform: translateY(-100%); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(400px); opacity: 0; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+  --animate-scan: scan 3s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@layer base {
+  :root {
+    --background: 240 10% 4%; /* #0a0a0c */
+    --foreground: 270 20% 91%; /* #e7e0ef */
+    --primary: 210 100% 79%; /* #96cbff */
+    --primary-foreground: 240 10% 4%;
+    --secondary: 210 90% 79%; /* #9bcbfa */
+    --secondary-foreground: 240 10% 4%;
+    --tertiary: 255 100% 87%; /* #cebdff */
+    --muted: 240 10% 8%; /* #111114 */
+    --muted-foreground: 255 10% 60%; /* #948da5 */
+    --accent: 255 100% 87%; /* #cebdff */
+    --accent-foreground: 240 10% 4%;
+    --destructive: 0 84% 60%;
+    --border: 240 6% 18%; /* #2a2a30 */
+    --input: 240 6% 18%;
+    --ring: 210 100% 79%;
+    --radius: 1.5rem;
+    --nav-button: 240 10% 8%;
+    --hero-bg: 240 10% 4%;
+
+    /* Superficies y texto (escala M3 sobre el neutro tintado) */
+    --on-surface: 270 20% 91%;          /* texto principal claro */
+    --on-surface-variant: 255 12% 68%;  /* texto secundario atenuado */
+    --surface: 240 10% 6%;
+    --surface-container-lowest: 240 10% 5%;
+    --surface-container-low: 240 10% 7%;
+    --surface-container: 240 9% 10%;
+    --surface-container-high: 240 8% 13%;
+    --outline-variant: 240 6% 20%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-geist antialiased;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    /* Combinación de cuadrícula de líneas y puntos (Industrial Blueprint) */
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
+    background-size: 100px 100px, 100px 100px, 20px 20px;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    /* Capa de ruido orgánico + Viñeta técnica */
+    background: 
+      radial-gradient(circle at center, transparent 0%, rgba(10, 10, 12, 0.7) 100%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.80' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: -1;
+    mix-blend-mode: overlay;
+  }
+
+  .glass-card {
+    background: rgba(10, 10, 12, 0.6);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(150, 203, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+}

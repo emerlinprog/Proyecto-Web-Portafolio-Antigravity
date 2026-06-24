@@ -1,23 +1,58 @@
 {
   "name": "proyecto-web-portafolio-antigravity",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "build": "tailwindcss -i ./input.css -o ./style.css --minify",
-    "watch": "tailwindcss -i ./input.css -o ./style.css --watch"
+    "dev": "vite",
+    "build": "vite build",
+    "watch": "tailwindcss -i ./input.css -o ./style.css --watch",
+    "preview": "vite preview",
+    "build:remotion": "vite build",
+    "render": "remotion render remotion/index.tsx IndustrialHero public/assets/industrial-bg.mp4",
+    "test:notion": "node scripts/test-notion.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
+  "dependencies": {
+    "@netlify/database": "^1.0.0",
+    "@notionhq/client": "^2.2.14",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@remotion/player": "4.0.450",
+    "@splinetool/react-spline": "^4.1.0",
+    "@splinetool/runtime": "^1.12.92",
+    "@tailwindcss/vite": "^4.3.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "esbuild": "^0.28.0",
+    "framer-motion": "^12.38.0",
+    "hls.js": "^1.6.16",
+    "lucide-react": "^1.11.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "remotion": "4.0.450",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
   "devDependencies": {
+    "@remotion/cli": "4.0.450",
     "@tailwindcss/cli": "^4.2.2",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/node": "^25.6.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.27",
     "cssnano": "^7.1.3",
     "postcss": "^8.5.8",
     "postcss-cli": "^11.0.1",
-    "tailwindcss": "^4.2.2"
+    "sharp": "^0.35.2",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^6.0.3",
+    "vite": "^6.4.2"
   }
 }

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Servicios | Business Architecture Agency — Orlando Linares</title>
+  <meta name="description" content="Servicios de arquitectura empresarial: Orquestación de IA, Rediseño de Procesos BPMN 2.0, Gobierno Corporativo y MVP Studio para la validación operativa en LATAM."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/index.css"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <style>
+    body { font-family: 'Geist', sans-serif; scroll-behavior: smooth; }
+    
+    /* Industrial Background Texture */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+      background-size: 100px 100px, 100px 100px, 20px 20px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(circle at center, transparent 0%, rgba(10, 10, 12, 0.7) 100%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.80' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: -1;
+      mix-blend-mode: overlay;
+    }
+
+    @keyframes scanline {
+      0% { transform: translateY(-100vh); opacity: 0; }
+      50% { opacity: 0.5; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    @keyframes entrance {
+      0% { filter: blur(20px); opacity: 0; transform: translateY(20px); }
+      100% { filter: blur(0); opacity: 1; transform: translateY(0); }
+    }
+
+    .scanline {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--primary), transparent);
+      z-index: 100;
+      pointer-events: none;
+      animation: scanline 10s linear infinite;
+      box-shadow: 0 0 15px var(--primary);
+    }
+
+    body {
+      animation: entrance 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .glass-card {
+      background: linear-gradient(rgba(24, 24, 28, 0.8), rgba(24, 24, 28, 0.8)) padding-box,
+                  radial-gradient(400px circle at var(--x) var(--y), rgba(150, 203, 255, 0.3), transparent 40%) border-box;
+      border: 1px solid transparent;
+      backdrop-filter: blur(24px) saturate(180%);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Interactive Spotlight */
+    .spotlight {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        600px circle at var(--x) var(--y),
+        rgba(150, 203, 255, 0.08),
+        transparent 40%
+      );
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .glass-card:hover .spotlight {
+      opacity: 1;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      filter: blur(10px);
+      transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .delay-1 { transition-delay: 0.2s; }
+    .delay-2 { transition-delay: 0.4s; }
+    .delay-3 { transition-delay: 0.6s; }
+
+    .magnetic {
+      display: inline-block;
+      transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col">
+  <div class="scanline"></div>
+
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="relative pt-40 pb-24 px-6 overflow-hidden reveal">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-primary/5 blur-[120px] -z-10 rounded-full opacity-50"></div>
+      <div class="max-w-7xl mx-auto">
+        <div class="font-mono text-[10px] tracking-[0.4em] text-on-surface-variant mb-4 uppercase">OL · 01 / Servicios</div>
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-8 delay-1">
+          <span class="material-symbols-outlined text-[14px]">grid_view</span>
+          Engineering Strategic Impact
+        </span>
+        <h1 class="text-6xl md:text-8xl font-black tracking-tighter text-on-surface mb-8 leading-[0.9] delay-2">
+          Arquitectura <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-primary/50">de Alto Nivel.</span>
+        </h1>
+        <p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed mb-12 delay-3">
+          Transformamos la complejidad operativa en sistemas de precisión. Servicios diseñados para organizaciones que exigen escalabilidad, gobierno y resultados cuantificables.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Bento Grid -->
+    <section id="metodologia" class="py-24 px-6 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+        
+        <!-- Service 1: BPMN 2.0 -->
+        <div id="arch" class="md:col-span-8 glass-card rounded-3xl p-10 group relative reveal">
+          <div class="spotlight"></div>
+          <div class="absolute top-0 right-0 p-12 opacity-5 group-hover:opacity-10 transition-opacity">
+            <span class="material-symbols-outlined text-[10rem] text-primary">account_tree</span>
+          </div>
+          <div class="relative z-10 h-full flex flex-col">
+            <div class="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-8">
+              <span class="material-symbols-outlined text-primary text-2xl">troubleshoot</span>
+            </div>
+            <h2 class="text-4xl font-black tracking-tight text-on-surface mb-6">Arquitectura de Procesos & BPMN 2.0</h2>
+            <p class="text-on-surface-variant text-lg leading-relaxed mb-10 max-w-2xl">
+              Auditoría exhaustiva del flujo operativo (AS-IS) para eliminar redundancias y diseñar la estructura de escalabilidad (TO-BE). Documentación bajo estándares internacionales para cumplimiento ISO y gobierno corporativo.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-auto">
+              <div class="p-5 rounded-2xl bg-surface-container/50 border border-outline-variant/30">
+                <span class="text-[10px] font-black uppercase tracking-widest text-primary block mb-2">Entregable Core</span>
+                <span class="text-sm font-bold text-on-surface">Blueprint Operativo Digitalizado</span>
+              </div>
+              <div class="p-5 rounded-2xl bg-surface-container/50 border border-outline-variant/30">
+                <span class="text-[10px] font-black uppercase tracking-widest text-tertiary block mb-2">KPI Objetivo</span>
+                <span class="text-sm font-bold text-on-surface">Reducción de Opex > 25%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2: Gobierno Corporativo -->
+        <div class="md:col-span-4 glass-card rounded-3xl p-10 group relative reveal">
+          <div class="spotlight"></div>
+          <div class="w-12 h-12 rounded-2xl bg-tertiary/10 border border-tertiary/20 flex items-center justify-center mb-8">
+            <span class="material-symbols-outlined text-tertiary">policy</span>
+          </div>
+          <h2 class="text-2xl font-black tracking-tight text-on-surface mb-4">Gobierno Corporativo</h2>
+          <p class="text-on-surface-variant leading-relaxed mb-8">
+            Institucionalizamos la operación para eliminar la dependencia de individuos y asegurar la continuidad.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-center gap-3 text-xs font-bold text-on-surface-variant">
+              <div class="w-8 h-8 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center">
+                <span class="material-symbols-outlined text-[16px] text-tertiary">description</span>
+              </div>
+              Manuales de Organización (MOF)
+            </li>
+            <li class="flex items-center gap-3 text-xs font-bold text-on-surface-variant">
+              <div class="w-8 h-8 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center">
+                <span class="material-symbols-outlined text-[16px] text-tertiary">verified</span>
+              </div>
+              Flujos de Autorización Seguros
+            </li>
+            <li class="flex items-center gap-3 text-xs font-bold text-on-surface-variant">
+              <div class="w-8 h-8 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center">
+                <span class="material-symbols-outlined text-[16px] text-tertiary">security</span>
+              </div>
+              Compliance & Auditoría Interna
+            </li>
+          </ul>
+        </div>
+
+        <!-- Service 3: IA Orquestada -->
+        <div class="md:col-span-4 glass-card rounded-3xl p-10 group relative reveal">
+          <div class="spotlight"></div>
+          <div class="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-8">
+            <span class="material-symbols-outlined text-primary">auto_awesome</span>
+          </div>
+          <h2 class="text-2xl font-black tracking-tight text-on-surface mb-4">Orquestación de IA Agéntica</h2>
+          <p class="text-on-surface-variant leading-relaxed mb-8">
+            Integración de agentes autónomos en flujos críticos. No implementamos "bots", creamos arquitecturas inteligentes.
+          </p>
+          <a href="ia_aplicada.html" class="inline-flex items-center gap-2 text-primary text-[10px] font-black uppercase tracking-widest hover:gap-4 transition-all">
+            Ver Tecnología <span class="material-symbols-outlined text-xs">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- Service 4: Ecosistema M365 -->
+        <div id="data" class="md:col-span-8 glass-card rounded-3xl p-10 group relative reveal">
+          <div class="spotlight"></div>
+          <div class="absolute inset-0 bg-gradient-to-br from-tertiary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative z-10 flex flex-col md:flex-row gap-10 items-center">
+            <div class="flex-grow">
+              <h2 class="text-3xl font-black tracking-tight text-on-surface mb-6">Automatización M365</h2>
+              <p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                Explotamos el stack de Microsoft (Power Automate, SharePoint) para centralizar y automatizar la burocracia interna.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Dashboards Power BI</span>
+                <span class="px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Flujos SharePoint</span>
+              </div>
+            </div>
+            <div class="w-full md:w-64 aspect-square rounded-3xl bg-surface-container-high border border-outline-variant flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-primary/10 blur-3xl opacity-20"></div>
+              <span class="material-symbols-outlined text-6xl text-primary animate-pulse relative z-10">database</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 5: MVP Studio -->
+        <div class="md:col-span-12 glass-card rounded-3xl p-10 group relative flex flex-col md:flex-row items-center justify-between gap-10 reveal">
+          <div class="spotlight"></div>
+          <div class="max-w-xl relative z-10">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="px-3 py-1 rounded-full bg-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em]">Validation Lab</span>
+              <h2 class="text-4xl font-black tracking-tight text-on-surface">MVP Studio & Validación Lean</h2>
+            </div>
+            <p class="text-on-surface-variant text-lg leading-relaxed">
+              Validamos hipótesis de negocio mediante prototipos funcionales en ciclos de 4 semanas. Reducimos el riesgo de inversión tecnológica.
+            </p>
+          </div>
+          <a href="mvp_studio.html" class="bg-primary text-background font-black px-12 py-5 rounded-2xl hover:opacity-90 transition-all text-sm uppercase tracking-widest flex items-center gap-4 shadow-2xl shadow-primary/20 whitespace-nowrap relative z-10 magnetic">
+            Lanzar Prototipo
+            <span class="material-symbols-outlined">rocket_launch</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Consultation CTA -->
+    <section class="py-32 px-6 relative overflow-hidden reveal">
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <h2 class="text-5xl md:text-7xl font-black tracking-tighter text-on-surface mb-8 leading-tight">
+          Diseñemos el futuro de su <span class="text-primary">arquitectura empresarial.</span>
+        </h2>
+        <p class="text-xl text-on-surface-variant mb-12 max-w-2xl mx-auto leading-relaxed">
+          Inicie hoy mismo con un diagnóstico estratégico. Identificaremos fricciones críticas y propondremos soluciones de alto impacto.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+          <a href="agendar_diagnostico.html" class="bg-primary text-background font-black px-10 py-5 rounded-2xl text-sm uppercase tracking-widest shadow-xl shadow-primary/20 hover:scale-105 transition-transform magnetic">
+            Agendar Diagnóstico
+          </a>
+          <a href="casos_de_uso.html" class="border border-outline-variant text-on-surface font-black px-10 py-5 rounded-2xl text-sm uppercase tracking-widest hover:bg-surface-container transition-colors">
+            Ver Casos de Éxito
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="nav.js" type="module"></script>
+  <script>
+    // Intersection Observer for Reveal Animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-active');
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+          entry.target.style.filter = "blur(0)";
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Interactive Spotlight Effect
+    document.querySelectorAll('.glass-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--x', `${x}px`);
+        card.style.setProperty('--y', `${y}px`);
+      });
+    });
+
+    // Magnetic Button Effect
+    document.querySelectorAll('.magnetic').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = `translate(0, 0)`;
+      });
+    });
+  </script>
+</body>
+</html>
