@@ -1,0 +1,4 @@
+# Las migraciones de Netlify DB se verifican por hash: CRLF rompe el deploy
+# ("migration has been modified after being applied"). Forzar LF siempre.
+netlify/database/migrations/*.sql text eol=lf
+*.sql text eol=lf
