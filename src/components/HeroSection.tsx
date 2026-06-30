@@ -91,7 +91,7 @@ export function HeroSection() {
               href="discovery-wizard.html"
               className="pointer-events-auto bg-primary text-primary-foreground px-8 py-4 md:px-10 md:py-5 text-[10px] uppercase tracking-widest rounded-xl cursor-pointer hover:brightness-110 shadow-2xl shadow-primary/20 transition-all active:scale-[0.97] text-center"
             >
-              Diagnóstico Agéntico estratégico
+              Iniciar diagnóstico
             </a>
             <a 
               href="servicios.html#metodologia"

@@ -47,7 +47,7 @@ import { PAGES, LEGAL_LINKS } from './site-nav.js';
     <div class="flex flex-col gap-4 pt-16">
       ${pages.map(p => `<a href="${p.href}" class="${currentPage === p.href ? 'text-primary font-black' : 'text-on-surface-variant'} py-2 text-[10px] uppercase tracking-[0.2em]">${p.label}</a>`).join('\n      ')}
       <a href="discovery-wizard.html" class="bg-primary text-background font-black px-6 py-4 rounded-xl text-center text-[10px] uppercase tracking-widest mt-4 shadow-xl shadow-primary/20">
-        Diagnóstico Estratégico
+        Iniciar diagnóstico
       </a>
     </div>
   </div>

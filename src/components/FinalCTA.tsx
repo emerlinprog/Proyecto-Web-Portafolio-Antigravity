@@ -21,7 +21,7 @@ export function FinalCTA() {
               href="discovery-wizard.html"
               className="bg-primary text-primary-foreground px-10 py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.3em] flex items-center justify-center gap-4 mx-auto hover:brightness-110 transition-all shadow-2xl shadow-primary/20 active:scale-[0.97] w-fit"
             >
-              Iniciar Diagnóstico Estratégico
+              Iniciar diagnóstico
               <ArrowRight size={16} />
             </a>
           </div>

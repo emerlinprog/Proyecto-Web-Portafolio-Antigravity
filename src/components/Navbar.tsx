@@ -42,7 +42,7 @@ export function Navbar() {
               href="discovery-wizard.html" 
               className="bg-primary text-primary-foreground font-black px-5 py-2.5 rounded-xl hover:brightness-110 transition-all text-[10px] uppercase tracking-widest hidden sm:flex items-center gap-2 shadow-lg shadow-primary/20"
             >
-              Diagnóstico Estratégico
+              Diagnóstico
               <span className="material-symbols-outlined text-xs">bolt</span>
             </a>
             <button
@@ -84,7 +84,7 @@ export function Navbar() {
             className={`mt-8 bg-primary text-primary-foreground font-black px-10 py-5 rounded-2xl text-xs uppercase tracking-[0.2em] shadow-xl shadow-primary/20 ${isOpen ? 'scale-100 opacity-100' : 'scale-90 opacity-0'} transition-all duration-500 delay-500`}
             onClick={() => setIsOpen(false)}
           >
-            Solicitar Diagnóstico
+            Iniciar diagnóstico
           </a>
         </div>
       </div>
