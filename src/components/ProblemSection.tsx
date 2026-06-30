@@ -2,57 +2,71 @@ import React from "react";
 
 const problems = [
   {
+    id: "01",
     title: "Caos Operativo",
     description: "Dependencia excesiva de comunicación no estructurada (WhatsApp/Email) para decisiones críticas y flujos de trabajo.",
     consequence: "Pérdida de datos e ineficiencia.",
-    icon: "warning",
   },
   {
+    id: "02",
     title: "Silos de Información",
     description: "Hojas de cálculo fragmentadas y sistemas desconectados que requieren conciliación manual constante.",
     consequence: "Decisiones basadas en datos obsoletos.",
-    icon: "grid_view",
   },
   {
+    id: "03",
     title: "Cuellos de Botella",
     description: "Procesos que dependen de individuos clave, limitando la capacidad de la empresa para manejar más volumen.",
     consequence: "Imposibilidad de escalar sin colapsar.",
-    icon: "speed",
   }
 ];
 
 export function ProblemSection() {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-16 bg-background relative">
+    <section className="cv-auto py-16 md:py-24 px-6 md:px-16 bg-background relative">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col mb-20">
-          <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-foreground mb-8 leading-[0.9] max-w-4xl">
-            ¿Tu organización todavía opera con <br />
-            <span className="text-primary">WhatsApp, Excel y procesos manuales?</span>
-          </h2>
-          <p className="text-muted-foreground text-lg md:text-xl font-medium max-w-3xl leading-relaxed">
+        {/* Heading: asimétrico, ocupa columnas izquierdas; eyebrow tipo informe */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-8 mb-16 md:mb-24">
+          <div className="md:col-span-8">
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary mb-6 block">
+              Diagnóstico · Síntomas operativos
+            </span>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-foreground leading-[0.9]">
+              ¿Tu organización todavía opera con <br className="hidden md:block" />
+              <span className="text-primary">WhatsApp, Excel y procesos manuales?</span>
+            </h2>
+          </div>
+          <p className="md:col-span-4 self-end text-muted-foreground text-base md:text-lg font-medium leading-relaxed">
             El crecimiento exponencial requiere infraestructura tecnológica sólida, no más parches.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Lista-diagnóstico enumerada: filas con divisores completos, no tarjetas */}
+        <div className="border-t border-white/10">
           {problems.map((problem) => (
-            <div 
-              key={problem.title}
-              className="glass-card p-10 rounded-[2.5rem] flex flex-col hover:bg-white/[0.04] transition-all duration-500 group"
+            <div
+              key={problem.id}
+              className="group grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-3 py-8 md:py-10 border-b border-white/10 transition-colors duration-500 hover:bg-white/[0.02]"
             >
-              <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary mb-10 group-hover:scale-110 transition-transform duration-500">
-                <span className="material-symbols-outlined text-3xl">{problem.icon}</span>
+              {/* Índice + título */}
+              <div className="md:col-span-5 flex items-baseline gap-5">
+                <span className="font-mono text-sm text-primary/50 tabular-nums tracking-tight pt-1 group-hover:text-primary transition-colors">
+                  {problem.id}
+                </span>
+                <h3 className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight leading-none">
+                  {problem.title}
+                </h3>
               </div>
-              <h3 className="text-2xl font-black text-foreground mb-4 uppercase tracking-tight">
-                {problem.title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-10 flex-grow font-medium">
+
+              {/* Descripción */}
+              <p className="md:col-span-4 text-sm text-muted-foreground leading-relaxed font-medium">
                 {problem.description}
               </p>
-              <div className="text-[10px] font-black text-primary uppercase tracking-[0.2em] pt-8 border-t border-white/5 flex items-center gap-2">
-                <span className="text-muted-foreground/40 material-symbols-outlined text-xs">subdirectory_arrow_right</span> 
-                Consecuencia: {problem.consequence}
+
+              {/* Consecuencia, alineada a la derecha como "salida" del diagnóstico */}
+              <div className="md:col-span-3 md:text-right text-[10px] font-black text-primary uppercase tracking-[0.2em] leading-relaxed self-center">
+                <span className="block text-muted-foreground/40 mb-1">Consecuencia</span>
+                {problem.consequence}
               </div>
             </div>
           ))}

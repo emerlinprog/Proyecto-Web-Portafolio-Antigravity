@@ -4,6 +4,13 @@
   functions = "netlify/functions"
 
 [[redirects]]
+  # Página IA Aplicada fusionada dentro de Servicios
+  from = "/ia_aplicada.html"
+  to = "/servicios.html#ia"
+  status = 301
+  force = true
+
+[[redirects]]
   # Permitir que los archivos HTML estáticos se sirvan primero
   from = "/*.html"
   to = "/:splat.html"

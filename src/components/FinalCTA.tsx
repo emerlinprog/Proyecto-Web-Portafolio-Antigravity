@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function FinalCTA() {
   return (
-    <section className="py-32 px-6 md:px-16 bg-background relative overflow-hidden">
+    <section className="cv-auto py-32 px-6 md:px-16 bg-background relative overflow-hidden">
       <div className="max-w-5xl mx-auto">
         <div className="relative p-12 md:p-24 rounded-[3rem] glass-card overflow-hidden text-center">
           {/* Subtle Glow */}

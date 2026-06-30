@@ -46,7 +46,7 @@ const services = [
 
 export function ServicesGrid() {
   return (
-    <section id="services" className="py-32 px-6 md:px-16 bg-background relative overflow-hidden">
+    <section id="services" className="cv-auto py-32 px-6 md:px-16 bg-background relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
       

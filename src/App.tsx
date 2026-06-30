@@ -6,6 +6,7 @@ import { SkillsSection } from "./components/SkillsSection";
 import { FinalCTA } from "./components/FinalCTA";
 import { TrustBar } from "./components/TrustBar";
 import { ScrollReveal } from "./components/ScrollReveal";
+import { PAGES, LEGAL_LINKS } from "../site-nav.js";
 
 function App() {
   return (
@@ -59,20 +60,18 @@ function App() {
             <div>
               <h4 className="text-[10px] font-black text-foreground uppercase tracking-[0.2em] mb-6">Navegación</h4>
               <ul className="space-y-4">
-                <li><a href="index.html" className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium">Inicio</a></li>
-                <li><a href="servicios.html" className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium">Servicios</a></li>
-                <li><a href="ia_aplicada.html" className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium">IA Aplicada</a></li>
-                <li><a href="mvp_studio.html" className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium">MVP Studio</a></li>
-                <li><a href="casos_de_uso.html" className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium">Casos</a></li>
-                <li><a href="ai_lab.html" className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium">AI Lab</a></li>
+                {PAGES.map((p) => (
+                  <li key={p.href}><a href={p.href} className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium">{p.label}</a></li>
+                ))}
               </ul>
             </div>
             
             <div>
               <h4 className="text-[10px] font-black text-foreground uppercase tracking-[0.2em] mb-6">Legal & Soporte</h4>
               <ul className="space-y-4">
-                <li><a href="privacy.html" className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium">Privacidad</a></li>
-                <li><a href="discovery-wizard.html" className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium">Diagnóstico Estratégico</a></li>
+                {LEGAL_LINKS.map((l) => (
+                  <li key={l.href}><a href={l.href} className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium">{l.label}</a></li>
+                ))}
               </ul>
             </div>
           </div>
@@ -80,7 +79,6 @@ function App() {
           <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest relative">
               &copy; 2026 — Business Architecture Agency. All rights reserved.
-              <a href="consola_canvas.html" className="absolute -bottom-2 left-0 w-2 h-2 opacity-5 hover:opacity-100 transition-opacity bg-primary rounded-full" aria-label="Console Access"></a>
             </p>
             <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>

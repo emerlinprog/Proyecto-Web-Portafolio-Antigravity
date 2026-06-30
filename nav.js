@@ -1,15 +1,11 @@
 ﻿// nav.js — Componente compartido de navegación y footer premium
+// Las listas de páginas/legales viven en site-nav.js (fuente única).
+import { PAGES, LEGAL_LINKS } from './site-nav.js';
+
 (function () {
   const currentPage = location.pathname.split('/').pop() || 'index.html';
 
-  const pages = [
-    { href: 'index.html',              label: 'Inicio' },
-    { href: 'servicios.html',          label: 'Servicios' },
-    { href: 'ia_aplicada.html',        label: 'IA Aplicada' },
-    { href: 'mvp_studio.html',         label: 'MVP Studio' },
-    { href: 'casos_de_uso.html',       label: 'Casos' },
-    { href: 'ai_lab.html',             label: 'AI Lab' },
-  ];
+  const pages = PAGES;
 
   const navLinks = pages.map(p => {
     const active = currentPage === p.href;
@@ -38,10 +34,6 @@
         Diagnóstico
         <span class="material-symbols-outlined text-xs">bolt</span>
       </a>
-      <a href="consola_canvas.html" class="w-10 h-10 rounded-xl bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all group relative" title="Consola de Validación Canvas">
-        <span class="material-symbols-outlined text-xl">admin_panel_settings</span>
-        <span class="absolute -bottom-1 -right-1 w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-      </a>
       <button id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" class="lg:hidden text-on-surface p-2 rounded-xl bg-surface-container-high border border-outline-variant/30">
         <span class="material-symbols-outlined">menu</span>
       </button>
@@ -54,10 +46,6 @@
     </button>
     <div class="flex flex-col gap-4 pt-16">
       ${pages.map(p => `<a href="${p.href}" class="${currentPage === p.href ? 'text-primary font-black' : 'text-on-surface-variant'} py-2 text-[10px] uppercase tracking-[0.2em]">${p.label}</a>`).join('\n      ')}
-      <a href="consola_canvas.html" class="flex items-center gap-3 py-2 text-[10px] uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary">
-        <span class="material-symbols-outlined text-sm">admin_panel_settings</span>
-        Consola Canvas
-      </a>
       <a href="discovery-wizard.html" class="bg-primary text-background font-black px-6 py-4 rounded-xl text-center text-[10px] uppercase tracking-widest mt-4 shadow-xl shadow-primary/20">
         Diagnóstico Estratégico
       </a>
@@ -101,8 +89,7 @@
       <div>
         <h4 class="text-[10px] font-black text-on-surface uppercase tracking-[0.2em] mb-6">Legal & Soporte</h4>
         <ul class="space-y-4">
-          <li><a href="privacy.html" class="text-xs text-on-surface-variant hover:text-primary transition-colors">Privacidad</a></li>
-          <li><a href="discovery-wizard.html" class="text-xs text-on-surface-variant hover:text-primary transition-colors">Diagnóstico Estratégico</a></li>
+          ${LEGAL_LINKS.map(l => `<li><a href="${l.href}" class="text-xs text-on-surface-variant hover:text-primary transition-colors">${l.label}</a></li>`).join('\n          ')}
         </ul>
       </div>
     </div>
@@ -110,7 +97,6 @@
     <div class="pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-6">
       <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest relative">
         &copy; 2026 — Business Architecture Agency. All rights reserved.
-        <a href="consola_canvas.html" class="absolute -bottom-2 left-0 w-2 h-2 opacity-5 hover:opacity-100 transition-opacity bg-primary rounded-full" aria-label="Console Access"></a>
       </p>
       <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest flex items-center gap-2">
         <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>

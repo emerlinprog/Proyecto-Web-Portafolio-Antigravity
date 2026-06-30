@@ -1,12 +1,8 @@
 ﻿import React, { useState } from "react";
+import { PAGES } from "../../site-nav.js";
 
-const navLinks = [
-  { name: "Inicio", href: "index.html", active: true },
-  { name: "Servicios", href: "servicios.html" },
-  { name: "AI Lab", href: "ai_lab.html" },
-  { name: "MVP Studio", href: "mvp_studio.html" },
-  { name: "Casos", href: "casos_de_uso.html" },
-];
+// Fuente única en site-nav.js. La home es index.html → ese ítem va activo.
+const navLinks = PAGES.map((p) => ({ name: p.label, href: p.href, active: p.href === "index.html" }));
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,16 +45,7 @@ export function Navbar() {
               Diagnóstico Estratégico
               <span className="material-symbols-outlined text-xs">bolt</span>
             </a>
-            <a
-              href="consola_canvas.html"
-              className="hidden sm:flex w-10 h-10 rounded-xl bg-white/5 border border-white/10 items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all group relative"
-              title="Consola Canvas"
-              aria-label="Abrir Consola Canvas"
-            >
-              <span className="material-symbols-outlined text-xl">admin_panel_settings</span>
-              <span className="absolute -bottom-1 -right-1 w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-            </a>
-            <button 
+            <button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden text-foreground p-2 rounded-xl bg-white/5 border border-white/10 active:scale-95 transition-transform"
             >
@@ -98,13 +85,6 @@ export function Navbar() {
             onClick={() => setIsOpen(false)}
           >
             Solicitar Diagnóstico
-          </a>
-          <a
-            href="consola_canvas.html"
-            className={`text-sm font-black uppercase tracking-[0.2em] text-muted-foreground hover:text-primary ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} transition-all duration-500 delay-700`}
-            onClick={() => setIsOpen(false)}
-          >
-            Consola Canvas
           </a>
         </div>
       </div>

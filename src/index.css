@@ -152,3 +152,33 @@
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   }
 }
+
+/* Perf: omitir el pintado de secciones fuera del viewport en equipos modestos.
+   El navegador saltea layout+paint de lo off-screen (Spline, glows blur-[140px],
+   backdrop-filter) y reserva el alto con contain-intrinsic-size para no saltar el scroll. */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
+
+/* Accesibilidad: respetar prefers-reduced-motion (WCAG 2.3.3).
+   Neutraliza entradas, scan ambiental y scroll suave para quien lo pide. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Elementos que arrancan en opacity:0 esperando la animación de entrada:
+     forzarlos visibles para que no queden invisibles sin movimiento. */
+  .animate-fade-up,
+  .opacity-0 {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}

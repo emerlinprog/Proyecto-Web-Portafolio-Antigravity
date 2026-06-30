@@ -63,7 +63,7 @@ const tagVariants = {
 
 export function SkillsSection() {
   return (
-    <section className="py-40 px-6 relative overflow-hidden bg-background">
+    <section className="cv-auto py-40 px-6 relative overflow-hidden bg-background">
       {/* Dynamic Background Elements */}
       <div className="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-primary/5 blur-[140px] rounded-full pointer-events-none" />
       <div className="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-primary/10 blur-[140px] rounded-full pointer-events-none" />
