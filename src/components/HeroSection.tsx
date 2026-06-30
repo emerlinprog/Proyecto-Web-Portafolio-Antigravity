@@ -1,9 +1,9 @@
-﻿import React, { Suspense, useState } from "react";
+﻿import React, { Suspense, useState, useEffect } from "react";
 
 const Spline = React.lazy(() => import("@splinetool/react-spline"));
 
 const SplineLoader = ({ fadeOut }: { fadeOut: boolean }) => (
-  <div className={`absolute inset-0 flex items-center justify-center bg-[#0a0a0c] z-[5] transition-opacity duration-1000 ${fadeOut ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+  <div className={`absolute inset-0 flex items-center justify-center bg-[#0a0a0c] z-[5] pointer-events-none transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
     <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-4 gap-4 p-8 opacity-20 pointer-events-none">
       <div className="h-full border border-primary/10 rounded-3xl bg-primary/5 animate-pulse" />
       <div className="h-full border border-primary/10 rounded-3xl bg-primary/5 animate-pulse hidden md:block" style={{ animationDelay: '0.2s' }} />
@@ -33,22 +33,40 @@ const SplineLoader = ({ fadeOut }: { fadeOut: boolean }) => (
 
 export function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  // El hero 3D Spline (~4MB) solo se carga en desktop. En móvil se usa un
+  // fondo CSS ligero: acelera la carga y evita que el canvas bloquee el scroll.
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-end bg-hero-bg overflow-hidden">
-      {/* Zero-Flash Spline Loader */}
-      <SplineLoader fadeOut={isLoaded} />
+      {/* Fondo base (único en móvil): gradiente ligero, sin descarga 3D */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top,rgba(150,203,255,0.12),transparent_60%)]" />
 
-      {/* Spline 3D Background */}
-      <div className={`absolute inset-0 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-        <Suspense fallback={null}>
-          <Spline 
-            scene="https://prod.spline.design/Slk6b8kz3LRlKiyk/scene.splinecode"
-            className="w-full h-full"
-            onLoad={() => setIsLoaded(true)}
-          />
-        </Suspense>
-      </div>
+      {isDesktop && (
+        <>
+          {/* Zero-Flash Spline Loader */}
+          <SplineLoader fadeOut={isLoaded} />
+
+          {/* Spline 3D Background — pointer-events-none para no capturar el scroll */}
+          <div className={`absolute inset-0 pointer-events-none transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+            <Suspense fallback={null}>
+              <Spline
+                scene="https://prod.spline.design/Slk6b8kz3LRlKiyk/scene.splinecode"
+                className="w-full h-full pointer-events-none"
+                onLoad={() => setIsLoaded(true)}
+              />
+            </Suspense>
+          </div>
+        </>
+      )}
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/40 z-[1] pointer-events-none" />
