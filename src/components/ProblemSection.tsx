@@ -3,21 +3,21 @@ import React from "react";
 const problems = [
   {
     id: "01",
-    title: "Caos Operativo",
-    description: "Dependencia excesiva de comunicación no estructurada (WhatsApp/Email) para decisiones críticas y flujos de trabajo.",
-    consequence: "Pérdida de datos e ineficiencia.",
+    title: "Contexto disperso",
+    description: "Decisiones y acuerdos distribuidos entre mensajes, correos y archivos sin una referencia común.",
+    consequence: "Decisiones difíciles de rastrear.",
   },
   {
     id: "02",
-    title: "Silos de Información",
-    description: "Hojas de cálculo fragmentadas y sistemas desconectados que requieren conciliación manual constante.",
-    consequence: "Decisiones basadas en datos obsoletos.",
+    title: "Información fragmentada",
+    description: "Datos y documentos que requieren verificación y conciliación manual antes de poder utilizarse.",
+    consequence: "Más tiempo para verificar y conciliar.",
   },
   {
     id: "03",
-    title: "Cuellos de Botella",
-    description: "Procesos que dependen de individuos clave, limitando la capacidad de la empresa para manejar más volumen.",
-    consequence: "Imposibilidad de escalar sin colapsar.",
+    title: "Dependencias críticas",
+    description: "Tareas y excepciones que solo algunas personas conocen o pueden resolver.",
+    consequence: "Mayor dependencia y tiempos de espera.",
   }
 ];
 
@@ -32,12 +32,12 @@ export function ProblemSection() {
               Diagnóstico · Síntomas operativos
             </span>
             <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-foreground leading-[0.9]">
-              ¿Tu organización todavía opera con <br className="hidden md:block" />
-              <span className="text-primary">WhatsApp, Excel y procesos manuales?</span>
+              ¿El trabajo depende de mensajes, <br className="hidden md:block" />
+              <span className="text-primary">hojas aisladas y seguimiento manual?</span>
             </h2>
           </div>
           <p className="md:col-span-4 self-end text-muted-foreground text-base md:text-lg font-medium leading-relaxed">
-            El crecimiento exponencial requiere infraestructura tecnológica sólida, no más parches.
+            Antes de incorporar tecnología, conviene identificar dónde se pierde contexto, evidencia o capacidad de respuesta.
           </p>
         </div>
 

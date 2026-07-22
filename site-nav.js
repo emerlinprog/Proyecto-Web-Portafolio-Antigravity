@@ -3,14 +3,15 @@
 // Editar el menú/footer SOLO aquí para evitar que las listas se desincronicen.
 
 export const PAGES = [
-  { href: 'index.html',        label: 'Inicio' },
-  { href: 'servicios.html',    label: 'Servicios' },
-  { href: 'mvp_studio.html',   label: 'MVP Studio' },
-  { href: 'casos_de_uso.html', label: 'Casos' },
-  { href: 'ai_lab.html',       label: 'AI Lab' },
+  { href: '/',                label: 'Inicio' },
+  { href: '/orlando-linares', label: 'Sobre mí' },
+  { href: '/enfoque',         label: 'Enfoque' },
+  { href: '/articulos',       label: 'Artículos' },
+  { href: '/servicios',       label: 'Servicios' },
+  { href: '/casos',           label: 'Casos' },
 ];
 
 export const LEGAL_LINKS = [
-  { href: 'privacy.html',          label: 'Privacidad' },
-  { href: 'discovery-wizard.html', label: 'Diagnóstico Estratégico' },
+  { href: '/privacy',          label: 'Privacidad' },
+  { href: '/discovery-wizard', label: 'Diagnóstico Estratégico' },
 ];

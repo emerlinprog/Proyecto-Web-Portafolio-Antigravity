@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cómo levantar un proceso AS-IS paso a paso | Orlando Linares</title>
+  <meta name="description" content="Guía para levantar un proceso AS-IS con alcance, actores, evidencias, actividades, decisiones, tiempos, problemas y validación."/>
+  <meta name="author" content="Orlando Linares"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://orlandolinares.com/articulos/como-levantar-proceso-as-is"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:locale" content="es_PE"/>
+  <meta property="og:url" content="https://orlandolinares.com/articulos/como-levantar-proceso-as-is"/>
+  <meta property="og:title" content="Cómo levantar un proceso AS-IS paso a paso"/>
+  <meta property="og:description" content="Documente cómo funciona realmente un proceso antes de rediseñarlo, automatizarlo o incorporar inteligencia artificial."/>
+  <meta property="article:author" content="Orlando Linares"/>
+  <meta property="article:published_time" content="2026-07-22"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"BlogPosting","@id":"https://orlandolinares.com/articulos/como-levantar-proceso-as-is#article","url":"https://orlandolinares.com/articulos/como-levantar-proceso-as-is","mainEntityOfPage":"https://orlandolinares.com/articulos/como-levantar-proceso-as-is","headline":"Cómo levantar un proceso AS-IS paso a paso","description":"Guía para levantar un proceso AS-IS con alcance, actores, evidencias, actividades, decisiones, tiempos, problemas y validación.","datePublished":"2026-07-22","dateModified":"2026-07-22","inLanguage":"es-PE","author":{"@id":"https://orlandolinares.com/orlando-linares#person"},"isPartOf":{"@id":"https://orlandolinares.com/#website"}},
+    {"@type":"BreadcrumbList","@id":"https://orlandolinares.com/articulos/como-levantar-proceso-as-is#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://orlandolinares.com/"},{"@type":"ListItem","position":2,"name":"Artículos","item":"https://orlandolinares.com/articulos"},{"@type":"ListItem","position":3,"name":"Cómo levantar un proceso AS-IS","item":"https://orlandolinares.com/articulos/como-levantar-proceso-as-is"}]}
+  ]}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/src/index.css"/><link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <style>
+    body{font-family:'Geist',sans-serif;scroll-behavior:smooth}.glass-panel{background:rgba(24,24,28,.68);border:1px solid rgba(150,203,255,.12);backdrop-filter:blur(20px)}.eyebrow{letter-spacing:.28em;text-transform:uppercase;font-size:.65rem;font-weight:800;color:hsl(var(--primary))}.article-body{color:hsl(var(--on-surface-variant));font-size:1.04rem;line-height:1.82}.article-body h2{color:hsl(var(--on-surface));font-size:clamp(1.8rem,4vw,2.7rem);font-weight:900;letter-spacing:-.035em;line-height:1.12;margin:4.5rem 0 1.4rem}.article-body h3{color:hsl(var(--on-surface));font-size:1.25rem;font-weight:850;margin:2.4rem 0 .8rem}.article-body p{margin:0 0 1.25rem}.article-body ul,.article-body ol{margin:1rem 0 1.7rem 1.25rem}.article-body li{margin:.55rem 0;padding-left:.35rem}.article-body ul{list-style:disc}.article-body ol{list-style:decimal}.article-body a{color:hsl(var(--primary));text-decoration:underline;text-underline-offset:3px}.article-table{width:100%;border-collapse:collapse;min-width:760px}.article-table th,.article-table td{padding:1rem;text-align:left;vertical-align:top;border-bottom:1px solid rgba(150,203,255,.12)}.article-table th{color:hsl(var(--on-surface));font-size:.76rem;text-transform:uppercase;letter-spacing:.08em}.callout{border-left:3px solid hsl(var(--primary));background:rgba(150,203,255,.06);padding:1.4rem 1.5rem;border-radius:0 1rem 1rem 0;margin:1.8rem 0}
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen">
+  <main>
+    <header class="relative pt-16 md:pt-24 pb-12 px-6 overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[780px] h-[520px] bg-primary/10 blur-[155px] -z-10 rounded-full"></div>
+      <div class="max-w-5xl mx-auto">
+        <nav aria-label="Migas de pan" class="mb-10 text-xs text-on-surface-variant"><ol class="flex flex-wrap items-center gap-2"><li><a href="/" class="hover:text-primary">Inicio</a></li><li aria-hidden="true">/</li><li><a href="/articulos" class="hover:text-primary">Artículos</a></li><li aria-hidden="true">/</li><li aria-current="page" class="text-primary">Proceso AS-IS</li></ol></nav>
+        <p class="eyebrow mb-6">Guía práctica · Arquitectura de procesos</p>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-[-0.055em] leading-[.98] mb-8">Cómo levantar un proceso AS-IS paso a paso</h1>
+        <p class="text-xl md:text-2xl text-on-surface-variant leading-relaxed max-w-4xl mb-8">Un AS-IS útil no es un diagrama decorativo. Es una representación validada de cómo se produce hoy un resultado: quién participa, qué evidencia utiliza, dónde decide, cuánto espera y qué problemas enfrenta.</p>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-on-surface-variant"><span>Por <a href="/orlando-linares" rel="author" class="text-primary font-bold hover:underline">Orlando Linares</a></span><span aria-hidden="true">·</span><time datetime="2026-07-22">Publicado el 22 de julio de 2026</time><span aria-hidden="true">·</span><span>Lectura estimada: 14 minutos</span></div>
+      </div>
+    </header>
+    <div class="px-6 pb-20 md:pb-28"><article class="article-body max-w-4xl mx-auto">
+      <section aria-labelledby="respuesta-breve" class="glass-panel rounded-[1.7rem] p-7 md:p-9 mt-8"><h2 id="respuesta-breve" class="!mt-0 !text-2xl">Respuesta breve</h2><p class="!mb-0 text-on-surface">Para levantar un proceso AS-IS, defina propósito e inicio y fin; identifique propietarios, participantes y usuarios; reúna documentos y datos; observe el trabajo y entreviste a quienes lo ejecutan; registre actividades, decisiones, excepciones, sistemas, tiempos y controles; contraste versiones y valide el resultado con evidencia antes de analizar problemas o diseñar el TO-BE.</p></section>
+
+      <h2>Qué es un proceso AS-IS y para qué sirve</h2>
+      <p>AS-IS significa “como es”. Describe el funcionamiento actual de un proceso dentro de un alcance acordado. Su propósito es crear una línea base común para comprender resultados, responsabilidades, interdependencias y variaciones antes de proponer cambios.</p>
+      <p>La representación puede ser una tabla, un mapa simple, un diagrama BPMN o una combinación. El formato depende de la pregunta. Lo indispensable es que el contenido refleje el trabajo real y pueda rastrearse a entrevistas, documentos, registros u observación.</p>
+      <h3>Diferencia entre proceso declarado y proceso real</h3>
+      <p>El procedimiento puede indicar cómo debería ejecutarse una actividad, mientras la práctica incorpora atajos, esperas, controles informales y excepciones. Ninguna fuente aislada describe todo. El levantamiento contrasta lo normado, lo narrado y lo observado.</p>
+      <p>Una diferencia no implica automáticamente incumplimiento. Puede revelar una regla obsoleta, una necesidad no prevista o una adaptación legítima. El análisis debe registrar la brecha antes de juzgarla.</p>
+      <h3>Cuándo no conviene empezar dibujando BPMN</h3>
+      <p>BPMN 2.0.2 es una notación formal útil para representar eventos, actividades, decisiones y participantes. Sin embargo, dibujar símbolos demasiado pronto puede centrar la conversación en la notación y no en el proceso. Primero construya una secuencia sencilla y confirme alcance, actores y evidencias.</p>
+      <div class="callout"><strong class="text-on-surface">Regla práctica:</strong> modele con el menor nivel de detalle que permita responder la pregunta actual. Añada precisión solo cuando ayude a analizar, implementar o controlar.</div>
+
+      <h2>Preparación del levantamiento</h2>
+      <h3>Definir propósito, alcance, inicio y fin</h3>
+      <p>Explique para qué se levanta el proceso: reducir tiempos, entender controles, preparar requisitos o evaluar una automatización. Defina el evento inicial y el resultado final. “Gestión de compras” es demasiado amplio; “desde la recepción del requerimiento completo hasta la emisión de la orden” es verificable.</p>
+      <p>Registre exclusiones. Un alcance explícito evita que cada participante describa un proceso diferente y permite identificar dependencias que quedarán para otro análisis.</p>
+      <h3>Identificar propietario, participantes y usuarios</h3>
+      <p>El propietario responde por el resultado o por mantener la definición del proceso. Los participantes ejecutan actividades; los usuarios reciben o experimentan el servicio. Incluya áreas externas cuando aporten evidencia, autoricen o reciban resultados.</p>
+      <p>No limite el levantamiento a jefaturas. Quienes ejecutan casos diarios conocen excepciones y transferencias que no aparecen en informes.</p>
+      <h3>Reunir normas, formatos, registros y sistemas</h3>
+      <p>Solicite procedimientos, formatos, reglas, matrices, correos tipo, reportes, indicadores, tickets y muestras anonimizadas. Para cada fuente registre versión, vigencia, propietario y restricción de acceso.</p>
+      <p>Prepare una matriz de evidencias para distinguir afirmaciones confirmadas, pendientes y contradictorias. Esto evita convertir recuerdos en hechos.</p>
+
+      <h2>Técnicas para obtener evidencia</h2>
+      <h3>Entrevistas y talleres</h3>
+      <p>Use entrevistas para comprender responsabilidades, decisiones y casos concretos. Pregunte “muéstreme el último caso” en lugar de “¿normalmente qué hacen?”. Los ejemplos reducen respuestas idealizadas.</p>
+      <p>Los talleres sirven para contrastar versiones y ordenar la secuencia. No deben sustituir conversaciones individuales cuando existe jerarquía, conflicto o conocimiento especializado.</p>
+      <h3>Observación del trabajo</h3>
+      <p>Observe cómo una persona recibe, interpreta, registra y transfiere un caso. Anote herramientas, interrupciones, búsquedas, duplicaciones y decisiones. Pida permiso y proteja información sensible; el objetivo es comprender el sistema, no evaluar desempeño personal.</p>
+      <h3>Revisión documental y análisis de datos</h3>
+      <p>Los registros permiten contrastar frecuencia, volumen y tiempos. Verifique qué representa cada marca temporal: creación, envío, recepción o cierre. Un dato disponible no siempre mide lo que su nombre sugiere.</p>
+      <p>La guía de servicios de GOV.UK recomienda combinar la perspectiva interna con el recorrido del usuario. Para procesos que cruzan áreas, mapear contactos y evidencias del usuario ayuda a detectar puntos muertos que un flujo interno puede ocultar.</p>
+
+      <h2>Documentar el proceso actual</h2>
+        <div class="overflow-x-auto glass-panel rounded-2xl my-8"><table class="article-table"><caption class="sr-only">Elementos, preguntas y evidencias para documentar un proceso AS-IS</caption><thead><tr><th scope="col">Elemento</th><th scope="col">Pregunta</th><th scope="col">Evidencia</th></tr></thead><tbody>
+        <tr><td>Resultado</td><td>¿Qué condición indica que terminó?</td><td>Documento, registro, servicio o estado.</td></tr>
+        <tr><td>Actividad</td><td>¿Qué trabajo transforma la entrada?</td><td>Demostración, instrucción o registro.</td></tr>
+        <tr><td>Decisión</td><td>¿Qué condición cambia el camino?</td><td>Regla, criterio, autoridad y casos.</td></tr>
+        <tr><td>Rol</td><td>¿Quién ejecuta, aprueba o recibe?</td><td>Responsabilidad formal y práctica.</td></tr>
+        <tr><td>Información</td><td>¿Qué documento o dato entra y sale?</td><td>Formato, sistema, fuente y versión.</td></tr>
+        <tr><td>Tiempo</td><td>¿Cuánto trabaja y cuánto espera?</td><td>Marcas temporales, muestra y rango.</td></tr>
+        <tr><td>Control</td><td>¿Qué previene, detecta o corrige?</td><td>Responsable, evidencia y frecuencia.</td></tr>
+        <tr><td>Excepción</td><td>¿Qué ocurre fuera del camino normal?</td><td>Caso real, frecuencia y tratamiento.</td></tr>
+      </tbody></table></div>
+      <h3>Actividades, decisiones y excepciones</h3>
+      <p>Escriba actividades con verbo y objeto: “revisar integridad del expediente”. En decisiones, documente condición y posibles salidas. No oculte excepciones en una nota general; pueden explicar gran parte del tiempo y riesgo.</p>
+      <h3>Roles, transferencias y responsabilidades</h3>
+      <p>Marque cada transferencia entre personas, áreas o sistemas. Es frecuente que el problema no esté dentro de una tarea sino en la espera, pérdida de contexto o duplicación que ocurre entre responsables.</p>
+      <h3>Documentos, datos y sistemas</h3>
+      <p>Relacione cada actividad con sus entradas y salidas. Identifique cuál fuente es oficial, dónde se conserva la versión y qué datos se copian manualmente. Evite asumir que dos campos con el mismo nombre significan lo mismo.</p>
+      <h3>Tiempos, controles y puntos de espera</h3>
+      <p>Separe tiempo de trabajo, espera y retrabajo. Registre rangos y casos extremos, no solo promedios. En controles, explique objetivo, responsable, evidencia y reacción ante un hallazgo.</p>
+
+      <h2>Validar el AS-IS con quienes ejecutan el trabajo</h2>
+      <h3>Contrastar variaciones y desacuerdos</h3>
+      <p>Presente el mapa como hipótesis. Recorra al menos un caso normal y uno excepcional. Cuando existan versiones distintas, identifique si corresponden a sedes, tipos de caso, periodos o interpretaciones diferentes.</p>
+      <p>No fuerce un consenso artificial. Documente la variante y quién puede resolverla. La incertidumbre visible es más útil que un diagrama limpio pero falso.</p>
+      <h3>Cerrar hallazgos y dejar trazabilidad de cambios</h3>
+      <p>Registre fecha, participantes, versión, comentarios y decisiones. Un AS-IS se vuelve obsoleto; debe indicar su corte temporal y responsable de actualización.</p>
+
+      <h2>Analizar problemas sin saltar a la solución</h2>
+      <h3>Cuellos de botella, reprocesos y causas</h3>
+      <p>Describa el problema como diferencia entre resultado esperado y observado. “Falta un chatbot” no es problema; “las consultas esperan dos días porque la información está distribuida y no existe responsable de respuesta” sí permite investigar causas.</p>
+      <p>Diferencie síntoma, causa y consecuencia. Una aprobación lenta puede originarse en expedientes incompletos, asignación tardía o autoridad poco clara. Cada causa exige una intervención diferente.</p>
+      <h3>Riesgos y oportunidades de mejora</h3>
+      <p>Valore frecuencia, impacto y capacidad de detección. Identifique primero mejoras de proceso, información y responsabilidad. La automatización o IA solo debe evaluarse después de comprender qué parte es estable y qué error debe controlar.</p>
+
+      <h2>Ejemplo aplicado: solicitud administrativa</h2>
+      <p><strong class="text-on-surface">Ejemplo completamente simulado.</strong> Una oficina recibe solicitudes por correo y mesa de partes. Un analista registra datos en una hoja, revisa anexos y solicita subsanación cuando falta información. Los casos completos se envían por correo al especialista; el seguimiento depende de carpetas personales.</p>
+      <p>El levantamiento identifica dos variantes de ingreso, tres copias del mismo dato, ausencia de estado único y esperas sin alerta. La primera mejora no es incorporar IA: es definir entrada válida, registro central, estados, responsable y evidencia de transferencia. Después puede evaluarse automatización para validaciones y alertas. La IA solo sería candidata para una tarea delimitada de extracción documental con revisión.</p>
+
+      <h2>Entregables mínimos de un levantamiento AS-IS</h2>
+      <ul><li>Ficha de propósito, alcance, inicio, fin y propietario.</li><li>Mapa de actores, usuarios y dependencias.</li><li>Inventario de documentos, datos, sistemas y normas.</li><li>Flujo validado con actividades, decisiones y excepciones.</li><li>Matriz de roles y transferencias.</li><li>Línea base de volumen, trabajo, espera y reproceso.</li><li>Inventario de controles y riesgos.</li><li>Lista de problemas con evidencia y causas por confirmar.</li><li>Registro de versiones, validadores y desacuerdos.</li><li>Preguntas abiertas para el diseño TO-BE.</li></ul>
+
+      <h2>Checklist de validación</h2>
+      <ul><li>¿El alcance tiene inicio, fin y exclusiones?</li><li>¿El resultado y usuario están identificados?</li><li>¿Participaron quienes ejecutan el proceso?</li><li>¿Se contrastaron procedimiento, práctica y registros?</li><li>¿Cada decisión muestra condición y responsable?</li><li>¿Las excepciones relevantes están visibles?</li><li>¿Se distinguen trabajo, espera y retrabajo?</li><li>¿Documentos y datos tienen fuente y versión?</li><li>¿Los controles indican evidencia y reacción?</li><li>¿El mapa fue recorrido con casos reales o anonimizados?</li><li>¿Los desacuerdos y límites quedaron registrados?</li><li>¿La solución futura se mantuvo fuera del levantamiento?</li></ul>
+
+      <h2>Preguntas frecuentes</h2>
+      <h3>¿Cuántas entrevistas son necesarias?</h3><p>No existe un número universal. Incluya los roles que ejecutan, deciden, reciben y controlan, y continúe hasta comprender las variantes relevantes. Un proceso pequeño puede requerir pocas conversaciones; uno transversal necesita varias perspectivas.</p>
+      <h3>¿Siempre se necesita BPMN 2.0?</h3><p>No. Una tabla o mapa sencillo puede bastar para alcance y diagnóstico. BPMN aporta precisión cuando debe comunicarse lógica, participantes y eventos de forma estándar, pero exige conocimiento de la notación y propósito claro.</p>
+      <h3>¿Qué hacer cuando cada área describe un proceso distinto?</h3><p>No elija una versión por mayoría. Separe variantes, contraste evidencia y determine qué autoridad puede resolver la definición. Las diferencias pueden revelar procesos realmente distintos o una falta de gobierno.</p>
+
+      <h2>Fuentes y fecha de revisión</h2>
+      <p>Revisión editorial: 21 de julio de 2026. Esta guía presenta un método general; cada organización debe adaptarlo a sus normas, riesgos y gobierno de información.</p>
+      <ul><li><a href="https://www.omg.org/spec/BPMN/2.0.2/" target="_blank" rel="noreferrer">Object Management Group — BPMN 2.0.2</a>.</li><li><a href="https://www.iso.org/quality-management/" target="_blank" rel="noreferrer">ISO — enfoque por procesos y mejora continua</a>.</li><li><a href="https://www.gov.uk/service-manual/design/map-a-users-whole-problem" target="_blank" rel="noreferrer">GOV.UK Service Manual — mapear el problema completo del usuario</a>.</li><li><a href="https://www.gov.uk/service-manual/user-research/creating-an-experience-map/" target="_blank" rel="noreferrer">GOV.UK Service Manual — creación de mapas de experiencia</a>.</li></ul>
+
+      <section aria-labelledby="sobre-autor" class="glass-panel rounded-[1.7rem] p-7 md:p-9 mt-16"><p class="eyebrow mb-4">Sobre el autor</p><h2 id="sobre-autor" class="!mt-0 !text-2xl">Orlando Linares</h2><p>Consultor en arquitectura de procesos e IA aplicada. Su enfoque parte del trabajo real y la evidencia antes de diseñar requisitos, automatización o inteligencia artificial.</p><a href="/orlando-linares">Ver perfil profesional de Orlando Linares</a></section>
+      <div class="mt-12 flex flex-col sm:flex-row gap-4"><a href="/articulos/calcular-roi-automatizacion-administrativa" class="inline-flex justify-center bg-surface-container text-on-surface font-black px-7 py-4 rounded-xl text-xs uppercase tracking-widest no-underline">Anterior: calcular el ROI</a><a href="/articulos" class="inline-flex justify-center bg-primary text-background font-black px-7 py-4 rounded-xl text-xs uppercase tracking-widest no-underline">Ver todos los artículos</a></div>
+    </article></div>
+  </main>
+  <script src="/nav.js" type="module"></script>
+</body>
+</html>

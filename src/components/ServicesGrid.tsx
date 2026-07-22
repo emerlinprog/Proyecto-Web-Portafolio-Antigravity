@@ -4,43 +4,43 @@ import { MoveRight } from "lucide-react";
 const services = [
   {
     id: "01",
-    title: "MVP Studio",
-    subtitle: "Validación Operativa",
-    description: "De la idea al prototipo funcional en 4 semanas. Reducimos el riesgo de inversión tecnológica con validación basada en datos reales.",
-    icon: "rocket_launch",
+    title: "Diagnóstico de procesos",
+    subtitle: "Comprender antes de intervenir",
+    description: "Delimito el proceso actual, sus actores, evidencias y fricciones para decidir qué problema conviene resolver primero.",
+    icon: "manage_search",
     color: "primary",
-    href: "mvp_studio.html",
-    tag: "Factory"
+    href: "/discovery-wizard",
+    tag: "Diagnóstico"
   },
   {
     id: "02",
-    title: "AI Lab",
-    subtitle: "Orquestación Inteligente",
-    description: "Diseño e implementación de agentes autónomos y flujos de trabajo inteligentes para escalar operaciones sin aumentar la fricción.",
-    icon: "psychology",
+    title: "Arquitectura de procesos",
+    subtitle: "AS-IS y TO-BE",
+    description: "Documento cómo funciona el trabajo y diseño una operación futura con roles, reglas, controles y excepciones explícitas.",
+    icon: "account_tree",
     color: "white",
-    href: "ai_lab.html",
-    tag: "Advanced"
+    href: "/servicios#procesos",
+    tag: "Procesos"
   },
   {
     id: "03",
-    title: "Data Strategy",
-    subtitle: "Analytics & Evidence",
-    description: "Decisiones estratégicas basadas en evidencia mediante Power BI, Lenguaje DAX y modelamiento estadístico avanzado.",
-    icon: "analytics",
+    title: "Trazabilidad y evidencia",
+    subtitle: "Gestión documental",
+    description: "Organizo documentos, datos, versiones y fuentes para que las observaciones y decisiones puedan verificarse.",
+    icon: "fact_check",
     color: "primary",
-    href: "servicios.html#data",
-    tag: "Analytics"
+    href: "/servicios#evidencia",
+    tag: "Evidencia"
   },
   {
     id: "04",
-    title: "Business Arch",
-    subtitle: "Diseño Táctico",
-    description: "Modelamiento de procesos corporativos bajo estándares BABOK V3 y BPMN 2.0 para una arquitectura empresarial sólida.",
-    icon: "account_tree",
+    title: "IA aplicada",
+    subtitle: "Evaluación responsable",
+    description: "Evalúo dónde la IA puede aportar valor, qué límites requiere y qué decisiones deben conservar control humano.",
+    icon: "psychology",
     color: "white",
-    href: "servicios.html#arch",
-    tag: "Structural"
+    href: "/servicios#ia",
+    tag: "IA aplicada"
   }
 ];
 
@@ -52,10 +52,10 @@ export function ServicesGrid() {
       
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col mb-20">
-          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary mb-4">Portafolio de Soluciones</span>
+          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary mb-4">Áreas de trabajo</span>
           <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-foreground uppercase leading-[0.9]">
-            Arquitectura <br />
-            <span className="text-muted-foreground/40">de Impacto.</span>
+            Intervenciones <br />
+            <span className="text-muted-foreground/40">con propósito.</span>
           </h2>
         </div>
 
@@ -95,7 +95,7 @@ export function ServicesGrid() {
               </div>
 
               <div className="relative z-10 mt-8 flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-foreground group-hover:text-primary transition-colors">
-                Explorar Solución
+                Explorar área
                 <MoveRight size={14} className="group-hover:translate-x-2 transition-transform" />
               </div>
             </a>

@@ -4,26 +4,26 @@ import { motion } from "framer-motion";
 const skillGroups = [
   {
     id: "01",
-    title: "Management",
+    title: "Análisis de procesos",
     icon: "strategy",
-    description: "Orquestación de equipos y recursos bajo metodologías de alto rendimiento.",
-    skills: ["PMBOK 7ª", "Scrum Agile", "MS Project", "SIAF - SIGA", "Logística RP", "SEACE 3.0"],
+    description: "Comprensión del trabajo actual y diseño de una operación futura verificable.",
+    skills: ["Alcance", "AS-IS", "TO-BE", "Actores", "Reglas", "Controles"],
     color: "from-primary/20 to-transparent"
   },
   {
     id: "02",
-    title: "Technology",
+    title: "Análisis de negocio",
     icon: "code_blocks",
-    description: "Desarrollo e integración de soluciones basadas en IA y procesamiento de datos.",
-    skills: ["Python AI", "R-Studio", "Power BI Elite", "Prompt Eng", "SAP ERP", "Agentic IA"],
+    description: "Conversión de necesidades operativas en decisiones y entregables accionables.",
+    skills: ["Necesidades", "Requisitos", "Prioridades", "Criterios de aceptación", "Hoja de ruta"],
     color: "from-blue-500/20 to-transparent"
   },
   {
     id: "03",
-    title: "Frameworks",
+    title: "IA aplicada",
     icon: "account_tree",
-    description: "Estandarización de procesos y cumplimiento normativo institucional.",
-    skills: ["BABOK V3", "Bizagi BPMN", "Lean Sigma", "Gestión Pública", "Integridad", "Auditoría"],
+    description: "Evaluación de casos de uso con evidencia, límites y responsabilidad explícita.",
+    skills: ["Casos de uso", "Evidencia", "Trazabilidad", "Control humano", "Adopción", "Mantenimiento"],
     color: "from-purple-500/20 to-transparent"
   }
 ];
@@ -80,14 +80,14 @@ export function SkillsSection() {
             variants={itemVariants}
             className="text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-6 block"
           >
-            Technical Ecosystem
+            Método profesional
           </motion.span>
           <motion.h2 
             variants={itemVariants}
             className="text-5xl md:text-7xl font-black tracking-tighter text-foreground uppercase leading-none"
           >
-            Dominio <br className="md:hidden" />
-            <span className="text-muted-foreground/30">Técnico.</span>
+            Capacidades <br className="md:hidden" />
+            <span className="text-muted-foreground/30">de trabajo.</span>
           </motion.h2>
           <motion.div 
             variants={itemVariants}

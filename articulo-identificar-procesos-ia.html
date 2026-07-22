@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cómo identificar procesos adecuados para utilizar IA | Orlando Linares</title>
+  <meta name="description" content="Siete criterios para identificar procesos adecuados para IA, priorizar oportunidades y diseñar un piloto con riesgos y control humano."/>
+  <meta name="author" content="Orlando Linares"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://orlandolinares.com/articulos/identificar-procesos-adecuados-para-ia"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:locale" content="es_PE"/>
+  <meta property="og:url" content="https://orlandolinares.com/articulos/identificar-procesos-adecuados-para-ia"/>
+  <meta property="og:title" content="Cómo identificar procesos adecuados para utilizar IA"/>
+  <meta property="og:description" content="Un método práctico para evaluar datos, volumen, riesgo, control humano, integración y valor antes de invertir en IA."/>
+  <meta property="article:author" content="Orlando Linares"/>
+  <meta property="article:published_time" content="2026-07-22"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"BlogPosting","@id":"https://orlandolinares.com/articulos/identificar-procesos-adecuados-para-ia#article","url":"https://orlandolinares.com/articulos/identificar-procesos-adecuados-para-ia","mainEntityOfPage":"https://orlandolinares.com/articulos/identificar-procesos-adecuados-para-ia","headline":"Cómo identificar procesos adecuados para utilizar inteligencia artificial","description":"Siete criterios para identificar procesos adecuados para IA, priorizar oportunidades y diseñar un piloto con riesgos y control humano.","datePublished":"2026-07-22","dateModified":"2026-07-22","inLanguage":"es-PE","author":{"@id":"https://orlandolinares.com/orlando-linares#person"},"isPartOf":{"@id":"https://orlandolinares.com/#website"}},
+    {"@type":"BreadcrumbList","@id":"https://orlandolinares.com/articulos/identificar-procesos-adecuados-para-ia#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://orlandolinares.com/"},{"@type":"ListItem","position":2,"name":"Artículos","item":"https://orlandolinares.com/articulos"},{"@type":"ListItem","position":3,"name":"Procesos adecuados para IA","item":"https://orlandolinares.com/articulos/identificar-procesos-adecuados-para-ia"}]}
+  ]}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/src/index.css"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <style>
+    body { font-family: 'Geist', sans-serif; scroll-behavior: smooth; }
+    .glass-panel { background: rgba(24,24,28,.68); border: 1px solid rgba(150,203,255,.12); backdrop-filter: blur(20px); }
+    .eyebrow { letter-spacing: .28em; text-transform: uppercase; font-size: .65rem; font-weight: 800; color: hsl(var(--primary)); }
+    .article-body { color: hsl(var(--on-surface-variant)); font-size: 1.04rem; line-height: 1.82; }
+    .article-body h2 { color: hsl(var(--on-surface)); font-size: clamp(1.8rem,4vw,2.7rem); font-weight: 900; letter-spacing: -.035em; line-height: 1.12; margin: 4.5rem 0 1.4rem; }
+    .article-body h3 { color: hsl(var(--on-surface)); font-size: 1.25rem; font-weight: 850; margin: 2.4rem 0 .8rem; }
+    .article-body p { margin: 0 0 1.25rem; }
+    .article-body ul,.article-body ol { margin: 1rem 0 1.7rem 1.25rem; }
+    .article-body li { margin: .55rem 0; padding-left: .35rem; }
+    .article-body ul { list-style: disc; } .article-body ol { list-style: decimal; }
+    .article-body a { color: hsl(var(--primary)); text-decoration: underline; text-underline-offset: 3px; }
+    .article-table { width: 100%; border-collapse: collapse; min-width: 720px; }
+    .article-table th,.article-table td { padding: 1rem; text-align: left; vertical-align: top; border-bottom: 1px solid rgba(150,203,255,.12); }
+    .article-table th { color: hsl(var(--on-surface)); font-size: .76rem; text-transform: uppercase; letter-spacing: .08em; }
+    .callout { border-left: 3px solid hsl(var(--primary)); background: rgba(150,203,255,.06); padding: 1.4rem 1.5rem; border-radius: 0 1rem 1rem 0; margin: 1.8rem 0; }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen">
+  <main>
+    <header class="relative pt-16 md:pt-24 pb-12 px-6 overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[780px] h-[520px] bg-primary/10 blur-[155px] -z-10 rounded-full"></div>
+      <div class="max-w-5xl mx-auto">
+        <nav aria-label="Migas de pan" class="mb-10 text-xs text-on-surface-variant">
+          <ol class="flex flex-wrap items-center gap-2"><li><a href="/" class="hover:text-primary">Inicio</a></li><li aria-hidden="true">/</li><li><a href="/articulos" class="hover:text-primary">Artículos</a></li><li aria-hidden="true">/</li><li aria-current="page" class="text-primary">Procesos adecuados para IA</li></ol>
+        </nav>
+        <p class="eyebrow mb-6">Guía de evaluación · IA y procesos administrativos</p>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-[-0.055em] leading-[.98] mb-8">Cómo identificar procesos adecuados para utilizar inteligencia artificial</h1>
+        <p class="text-xl md:text-2xl text-on-surface-variant leading-relaxed max-w-4xl mb-8">Un proceso no se vuelve buen candidato para IA por ser lento o repetitivo. Antes de invertir, conviene comprobar si tiene un objetivo observable, evidencia suficiente, riesgo controlable y una forma realista de integrarse al trabajo.</p>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-on-surface-variant"><span>Por <a href="/orlando-linares" rel="author" class="text-primary font-bold hover:underline">Orlando Linares</a></span><span aria-hidden="true">·</span><time datetime="2026-07-22">Publicado el 22 de julio de 2026</time><span aria-hidden="true">·</span><span>Lectura estimada: 12 minutos</span></div>
+      </div>
+    </header>
+    <div class="px-6 pb-20 md:pb-28">
+      <article class="article-body max-w-4xl mx-auto">
+        <section aria-labelledby="respuesta-breve" class="glass-panel rounded-[1.7rem] p-7 md:p-9 mt-8">
+          <h2 id="respuesta-breve" class="!mt-0 !text-2xl">Respuesta breve</h2>
+          <p class="!mb-0 text-on-surface">Un proceso es candidato para IA cuando persigue un resultado claro, dispone de datos o documentos representativos, presenta suficiente volumen o variabilidad, admite revisión humana y permite medir el valor obtenido. Si todavía cambia cada semana, carece de responsable o una equivocación sería irreversible, primero debe rediseñarse o controlarse mejor.</p>
+        </section>
+
+        <h2>Qué significa que un proceso sea apto para IA</h2>
+        <p>Ser apto no significa que la IA sea obligatoria. Significa que existe una combinación razonable entre problema, información, capacidad operativa y riesgo. La evaluación debe comenzar por el trabajo que se desea mejorar, no por una herramienta o modelo.</p>
+        <h3>Un proceso estable antes que una herramienta novedosa</h3>
+        <p>Un proceso no necesita estar perfectamente documentado, pero sí debe tener un alcance reconocible: un inicio, un resultado, actores, entradas y decisiones. Cuando nadie puede explicar quién responde por el resultado o las reglas cambian sin control, la IA solo añade otra capa de incertidumbre.</p>
+        <p>La estabilidad tampoco significa rigidez. Puede haber excepciones y criterio profesional. Lo importante es comprender esas variaciones y decidir cuáles puede asistir una tecnología y cuáles requieren juicio humano.</p>
+        <h3>Diferencia entre automatizar reglas y utilizar IA</h3>
+        <p>Si una tarea puede resolverse con condiciones explícitas y datos estructurados —por ejemplo, enrutar una solicitud según tipo y monto— una automatización convencional suele ser más simple de explicar, probar y mantener. La IA resulta más pertinente cuando debe interpretar texto, imágenes, lenguaje o patrones variables que no se describen con reglas completas.</p>
+        <div class="callout"><strong class="text-on-surface">Principio de simplicidad:</strong> la intervención adecuada es la opción menos compleja que resuelve el problema con un nivel aceptable de control.</div>
+
+        <h2>Siete criterios para evaluar un proceso</h2>
+        <div class="overflow-x-auto glass-panel rounded-2xl my-8"><table class="article-table"><caption class="sr-only">Criterios para evaluar si un proceso es adecuado para IA</caption>
+          <thead><tr><th scope="col">Criterio</th><th scope="col">Señal favorable</th><th scope="col">Señal de alerta</th></tr></thead>
+          <tbody>
+            <tr><td>Objetivo</td><td>Resultado y usuario identificables.</td><td>“Usar IA” es el objetivo.</td></tr>
+            <tr><td>Evidencia</td><td>Datos o documentos accesibles y representativos.</td><td>Información dispersa o sin autorización.</td></tr>
+            <tr><td>Volumen</td><td>Trabajo frecuente con patrones conocidos.</td><td>Muy pocos casos o todos son excepcionales.</td></tr>
+            <tr><td>Riesgo</td><td>Errores detectables y reversibles.</td><td>Una salida incorrecta causa daño difícil de reparar.</td></tr>
+            <tr><td>Control humano</td><td>Responsable y punto de revisión definidos.</td><td>Nadie revisará ni responderá por la salida.</td></tr>
+            <tr><td>Integración</td><td>La salida llega al rol y sistema adecuados.</td><td>El piloto queda aislado del trabajo real.</td></tr>
+            <tr><td>Valor</td><td>Existe línea base, indicador y responsable.</td><td>No hay forma de medir ni mantener.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>1. Objetivo y resultado observables</h3>
+        <p>La pregunta inicial no es “¿dónde podemos usar IA?”, sino “¿qué resultado del proceso necesita mejorar y para quién?”. Un objetivo útil especifica una condición observable: reducir el tiempo de clasificación, encontrar evidencias con mayor consistencia o disminuir omisiones durante una revisión.</p>
+        <p>El resultado debe evaluarse en el proceso completo. Ahorrar minutos en una tarea no crea valor si después aumenta el retrabajo, la espera o la revisión manual.</p>
+        <h3>2. Entradas, datos y documentos disponibles</h3>
+        <p>La IA necesita ejemplos representativos del trabajo real. Conviene inventariar formatos, calidad, idiomas, excepciones, permisos y datos sensibles. Una demostración con cinco documentos limpios no demuestra desempeño con archivos incompletos, escaneos deficientes o estructuras distintas.</p>
+        <p>También debe existir una base legítima y autorizada para utilizar la información. La disponibilidad técnica de un archivo no equivale a permiso para procesarlo.</p>
+        <h3>3. Volumen, frecuencia y variabilidad</h3>
+        <p>Un proceso frecuente puede justificar una inversión porque el aprendizaje se reutiliza. Sin embargo, el volumen por sí solo no basta. Si las reglas son totalmente predecibles, una automatización tradicional podría ser suficiente; si cada caso es excepcional y no existen patrones, la IA puede aportar poco.</p>
+        <p>La oportunidad suele aparecer en una zona intermedia: existen patrones repetidos y variaciones que requieren extraer, clasificar, resumir o comparar información.</p>
+        <h3>4. Riesgo, reversibilidad y costo del error</h3>
+        <p>No todas las equivocaciones tienen la misma consecuencia. Una sugerencia de categoría que puede corregirse antes de guardar es distinta de una decisión que afecta derechos, pagos, seguridad o acceso a un servicio. Cuanto mayor sea el impacto, mayor debe ser el estándar de evidencia, prueba, supervisión y registro.</p>
+        <p>El AI RMF de NIST propone gestionar riesgos durante todo el ciclo de vida. En la práctica, implica identificar quién podría verse afectado, cómo se detectará un error y qué mecanismo permitirá corregir, detener o retirar la función.</p>
+        <h3>5. Punto de control y responsable humano</h3>
+        <p>“Habrá una persona revisando” es insuficiente si no se define qué revisa, con qué evidencia, dentro de qué plazo y qué decisión puede tomar. El control debe formar parte del diseño del proceso.</p>
+        <p>La persona responsable necesita ver la fuente, la salida y las condiciones que exigen escalamiento. La revisión no debe convertirse en aprobación automática por exceso de volumen o falta de contexto.</p>
+        <h3>6. Integración con el trabajo existente</h3>
+        <p>Muchos pilotos funcionan en una pantalla separada, pero fracasan al incorporarse a responsabilidades, sistemas y tiempos reales. Antes de construir conviene dibujar qué recibe la IA, qué produce, quién utiliza la salida y qué registro queda.</p>
+        <p>Si obliga a copiar información entre herramientas, crea un repositorio sin propietario o rompe la trazabilidad, la mejora local puede empeorar el proceso completo.</p>
+        <h3>7. Capacidad de medir valor y mantener la solución</h3>
+        <p>La evaluación necesita una línea base: tiempo, volumen, tasa de devolución, omisiones detectadas, nivel de servicio u otra medida vinculada al objetivo. No es necesario prometer un porcentaje; sí decidir qué señal justificaría continuar.</p>
+        <p>Además, alguien debe mantener instrucciones, integraciones, permisos, datos de referencia y pruebas. Un piloto sin responsable operativo se degrada cuando cambian documentos, reglas o necesidades.</p>
+
+        <h2>Método de priorización paso a paso</h2>
+        <h3>1. Inventariar y delimitar procesos candidatos</h3>
+        <p>Recoja oportunidades sin empezar por la solución. Para cada proceso registre propósito, inicio, fin, usuario, propietario, volumen, documentos, sistemas y problemas observados. Si la oportunidad es demasiado amplia, divídala en tareas o decisiones concretas.</p>
+        <h3>2. Puntuar impacto, factibilidad y riesgo</h3>
+        <p>Utilice una escala simple de uno a cinco y documente el motivo de cada puntuación. Impacto puede considerar calidad, tiempo, capacidad o riesgo evitado; factibilidad, evidencia e integración; riesgo, consecuencia del error, sensibilidad y reversibilidad.</p>
+        <p>La puntuación no reemplaza la conversación. Sirve para hacer visibles los supuestos y comparar candidatos con el mismo criterio.</p>
+        <h3>3. Elegir una prueba con criterio de salida</h3>
+        <p>Seleccione un alcance pequeño pero representativo. Defina antes de probar: conjunto de casos, medida de calidad, tiempo máximo, responsable de revisión, incidentes que obligan a detener y condición para avanzar, ajustar o descartar.</p>
+        <p>Un resultado válido puede ser decidir que la IA no es adecuada. Evitar una inversión mayor también es aprendizaje.</p>
+
+        <h2>Ejemplo aplicado: clasificación documental frente a aprobación final</h2>
+        <p><strong class="text-on-surface">Ejemplo simulado.</strong> Una organización recibe expedientes con distintos tipos de documento y plantea dos candidatos:</p>
+        <ul><li><strong>Clasificar documentos y señalar posibles faltantes:</strong> la salida puede contrastarse con el archivo, corregirse y enviarse a una persona revisora.</li><li><strong>Aprobar automáticamente el expediente:</strong> la decisión combina requisitos, excepciones y consecuencias que pueden afectar a terceros.</li></ul>
+        <p>El primer candidato permite una prueba acotada: existe evidencia visible, el error es detectable y la persona conserva la decisión. El segundo no debe comenzar como automatización autónoma. Antes necesita reglas, responsabilidades, controles, tratamiento de excepciones y una evaluación más exigente del impacto.</p>
+        <p>La conclusión no es que clasificar siempre sea seguro. Si existen datos personales, documentos de baja calidad o categorías ambiguas, también requerirá controles. La comparación muestra cómo la tarea y el costo del error cambian la decisión.</p>
+
+        <h2>Procesos que no deberían empezar con IA</h2>
+        <h3>Proceso inestable o sin propietario</h3><p>Cuando el equipo todavía debate cuál es el resultado, cada área trabaja de forma diferente y nadie tiene autoridad para resolver excepciones, conviene levantar el proceso actual y diseñar una base común.</p>
+        <h3>Decisión de alto impacto sin revisión humana efectiva</h3><p>No debería iniciarse una automatización autónoma cuando la salida afecta derechos, selección, pagos, sanciones o seguridad y no existe una instancia competente que pueda revisar evidencia, corregir y responder.</p>
+        <h3>Datos insuficientes o uso sin base legítima</h3><p>Si los ejemplos no representan casos reales, el acceso no está autorizado o no pueden protegerse datos sensibles, el proyecto no está listo. Los datos simulados pueden probar una interfaz, pero no demuestran desempeño operativo.</p>
+
+        <h2>Checklist de decisión</h2>
+        <ul><li>¿El problema está descrito sin mencionar una herramienta?</li><li>¿El proceso tiene inicio, fin, usuario y responsable?</li><li>¿La salida esperada puede observarse y evaluarse?</li><li>¿Existen datos representativos y autorizados?</li><li>¿Se conocen las excepciones importantes?</li><li>¿El costo del error está identificado?</li><li>¿La salida puede revisarse, corregirse y rastrearse?</li><li>¿Existe responsable de la decisión final?</li><li>¿Puede integrarse al flujo real?</li><li>¿Hay línea base, criterio de éxito y condición de salida?</li><li>¿Existe capacidad para mantener la solución?</li></ul>
+        <p>Si varias respuestas son “no”, el siguiente trabajo probablemente sea ordenar el proceso, mejorar la evidencia o diseñar controles antes de construir IA.</p>
+
+        <h2>Preguntas frecuentes</h2>
+        <h3>¿Todo proceso repetitivo necesita IA?</h3><p>No. Si las reglas son conocidas y los datos están estructurados, una automatización convencional puede ser más económica, explicable y estable. La IA se justifica cuando aporta interpretación o manejo de variabilidad.</p>
+        <h3>¿Cuándo basta una automatización convencional?</h3><p>Cuando entradas, condiciones y resultados pueden expresarse mediante reglas deterministas. Alertas por vencimiento, validación de campos o enrutamiento de solicitudes pueden resolverse sin modelos de IA.</p>
+        <h3>¿Quién debe aprobar el piloto?</h3><p>El propietario del proceso y las áreas afectadas deben aprobar objetivo, alcance, datos, controles y criterios de salida. Tecnología habilita la prueba, pero no debe asumir por sí sola la responsabilidad funcional.</p>
+
+        <h2>Fuentes y fecha de revisión</h2>
+        <p>Revisión editorial: 20 de julio de 2026. Estas fuentes son marcos de referencia; no sustituyen una evaluación legal, sectorial, de seguridad o protección de datos aplicable a cada organización.</p>
+        <ul><li><a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10" target="_blank" rel="noreferrer">NIST — Artificial Intelligence Risk Management Framework 1.0</a>.</li><li><a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/" target="_blank" rel="noreferrer">NIST AIRC — funciones Govern, Map, Measure y Manage</a>.</li><li><a href="https://oecd.ai/en/principles" target="_blank" rel="noreferrer">OCDE — Principios sobre inteligencia artificial</a>.</li><li><a href="https://www.iso.org/artificial-intelligence/ai-management-systems" target="_blank" rel="noreferrer">ISO — sistemas de gestión de inteligencia artificial</a>.</li></ul>
+
+        <section aria-labelledby="sobre-autor" class="glass-panel rounded-[1.7rem] p-7 md:p-9 mt-16"><p class="eyebrow mb-4">Sobre el autor</p><h2 id="sobre-autor" class="!mt-0 !text-2xl">Orlando Linares</h2><p>Consultor en arquitectura de procesos e IA aplicada. Trabaja en el diseño de procesos claros, trazables y asistidos por tecnología, manteniendo evidencia y control humano.</p><a href="/orlando-linares">Ver perfil profesional de Orlando Linares</a></section>
+        <div class="mt-12 flex flex-col sm:flex-row gap-4"><a href="/articulos/digitalizacion-automatizacion-ia-diferencias" class="inline-flex justify-center bg-surface-container text-on-surface font-black px-7 py-4 rounded-xl text-xs uppercase tracking-widest no-underline">Siguiente: diferencias entre enfoques</a><a href="/discovery-wizard" class="inline-flex justify-center bg-primary text-background font-black px-7 py-4 rounded-xl text-xs uppercase tracking-widest no-underline">Evaluar un proceso</a></div>
+      </article>
+    </div>
+  </main>
+  <script src="/nav.js" type="module"></script>
+</body>
+</html>

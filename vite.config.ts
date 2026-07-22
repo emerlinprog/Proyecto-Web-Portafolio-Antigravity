@@ -18,6 +18,13 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html'),
+        orlando_linares: path.resolve(__dirname, 'orlando-linares.html'),
+        enfoque: path.resolve(__dirname, 'enfoque.html'),
+        articulos: path.resolve(__dirname, 'articulos.html'),
+        articulo_identificar_procesos_ia: path.resolve(__dirname, 'articulo-identificar-procesos-ia.html'),
+        articulo_digitalizacion_automatizacion_ia: path.resolve(__dirname, 'articulo-digitalizacion-automatizacion-ia.html'),
+        articulo_roi_automatizacion: path.resolve(__dirname, 'articulo-roi-automatizacion.html'),
+        articulo_proceso_as_is: path.resolve(__dirname, 'articulo-proceso-as-is.html'),
         servicios: path.resolve(__dirname, 'servicios.html'),
         ai_lab: path.resolve(__dirname, 'ai_lab.html'),
         protocol_ai: path.resolve(__dirname, 'protocol-ai.html'),

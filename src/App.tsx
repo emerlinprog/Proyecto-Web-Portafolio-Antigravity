@@ -42,16 +42,16 @@ function App() {
                 <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
                   <span className="text-primary font-black text-sm">OL</span>
                 </div>
-                <span className="text-lg font-black tracking-tight text-foreground uppercase tracking-widest">Business Architecture Agency</span>
+                <span className="text-lg font-black tracking-tight text-foreground uppercase tracking-widest">Orlando Linares</span>
               </div>
               <p className="text-sm text-muted-foreground max-w-sm leading-relaxed mb-8 font-medium">
-                Especializados en orquestación agéntica y rediseño de procesos institucionales bajo estándares internacionales. Transformando la complejidad en eficiencia operativa.
+                Consultoría en arquitectura de procesos e IA aplicada para convertir trabajo administrativo complejo en sistemas claros, trazables y sostenibles.
               </p>
               <div className="flex gap-4">
-                <a href="https://www.linkedin.com/in/orlandolinares/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
+                <a href="https://www.linkedin.com/in/orlando-linares/" target="_blank" rel="noreferrer" aria-label="LinkedIn de Orlando Linares" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
                   <span className="material-symbols-outlined text-sm">share</span>
                 </a>
-                <a href="mailto:orlando@orlandolinares.com" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
+                <a href="mailto:orlando@orlandolinares.com" aria-label="Enviar correo a Orlando Linares" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
                   <span className="material-symbols-outlined text-sm">mail</span>
                 </a>
               </div>
@@ -78,11 +78,11 @@ function App() {
           
           <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest relative">
-              &copy; 2026 — Business Architecture Agency. All rights reserved.
+              &copy; 2026 — Orlando Linares. Todos los derechos reservados.
             </p>
             <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-              Lima, Perú & Global Operations
+              Arquitectura de procesos e IA aplicada
             </p>
           </div>
         </div>
