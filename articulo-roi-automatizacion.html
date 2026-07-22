@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cómo calcular el ROI de una automatización | Orlando Linares</title>
+  <meta name="description" content="Método para calcular el ROI de una automatización administrativa con costos, beneficios, escenarios y un ejemplo completamente simulado."/>
+  <meta name="author" content="Orlando Linares"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://orlandolinares.com/articulos/calcular-roi-automatizacion-administrativa"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:locale" content="es_PE"/>
+  <meta property="og:url" content="https://orlandolinares.com/articulos/calcular-roi-automatizacion-administrativa"/>
+  <meta property="og:title" content="Cómo calcular el ROI de una automatización administrativa"/>
+  <meta property="og:description" content="Construya un caso de inversión con línea base, costo total, beneficios trazables, recuperación y escenarios."/>
+  <meta property="article:author" content="Orlando Linares"/>
+  <meta property="article:published_time" content="2026-07-22"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"BlogPosting","@id":"https://orlandolinares.com/articulos/calcular-roi-automatizacion-administrativa#article","url":"https://orlandolinares.com/articulos/calcular-roi-automatizacion-administrativa","mainEntityOfPage":"https://orlandolinares.com/articulos/calcular-roi-automatizacion-administrativa","headline":"Cómo calcular el ROI de una automatización administrativa","description":"Método para calcular el ROI de una automatización administrativa con costos, beneficios, escenarios y un ejemplo completamente simulado.","datePublished":"2026-07-22","dateModified":"2026-07-22","inLanguage":"es-PE","author":{"@id":"https://orlandolinares.com/orlando-linares#person"},"isPartOf":{"@id":"https://orlandolinares.com/#website"}},
+    {"@type":"BreadcrumbList","@id":"https://orlandolinares.com/articulos/calcular-roi-automatizacion-administrativa#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://orlandolinares.com/"},{"@type":"ListItem","position":2,"name":"Artículos","item":"https://orlandolinares.com/articulos"},{"@type":"ListItem","position":3,"name":"ROI de una automatización","item":"https://orlandolinares.com/articulos/calcular-roi-automatizacion-administrativa"}]}
+  ]}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/src/index.css"/><link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <style>
+    body{font-family:'Geist',sans-serif;scroll-behavior:smooth}.glass-panel{background:rgba(24,24,28,.68);border:1px solid rgba(150,203,255,.12);backdrop-filter:blur(20px)}.eyebrow{letter-spacing:.28em;text-transform:uppercase;font-size:.65rem;font-weight:800;color:hsl(var(--primary))}.article-body{color:hsl(var(--on-surface-variant));font-size:1.04rem;line-height:1.82}.article-body h2{color:hsl(var(--on-surface));font-size:clamp(1.8rem,4vw,2.7rem);font-weight:900;letter-spacing:-.035em;line-height:1.12;margin:4.5rem 0 1.4rem}.article-body h3{color:hsl(var(--on-surface));font-size:1.25rem;font-weight:850;margin:2.4rem 0 .8rem}.article-body p{margin:0 0 1.25rem}.article-body ul,.article-body ol{margin:1rem 0 1.7rem 1.25rem}.article-body li{margin:.55rem 0;padding-left:.35rem}.article-body ul{list-style:disc}.article-body ol{list-style:decimal}.article-body a{color:hsl(var(--primary));text-decoration:underline;text-underline-offset:3px}.article-table{width:100%;border-collapse:collapse;min-width:760px}.article-table th,.article-table td{padding:1rem;text-align:left;vertical-align:top;border-bottom:1px solid rgba(150,203,255,.12)}.article-table th{color:hsl(var(--on-surface));font-size:.76rem;text-transform:uppercase;letter-spacing:.08em}.callout{border-left:3px solid hsl(var(--primary));background:rgba(150,203,255,.06);padding:1.4rem 1.5rem;border-radius:0 1rem 1rem 0;margin:1.8rem 0}.formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:hsl(var(--on-surface));font-weight:800;font-size:clamp(1rem,3vw,1.25rem)}
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen">
+  <main>
+    <header class="relative pt-16 md:pt-24 pb-12 px-6 overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[780px] h-[520px] bg-primary/10 blur-[155px] -z-10 rounded-full"></div>
+      <div class="max-w-5xl mx-auto">
+        <nav aria-label="Migas de pan" class="mb-10 text-xs text-on-surface-variant"><ol class="flex flex-wrap items-center gap-2"><li><a href="/" class="hover:text-primary">Inicio</a></li><li aria-hidden="true">/</li><li><a href="/articulos" class="hover:text-primary">Artículos</a></li><li aria-hidden="true">/</li><li aria-current="page" class="text-primary">ROI de automatización</li></ol></nav>
+        <p class="eyebrow mb-6">Método de evaluación · IA y procesos administrativos</p>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-[-0.055em] leading-[.98] mb-8">Cómo calcular el ROI de una automatización administrativa</h1>
+        <p class="text-xl md:text-2xl text-on-surface-variant leading-relaxed max-w-4xl mb-8">El retorno no se demuestra multiplicando minutos por un costo horario. Un caso responsable debe comparar la situación actual con el costo total de la solución, distinguir capacidad liberada de ahorro real y mostrar cómo cambia el resultado bajo distintos supuestos.</p>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-on-surface-variant"><span>Por <a href="/orlando-linares" rel="author" class="text-primary font-bold hover:underline">Orlando Linares</a></span><span aria-hidden="true">·</span><time datetime="2026-07-22">Publicado el 22 de julio de 2026</time><span aria-hidden="true">·</span><span>Lectura estimada: 13 minutos</span></div>
+      </div>
+    </header>
+    <div class="px-6 pb-20 md:pb-28"><article class="article-body max-w-4xl mx-auto">
+      <section aria-labelledby="respuesta-breve" class="glass-panel rounded-[1.7rem] p-7 md:p-9 mt-8"><h2 id="respuesta-breve" class="!mt-0 !text-2xl">Respuesta breve</h2><p class="!mb-0 text-on-surface">Calcule primero cuánto cuesta hoy el proceso, después estime la inversión y operación de la automatización, y finalmente valore solo beneficios que puedan explicarse y medirse. La fórmula básica es ROI = (beneficios − costos) / costos × 100. Complétela con periodo de recuperación, escenarios y beneficios no monetizados para evitar una decisión basada en una cifra aislada.</p></section>
+
+      <h2>Qué mide el ROI y qué no demuestra</h2>
+      <p>El retorno sobre la inversión compara el beneficio neto de una alternativa con los recursos necesarios para ejecutarla. Es útil para ordenar supuestos y comparar opciones que persiguen un objetivo equivalente. No demuestra, por sí solo, que una automatización sea segura, adoptable o superior a no intervenir.</p>
+      <div class="callout"><div class="formula">ROI (%) = ((beneficios − costos) ÷ costos) × 100</div></div>
+      <p>En el numerador se resta el costo total a los beneficios del periodo. En el denominador se mantiene el costo total. Todos los valores deben referirse al mismo horizonte, moneda y criterio de cálculo.</p>
+      <h3>ROI, periodo de recuperación y valor presente</h3>
+      <p>El ROI expresa proporción, pero no indica cuándo se recupera la inversión. El periodo de recuperación estima cuántos meses o años necesita el flujo neto para cubrir el desembolso inicial.</p>
+      <div class="callout"><div class="formula">Recuperación estimada = inversión inicial ÷ beneficio neto periódico</div></div>
+      <p>Para proyectos de varios años conviene utilizar valor presente neto o el método de evaluación definido por la organización. Los beneficios y costos futuros no deben sumarse como si ocurrieran hoy. La tasa aplicable depende del contexto institucional; esta guía no prescribe una tasa universal.</p>
+      <h3>Por qué una cifra única puede ocultar incertidumbre</h3>
+      <p>Volumen, adopción, costo de integración y tiempo ahorrado son estimaciones. El Green Book del gobierno británico recomienda comunicar incertidumbre y probar cómo cambian los resultados. En proyectos pequeños puede bastar con tres escenarios; los proyectos de alto costo o impacto requieren métodos más rigurosos.</p>
+
+      <h2>Línea base: cuánto cuesta hoy el proceso</h2>
+      <p>Sin una línea base, cualquier beneficio es una opinión. Delimite el proceso, el periodo y la unidad de análisis. Registre de dónde provino cada dato y quién lo validó.</p>
+      <h3>Tiempo de ejecución y volumen</h3>
+      <p>Mida número de casos, tiempo de trabajo efectivo y tiempo total de ciclo. No confunda espera con horas dedicadas. Una solicitud puede demorar cinco días y consumir solo cuarenta minutos de trabajo; cada medida describe un problema diferente.</p>
+      <p>Use una muestra representativa y muestre el rango, no únicamente el promedio. Los casos complejos o incompletos pueden concentrar gran parte del esfuerzo.</p>
+      <h3>Reprocesos, errores y esperas</h3>
+      <p>Registre devoluciones, correcciones, búsqueda de información, duplicidad y escalamiento. Monetice solo aquello que tenga una relación defendible con recursos utilizados. Un error detectado no equivale automáticamente a una pérdida financiera.</p>
+      <h3>Riesgos e impactos estimables responsablemente</h3>
+      <p>Algunos riesgos pueden estimarse a partir de incidentes históricos, frecuencia y costo observado. Si no existe evidencia, descríbalos cualitativamente o utilice un rango explícito. Asignar una cifra arbitraria a una sanción o daño reputacional crea precisión aparente.</p>
+
+      <h2>Costo total de la automatización</h2>
+      <p>El precio de la licencia es solo una parte. El cálculo debe cubrir inversión inicial, operación, cambio organizacional y retiro o sustitución.</p>
+        <div class="overflow-x-auto glass-panel rounded-2xl my-8"><table class="article-table"><caption class="sr-only">Costos posibles y evidencia recomendada para una automatización</caption><thead><tr><th scope="col">Grupo</th><th scope="col">Costos posibles</th><th scope="col">Evidencia recomendada</th></tr></thead><tbody>
+        <tr><td>Diseño e implementación</td><td>Levantamiento, rediseño, configuración, desarrollo, pruebas e integración.</td><td>Estimación por actividades, responsables y supuestos.</td></tr>
+        <tr><td>Tecnología</td><td>Licencias, consumo, infraestructura, almacenamiento y ambientes.</td><td>Cotización fechada y rango de uso.</td></tr>
+        <tr><td>Datos y control</td><td>Limpieza, migración, permisos, seguridad, auditoría y cumplimiento.</td><td>Inventario de información y controles requeridos.</td></tr>
+        <tr><td>Adopción</td><td>Capacitación, soporte, comunicación, transición y caída temporal de productividad.</td><td>Plan de adopción y población afectada.</td></tr>
+        <tr><td>Operación</td><td>Mantenimiento, monitoreo, incidentes, cambios y revisión humana.</td><td>Modelo operativo y frecuencia de actualización.</td></tr>
+        <tr><td>Salida</td><td>Exportación, migración, cierre de contrato o reemplazo.</td><td>Condiciones contractuales y plan de reversibilidad.</td></tr>
+      </tbody></table></div>
+      <h3>Diseño, licencias e integración</h3><p>Descomponga el alcance. Una cifra global dificulta identificar qué variable genera sobrecosto. La guía de estimación de GAO recomienda que los costos se basen en una estructura de trabajo y supuestos documentados.</p>
+      <h3>Datos, seguridad y cumplimiento</h3><p>Si la solución procesa información sensible, incluya preparación de datos, accesos, trazabilidad, pruebas de seguridad y revisión aplicable. Excluir estos costos no los elimina; solo desplaza el problema a la operación.</p>
+      <h3>Capacitación, adopción y mantenimiento</h3><p>Considere quién aprenderá el nuevo flujo, cuánto soporte necesitará y quién atenderá cambios. Una automatización sin mantenimiento puede conservar reglas obsoletas con mayor velocidad y alcance.</p>
+
+      <h2>Beneficios que pueden incorporarse al cálculo</h2>
+      <h3>Ahorro de tiempo recuperable</h3>
+      <p>Tiempo liberado no siempre significa ahorro presupuestal. Si el personal permanece y utiliza ese tiempo en otras tareas, el beneficio es capacidad recuperada. Puede valorarse para comparar alternativas, pero debe etiquetarse correctamente.</p>
+      <p>Existe ahorro financiero cuando disminuye un desembolso: horas extraordinarias, contratación externa, posiciones evitables, consumo o costos directamente reducibles. La decisión sobre personal requiere análisis separado y no debe inferirse de una fórmula.</p>
+      <h3>Reducción verificable de errores y reprocesos</h3>
+      <p>Use la frecuencia observada y el esfuerzo de corregir. Aplique un factor de realización conservador: la automatización rara vez elimina todos los errores, y puede introducir nuevos tipos de incidencia.</p>
+      <h3>Capacidad, calidad, trazabilidad y riesgo</h3>
+      <p>Algunos beneficios no necesitan monetizarse para ser importantes: respuesta más consistente, seguimiento, evidencia para auditoría o menor dependencia de una persona. Regístrelos con indicador y método de verificación, separados del ROI financiero.</p>
+
+      <h2>Método de cálculo paso a paso</h2>
+      <ol><li>Defina objetivo, alternativa base y horizonte.</li><li>Levante volumen, tiempos, reproceso y desembolsos actuales.</li><li>Estime inversión inicial y costo operativo total.</li><li>Clasifique beneficios como ahorro financiero, capacidad o beneficio no monetizado.</li><li>Documente cada fórmula, fuente, responsable y rango.</li><li>Calcule beneficio neto, ROI y recuperación.</li><li>Pruebe escenarios conservador, probable y favorable.</li><li>Defina qué se medirá durante el piloto y cuándo se revisará el caso.</li></ol>
+      <h3>Definir periodo y escenario base</h3><p>Para una automatización pequeña, doce meses puede mostrar inversión y operación inicial. Si hay beneficios de varios años, use un horizonte compatible con vida útil, contrato y mantenimiento, aplicando el método financiero de la organización.</p>
+      <h3>Documentar supuestos y rangos</h3><p>Cada celda importante debe poder responder: qué significa, de dónde salió y qué ocurre si cambia. Evite decimales que no corresponden a la calidad de la evidencia.</p>
+      <h3>Calcular beneficio neto, ROI y recuperación</h3><p>Presente las tres métricas juntas. Un ROI positivo puede ocultar una recuperación demasiado larga; una recuperación rápida puede depender de beneficios que no se convierten en caja.</p>
+      <h3>Probar escenarios</h3><p>Modifique las variables con mayor incertidumbre: adopción, volumen, tiempo realmente liberado, costo de integración y mantenimiento. No altere todas sin explicación; muestre qué hipótesis produce cada escenario.</p>
+
+      <h2>Ejemplo simulado de un proceso administrativo</h2>
+      <p><strong class="text-on-surface">Todos los valores de esta sección son hipotéticos.</strong> No representan costos, resultados ni tarifas de un cliente o proyecto real. Se usan únicamente para mostrar el método.</p>
+      <h3>Datos de entrada y supuestos</h3>
+        <div class="overflow-x-auto glass-panel rounded-2xl my-8"><table class="article-table"><caption class="sr-only">Supuestos simulados para calcular beneficios anuales</caption><thead><tr><th scope="col">Concepto simulado</th><th scope="col">Supuesto</th><th scope="col">Cálculo anual</th></tr></thead><tbody>
+        <tr><td>Capacidad liberada</td><td>65 horas mensuales × S/40 por hora</td><td>S/31,200</td></tr>
+        <tr><td>Reproceso evitado</td><td>15 horas mensuales × S/40 por hora</td><td>S/7,200</td></tr>
+        <tr><td>Beneficio probable</td><td>Suma de los dos conceptos</td><td>S/38,400</td></tr>
+        <tr><td>Inversión inicial</td><td>Diseño, configuración, integración y pruebas</td><td>S/24,000</td></tr>
+        <tr><td>Operación del primer año</td><td>S/1,000 mensuales</td><td>S/12,000</td></tr>
+        <tr><td>Costo total del primer año</td><td>Inicial + operación</td><td>S/36,000</td></tr>
+      </tbody></table></div>
+      <p>Beneficio neto probable: S/38,400 − S/36,000 = S/2,400. ROI probable: S/2,400 ÷ S/36,000 × 100 = <strong class="text-on-surface">6.7%</strong>, aproximadamente.</p>
+      <p>Para estimar recuperación se compara la inversión inicial con el beneficio mensual después de operación: S/3,200 de beneficio bruto menos S/1,000 de operación = S/2,200. La recuperación estimada sería S/24,000 ÷ S/2,200 = <strong class="text-on-surface">10.9 meses</strong>.</p>
+      <h3>Escenarios e interpretación responsable</h3>
+        <div class="overflow-x-auto glass-panel rounded-2xl my-8"><table class="article-table"><caption class="sr-only">Escenarios simulados de beneficio y retorno de inversión</caption><thead><tr><th scope="col">Escenario</th><th scope="col">Beneficio realizado</th><th scope="col">Beneficio anual</th><th scope="col">ROI año 1</th></tr></thead><tbody>
+        <tr><td>Conservador</td><td>60% del beneficio probable</td><td>S/23,040</td><td>−36.0%</td></tr>
+        <tr><td>Probable</td><td>100%</td><td>S/38,400</td><td>6.7%</td></tr>
+        <tr><td>Favorable</td><td>120%</td><td>S/46,080</td><td>28.0%</td></tr>
+      </tbody></table></div>
+      <p>El escenario conservador muestra que el proyecto puede perder valor si la adopción o el tiempo recuperable son menores. Además, los S/31,200 de capacidad no equivalen necesariamente a ahorro en caja. La decisión debe explicar cómo se utilizarán esas horas y verificarlo después.</p>
+
+      <h2>Errores frecuentes al justificar una automatización</h2>
+      <ul><li>Multiplicar todo el tiempo teórico por costo horario y llamarlo ahorro.</li><li>Excluir integración, adopción, seguridad y mantenimiento.</li><li>Usar el mejor escenario como caso base.</li><li>Contar dos veces el mismo beneficio como tiempo y reducción de costo.</li><li>Monetizar riesgos sin frecuencia ni impacto sustentado.</li><li>No comparar con una mejora de proceso más simple.</li><li>Actualizar beneficios sin registrar cambios de supuestos.</li></ul>
+
+      <h2>Checklist y plantilla mínima</h2>
+      <ul><li>Objetivo y alternativa base definidos.</li><li>Periodo, moneda y criterio financiero consistentes.</li><li>Volumen y tiempos medidos con muestra identificada.</li><li>Costos iniciales, recurrentes y de salida incluidos.</li><li>Ahorro financiero separado de capacidad liberada.</li><li>Beneficios no monetizados descritos con indicadores.</li><li>Supuestos, fuentes, responsables y rangos documentados.</li><li>Escenarios conservador, probable y favorable calculados.</li><li>Condición para detener, ajustar o ampliar el piloto.</li><li>Fecha futura de revisión del caso definida.</li></ul>
+
+      <h2>Del caso de inversión al seguimiento de beneficios</h2>
+      <p>El cálculo previo autoriza una hipótesis, no certifica el retorno. Antes de iniciar el piloto, convierta los beneficios esperados en un registro de seguimiento: indicador, línea base, meta o rango, fuente de datos, frecuencia y responsable. Mantenga por separado las métricas operativas y financieras.</p>
+      <h3>Asignar un propietario a cada beneficio</h3>
+      <p>La persona que implementa la tecnología no siempre controla la adopción o el uso del tiempo liberado. Asigne cada beneficio al responsable capaz de producirlo y verificarlo. Por ejemplo, operaciones puede responder por la reducción de reproceso; presupuesto, por un desembolso evitado; y tecnología, por disponibilidad y costo de operación.</p>
+      <h3>Comparar pronóstico y resultado observado</h3>
+      <p>Durante el piloto registre los mismos conceptos usados en la línea base. Si cambia el volumen, la regla o la población atendida, documente el cambio antes de comparar. Una diferencia puede deberse a la automatización, a estacionalidad o a otra mejora realizada al mismo tiempo.</p>
+      <h3>Actualizar la decisión, no maquillar el ROI</h3>
+      <p>Revise el caso en hitos definidos: fin del piloto, estabilización y cierre del primer periodo. Sustituya supuestos por observaciones y conserve la versión anterior para trazabilidad. Si el retorno cae, la respuesta puede ser ajustar el proceso, reducir alcance o detener. Cambiar retrospectivamente la línea base para mantener un ROI positivo elimina el valor del ejercicio.</p>
+      <p>El seguimiento también permite identificar beneficios no previstos y costos omitidos. Ambos deben registrarse con el mismo estándar de evidencia. El objetivo no es defender la automatización, sino decidir responsablemente si continúa creando valor.</p>
+
+      <h2>Preguntas frecuentes</h2>
+      <h3>¿Cómo valoro tiempo que no se traduce en ahorro presupuestal?</h3><p>Preséntelo como capacidad liberada y explique su destino: atender más casos, reducir acumulación o mejorar controles. Puede asignarse un valor para comparar, pero no debe llamarse reducción de gasto si el desembolso no cambia.</p>
+      <h3>¿Qué periodo debo utilizar?</h3><p>Depende de vida útil, contrato, estabilidad del proceso y método institucional. Para una primera aproximación puede mostrarse el año inicial y años posteriores por separado. Proyectos largos requieren valor presente y supuestos de actualización.</p>
+      <h3>¿Cómo incluyo riesgos sin inventar cifras?</h3><p>Use incidentes históricos o rangos sustentados. Si no existen datos, describa impacto, probabilidad y control cualitativamente. La transparencia sobre lo que no se sabe es mejor que una monetización arbitraria.</p>
+
+      <h2>Fuentes y fecha de revisión</h2>
+      <p>Revisión editorial: 21 de julio de 2026. La guía presenta un método básico de evaluación y no sustituye las normas presupuestales, contables o de inversión aplicables a cada organización.</p>
+      <ul><li><a href="https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026" target="_blank" rel="noreferrer">HM Treasury — The Green Book 2026</a>.</li><li><a href="https://www.gao.gov/products/gao-09-3sp" target="_blank" rel="noreferrer">U.S. GAO — Cost Estimating and Assessment Guide</a>.</li><li><a href="https://www.whitehouse.gov/omb/information-resources/guidance/circulars" target="_blank" rel="noreferrer">U.S. OMB — Circular A-94 y guías de análisis costo-beneficio</a>.</li><li><a href="https://www.oecd.org/en/publications/assessing-canada-s-system-of-impact-evaluation-of-active-labour-market-policies_27dfbd5f-en/full-report/component-8.html" target="_blank" rel="noreferrer">OCDE — evaluación, costo-beneficio y análisis de sensibilidad</a>.</li></ul>
+
+      <section aria-labelledby="sobre-autor" class="glass-panel rounded-[1.7rem] p-7 md:p-9 mt-16"><p class="eyebrow mb-4">Sobre el autor</p><h2 id="sobre-autor" class="!mt-0 !text-2xl">Orlando Linares</h2><p>Consultor en arquitectura de procesos e IA aplicada. Su enfoque conecta el problema operativo, los requisitos y la evaluación de valor antes de seleccionar tecnología.</p><a href="/orlando-linares">Ver perfil profesional de Orlando Linares</a></section>
+      <div class="mt-12 flex flex-col sm:flex-row gap-4"><a href="/articulos/digitalizacion-automatizacion-ia-diferencias" class="inline-flex justify-center bg-surface-container text-on-surface font-black px-7 py-4 rounded-xl text-xs uppercase tracking-widest no-underline">Anterior: diferencias entre enfoques</a><a href="/articulos/como-levantar-proceso-as-is" class="inline-flex justify-center bg-primary text-background font-black px-7 py-4 rounded-xl text-xs uppercase tracking-widest no-underline">Siguiente: levantar el AS-IS</a></div>
+    </article></div>
+  </main>
+  <script src="/nav.js" type="module"></script>
+</body>
+</html>

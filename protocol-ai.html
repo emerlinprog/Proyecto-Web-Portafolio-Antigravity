@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Protocol AI | Generador de Prompts Profesionales — Orlando Linares</title>
+  <meta name="description" content="Protocol AI convierte un requerimiento en lenguaje natural en una arquitectura de prompt lista para producción. Ingeniería de instrucciones para personal administrativo y técnico."/>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="canonical" href="https://orlandolinares.com/protocol-ai"/>
+  <meta property="og:type" content="website"/><meta property="og:url" content="https://orlandolinares.com/protocol-ai"/><meta property="og:title" content="Protocol AI — contenido archivado | Orlando Linares"/><meta property="og:description" content="Contenido histórico sobre una herramienta de estructuración de instrucciones."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/index.css"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <style>
+    body { font-family: 'Geist', sans-serif; scroll-behavior: smooth; }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+      background-size: 100px 100px, 100px 100px, 20px 20px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @keyframes scanline {
+      0% { transform: translateY(-100vh); opacity: 0; }
+      50% { opacity: 0.5; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    @keyframes entrance {
+      0% { filter: blur(20px); opacity: 0; transform: translateY(20px); }
+      100% { filter: blur(0); opacity: 1; transform: translateY(0); }
+    }
+
+    .scanline {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(to right, transparent, var(--primary), transparent);
+      z-index: 100;
+      pointer-events: none;
+      animation: scanline 10s linear infinite;
+      box-shadow: 0 0 15px var(--primary);
+    }
+
+    body { animation: entrance 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+
+    .glass-card {
+      background: linear-gradient(rgba(24, 24, 28, 0.8), rgba(24, 24, 28, 0.8)) padding-box,
+                  radial-gradient(400px circle at var(--x) var(--y), rgba(150, 203, 255, 0.3), transparent 40%) border-box;
+      border: 1px solid transparent;
+      backdrop-filter: blur(24px) saturate(180%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spotlight {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(600px circle at var(--x) var(--y), rgba(150, 203, 255, 0.08), transparent 40%);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .glass-card:hover .spotlight { opacity: 1; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      filter: blur(10px);
+      transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.active { opacity: 1; transform: translateY(0); filter: blur(0); }
+
+    .field-input {
+      width: 100%;
+      background: rgba(10, 10, 12, 0.6);
+      border: 1px solid rgba(150, 203, 255, 0.15);
+      border-radius: 0.9rem;
+      padding: 0.85rem 1rem;
+      color: var(--on-surface, #e6e6e6);
+      font-size: 0.875rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      font-family: inherit;
+    }
+    .field-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(150, 203, 255, 0.12);
+    }
+    textarea.field-input { resize: vertical; min-height: 120px; line-height: 1.5; }
+
+    .engine-chip {
+      cursor: pointer;
+      padding: 0.5rem 0.9rem;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(150, 203, 255, 0.15);
+      background: rgba(10, 10, 12, 0.5);
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--on-surface-variant, #9aa3ad);
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .engine-chip.selected {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: rgba(150, 203, 255, 0.08);
+    }
+
+    .honeypot {
+      position: absolute !important;
+      left: -9999px !important;
+      width: 1px; height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Salida formateada */
+    .protocol-output h3 {
+      font-size: 0.7rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--primary);
+      margin: 1.5rem 0 0.6rem;
+    }
+    .protocol-output h3:first-child { margin-top: 0; }
+    .protocol-output p { font-size: 0.85rem; line-height: 1.6; color: var(--on-surface-variant, #b8c0c8); margin-bottom: 0.6rem; }
+    .protocol-output pre {
+      background: rgba(10, 10, 12, 0.8);
+      border: 1px solid rgba(150, 203, 255, 0.12);
+      border-radius: 0.9rem;
+      padding: 1rem 1.1rem;
+      overflow-x: auto;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: #d8e6f5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+    }
+    .protocol-output strong { color: var(--on-surface, #e6e6e6); font-weight: 800; }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col">
+  <div class="scanline"></div>
+
+  <main class="flex-grow">
+    <!-- Hero -->
+    <section class="relative pt-40 pb-16 px-6 overflow-hidden reveal">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-tertiary/5 blur-[120px] -z-10 rounded-full opacity-50"></div>
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="font-mono text-[10px] tracking-[0.4em] text-on-surface-variant mb-4 uppercase">OL · AI Lab / Protocol AI</div>
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-[10px] font-black uppercase tracking-[0.2em] text-tertiary mb-8">
+          <span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+          Prompt Engineering Engine
+        </span>
+        <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-on-surface mb-6 leading-[0.95]">
+          Protocol <span class="text-primary">AI.</span>
+        </h1>
+        <p class="text-lg text-on-surface-variant max-w-xl mx-auto leading-relaxed">
+          Describe lo que necesitas en lenguaje natural. Protocol AI lo convierte en una arquitectura de prompt profesional, lista para pegar en cualquier modelo.
+        </p>
+      </div>
+    </section>
+
+    <!-- Tool -->
+    <section class="pb-24 px-6 max-w-3xl mx-auto reveal">
+      <div class="glass-card rounded-[2rem] p-6 md:p-10">
+        <div class="spotlight"></div>
+        <form id="protocol-form" class="relative z-10 flex flex-col gap-6" autocomplete="off">
+          <!-- Honeypot anti-bot -->
+          <input type="text" name="website" id="website" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div>
+            <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-3" for="userInput">¿Qué necesitas que haga la IA?</label>
+            <textarea id="userInput" class="field-input" placeholder="Ej: Necesito un asistente que revise contratos de arrendamiento y detecte cláusulas abusivas según la ley peruana." required></textarea>
+            <p class="text-[10px] text-on-surface-variant mt-2 uppercase tracking-wider">Mínimo 12 caracteres. Mientras más contexto, mejor el resultado.</p>
+          </div>
+
+          <div>
+            <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-3">Motor (opcional)</label>
+            <input type="hidden" id="engine" value="">
+            <div class="flex flex-wrap gap-2" id="engine-grid">
+              <span class="engine-chip selected" data-engine="">Auto-detectar</span>
+              <span class="engine-chip" data-engine="Arquitectura de Instrucción">Instrucción</span>
+              <span class="engine-chip" data-engine="SEO Semántico">SEO Semántico</span>
+              <span class="engine-chip" data-engine="Lógica & BPMN">Lógica / BPMN</span>
+              <span class="engine-chip" data-engine="Creador Agéntico">Agéntico</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-3" for="context">Contexto adicional (opcional)</label>
+            <textarea id="context" class="field-input" style="min-height:80px" placeholder="Sector, restricciones, formato de salida esperado, herramientas disponibles…"></textarea>
+          </div>
+
+          <div>
+            <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-3" for="email">Tu email</label>
+            <input type="email" id="email" class="field-input" placeholder="tu@empresa.com" required>
+            <p class="text-[10px] text-on-surface-variant mt-2 uppercase tracking-wider">Plan gratuito: 1 prompt al día · 3 al mes.</p>
+          </div>
+
+          <button type="submit" id="submit-btn" class="bg-primary text-background font-black px-8 py-4 rounded-xl text-[11px] uppercase tracking-widest hover:brightness-110 active:scale-[0.98] transition-all inline-flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed">
+            <span id="submit-label">Generar arquitectura de prompt</span>
+            <span class="material-symbols-outlined text-sm" id="submit-icon">bolt</span>
+          </button>
+        </form>
+
+        <!-- Output -->
+        <div id="output-wrap" class="relative z-10 mt-8 pt-8 border-t border-outline-variant/20 hidden">
+          <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
+            <span class="text-[10px] font-black uppercase tracking-widest text-tertiary inline-flex items-center gap-2">
+              <span class="material-symbols-outlined text-sm">architecture</span> Protocol Prompt
+            </span>
+            <div class="flex items-center gap-3">
+              <span id="quota-line" class="text-[10px] text-on-surface-variant uppercase tracking-wider"></span>
+              <button id="copy-btn" type="button" class="text-[10px] font-black uppercase tracking-widest text-primary inline-flex items-center gap-1 hover:gap-2 transition-all">
+                <span class="material-symbols-outlined text-xs">content_copy</span> Copiar
+              </button>
+            </div>
+          </div>
+          <div id="protocol-output" class="protocol-output"></div>
+          <div id="warning-line" class="hidden mt-4 text-[10px] text-amber-400/80 uppercase tracking-wider"></div>
+        </div>
+      </div>
+
+      <!-- Pro upsell -->
+      <div class="mt-6 text-center reveal">
+        <p class="text-xs text-on-surface-variant">
+          ¿Necesitas acceso ilimitado y motores avanzados?
+          <a href="mailto:orlando@orlandolinares.com?subject=Protocol%20AI%20Pro%20-%20Lista%20de%20espera" class="text-primary font-black uppercase tracking-widest text-[10px] hover:underline">Únete a la waitlist Pro</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="nav.js" type="module"></script>
+  <script>
+    const formStart = Date.now();
+
+    // Reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Spotlight
+    document.querySelectorAll('.glass-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--x', `${e.clientX - r.left}px`);
+        card.style.setProperty('--y', `${e.clientY - r.top}px`);
+      });
+    });
+
+    // Engine selector
+    const engineInput = document.getElementById('engine');
+    document.querySelectorAll('#engine-grid .engine-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('#engine-grid .engine-chip').forEach(c => c.classList.remove('selected'));
+        chip.classList.add('selected');
+        engineInput.value = chip.dataset.engine || '';
+      });
+    });
+
+    // Safe formatter: escape, then minimal markdown (### headings, ```fences```, **bold**)
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+    }
+    function formatProtocol(raw) {
+      const parts = String(raw).split(/```/);
+      let html = '';
+      parts.forEach((chunk, i) => {
+        if (i % 2 === 1) {
+          const cleaned = chunk.replace(/^[a-zA-Z]*\n/, '');
+          html += `<pre>${escapeHtml(cleaned.trim())}</pre>`;
+          return;
+        }
+        chunk.split(/\n{2,}/).forEach(block => {
+          const t = block.trim();
+          if (!t) return;
+          if (/^#{1,4}\s/.test(t)) {
+            html += `<h3>${escapeHtml(t.replace(/^#{1,4}\s/, ''))}</h3>`;
+          } else {
+            html += `<p>${escapeHtml(t).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>')}</p>`;
+          }
+        });
+      });
+      return html;
+    }
+
+    const form = document.getElementById('protocol-form');
+    const btn = document.getElementById('submit-btn');
+    const submitLabel = document.getElementById('submit-label');
+    const submitIcon = document.getElementById('submit-icon');
+    const outputWrap = document.getElementById('output-wrap');
+    const outputEl = document.getElementById('protocol-output');
+    const quotaLine = document.getElementById('quota-line');
+    const warningLine = document.getElementById('warning-line');
+
+    function setLoading(on) {
+      btn.disabled = on;
+      submitLabel.textContent = on ? 'Construyendo arquitectura…' : 'Generar arquitectura de prompt';
+      submitIcon.textContent = on ? 'sync' : 'bolt';
+      submitIcon.style.animation = on ? 'spin 1s linear infinite' : '';
+    }
+
+    function showError(title, msg) {
+      outputWrap.classList.remove('hidden');
+      quotaLine.textContent = '';
+      warningLine.classList.add('hidden');
+      outputEl.innerHTML = `<div class="p-5 bg-red-400/10 border border-red-400/20 rounded-2xl">
+        <p class="text-red-400 font-black mb-2 uppercase text-[10px] tracking-widest">${escapeHtml(title)}</p>
+        <p class="text-xs text-on-surface-variant leading-relaxed">${msg}</p>
+      </div>`;
+      outputWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function renderQuota(quota) {
+      if (!quota || !quota.daily) { quotaLine.textContent = ''; return; }
+      const d = quota.daily, m = quota.monthly || {};
+      quotaLine.textContent = `Hoy ${d.used}/${d.limit} · Mes ${m.used ?? '–'}/${m.limit ?? '–'}`;
+    }
+
+    form.addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      const userInput = document.getElementById('userInput').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const context = document.getElementById('context').value.trim();
+      const engine = engineInput.value;
+
+      if (userInput.length < 12) { showError('Requerimiento muy corto', 'Describe con un poco más de detalle lo que necesitas (mínimo 12 caracteres).'); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('Email inválido', 'Ingresa un email válido para continuar.'); return; }
+
+      setLoading(true);
+      try {
+        const res = await fetch('/.netlify/functions/protocol-gen', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email, userInput, context, engine,
+            source: 'protocol-ai-page',
+            website: document.getElementById('website').value,
+            elapsedMs: Date.now() - formStart
+          })
+        });
+
+        let data = {};
+        try { data = await res.json(); } catch { /* non-json */ }
+
+        if (res.status === 429) {
+          if (data.code === 'QUOTA_EXCEEDED') {
+            outputWrap.classList.remove('hidden');
+            renderQuota(data.quota);
+            warningLine.classList.add('hidden');
+            outputEl.innerHTML = `<div class="p-6 bg-tertiary/5 border border-tertiary/20 rounded-2xl text-center">
+              <span class="material-symbols-outlined text-tertiary text-3xl mb-3 block">lock</span>
+              <p class="text-on-surface font-black mb-2 uppercase text-xs tracking-widest">Límite gratuito alcanzado</p>
+              <p class="text-xs text-on-surface-variant leading-relaxed mb-5">Has usado todos tus prompts gratuitos. Únete a la waitlist Pro para acceso ampliado e ilimitado.</p>
+              <a href="mailto:orlando@orlandolinares.com?subject=Protocol%20AI%20Pro%20-%20Lista%20de%20espera" class="bg-primary text-background font-black px-6 py-3 rounded-xl text-[10px] uppercase tracking-widest inline-flex items-center gap-2">Únete a Pro <span class="material-symbols-outlined text-xs">arrow_forward</span></a>
+            </div>`;
+            outputWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          } else {
+            showError('Demasiados intentos', 'Se detectaron muchas solicitudes desde tu conexión. Intenta de nuevo en unos minutos.');
+          }
+          return;
+        }
+
+        if (!res.ok || !data.success) {
+          let title = 'No se pudo generar', msg = data.error || 'Ocurrió un error inesperado. Intenta de nuevo.';
+          if (window.location.protocol === 'file:') {
+            title = 'Ejecución local detectada';
+            msg = "Las funciones de IA requieren un servidor (Netlify Dev). Usa 'netlify dev' o el sitio desplegado.";
+          }
+          showError(title, msg);
+          return;
+        }
+
+        outputWrap.classList.remove('hidden');
+        outputEl.innerHTML = formatProtocol(data.protocolPrompt || '');
+        renderQuota(data.quota);
+        if (data.fallback) {
+          warningLine.classList.remove('hidden');
+          warningLine.textContent = 'Generado con motor de contingencia (IA remota no disponible).';
+        } else {
+          warningLine.classList.add('hidden');
+        }
+        outputWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } catch (err) {
+        let title = 'Error de conexión', msg = 'No pudimos procesar tu solicitud. Verifica tu conexión e intenta de nuevo.';
+        if (window.location.protocol === 'file:') {
+          title = 'Ejecución local detectada';
+          msg = "Las funciones de IA requieren un servidor (Netlify Dev). Usa 'netlify dev' o el sitio desplegado.";
+        }
+        showError(title, msg);
+      } finally {
+        setLoading(false);
+      }
+    });
+
+    // Copy
+    document.getElementById('copy-btn').addEventListener('click', () => {
+      const text = outputEl.innerText;
+      navigator.clipboard?.writeText(text).then(() => {
+        const b = document.getElementById('copy-btn');
+        const prev = b.innerHTML;
+        b.innerHTML = '<span class="material-symbols-outlined text-xs">check</span> Copiado';
+        setTimeout(() => { b.innerHTML = prev; }, 1800);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function FinalCTA() {
   return (
-    <section className="py-32 px-6 md:px-16 bg-background relative overflow-hidden">
+    <section className="cv-auto py-32 px-6 md:px-16 bg-background relative overflow-hidden">
       <div className="max-w-5xl mx-auto">
         <div className="relative p-12 md:p-24 rounded-[3rem] glass-card overflow-hidden text-center">
           {/* Subtle Glow */}
@@ -18,10 +18,10 @@ export function FinalCTA() {
               Construyamos la arquitectura tecnológica que tu negocio necesita para el próximo nivel de crecimiento.
             </p>
             <a 
-              href="discovery-wizard.html"
+              href="/discovery-wizard"
               className="bg-primary text-primary-foreground px-10 py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.3em] flex items-center justify-center gap-4 mx-auto hover:brightness-110 transition-all shadow-2xl shadow-primary/20 active:scale-[0.97] w-fit"
             >
-              Iniciar Diagnóstico Estratégico
+              Iniciar diagnóstico
               <ArrowRight size={16} />
             </a>
           </div>

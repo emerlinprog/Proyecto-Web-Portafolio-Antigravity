@@ -1,9 +1,9 @@
-﻿import React, { Suspense, useState } from "react";
+﻿import React, { Suspense, useState, useEffect } from "react";
 
 const Spline = React.lazy(() => import("@splinetool/react-spline"));
 
 const SplineLoader = ({ fadeOut }: { fadeOut: boolean }) => (
-  <div className={`absolute inset-0 flex items-center justify-center bg-[#0a0a0c] z-[5] transition-opacity duration-1000 ${fadeOut ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+  <div className={`absolute inset-0 flex items-center justify-center bg-[#0a0a0c] z-[5] pointer-events-none transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
     <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-4 gap-4 p-8 opacity-20 pointer-events-none">
       <div className="h-full border border-primary/10 rounded-3xl bg-primary/5 animate-pulse" />
       <div className="h-full border border-primary/10 rounded-3xl bg-primary/5 animate-pulse hidden md:block" style={{ animationDelay: '0.2s' }} />
@@ -33,22 +33,51 @@ const SplineLoader = ({ fadeOut }: { fadeOut: boolean }) => (
 
 export function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [load3D, setLoad3D] = useState(false);
+
+  // El hero 3D Spline (~4MB) solo se carga en desktop, en idle (tras el
+  // render crítico) y nunca en conexiones lentas o con ahorro de datos.
+  // En móvil/conexión pobre se usa solo el fondo CSS ligero.
+  useEffect(() => {
+    const conn = (navigator as any).connection;
+    if (conn && (conn.saveData || /(^|-)2g/.test(conn.effectiveType || ""))) return;
+
+    const mq = window.matchMedia("(min-width: 768px)");
+    let idleId: any;
+    const ric: any = (window as any).requestIdleCallback || ((cb: () => void) => setTimeout(cb, 1200));
+    const cic: any = (window as any).cancelIdleCallback || clearTimeout;
+    const schedule = () => { if (mq.matches) idleId = ric(() => setLoad3D(true)); };
+    schedule();
+    const onChange = () => { if (mq.matches) schedule(); };
+    mq.addEventListener("change", onChange);
+    return () => {
+      mq.removeEventListener("change", onChange);
+      if (idleId) cic(idleId);
+    };
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-end bg-hero-bg overflow-hidden">
-      {/* Zero-Flash Spline Loader */}
-      <SplineLoader fadeOut={isLoaded} />
+      {/* Fondo base (único en móvil): gradiente ligero, sin descarga 3D */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top,rgba(150,203,255,0.12),transparent_60%)]" />
 
-      {/* Spline 3D Background */}
-      <div className={`absolute inset-0 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-        <Suspense fallback={null}>
-          <Spline 
-            scene="https://prod.spline.design/Slk6b8kz3LRlKiyk/scene.splinecode"
-            className="w-full h-full"
-            onLoad={() => setIsLoaded(true)}
-          />
-        </Suspense>
-      </div>
+      {load3D && (
+        <>
+          {/* Zero-Flash Spline Loader */}
+          <SplineLoader fadeOut={isLoaded} />
+
+          {/* Spline 3D Background — pointer-events-none para no capturar el scroll */}
+          <div className={`absolute inset-0 pointer-events-none transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+            <Suspense fallback={null}>
+              <Spline
+                scene="https://prod.spline.design/Slk6b8kz3LRlKiyk/scene.splinecode"
+                className="w-full h-full pointer-events-none"
+                onLoad={() => setIsLoaded(true)}
+              />
+            </Suspense>
+          </div>
+        </>
+      )}
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/40 z-[1] pointer-events-none" />
@@ -61,7 +90,7 @@ export function HeroSection() {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[9px] font-black uppercase tracking-[0.3em] text-primary mb-6 w-fit opacity-0 animate-fade-up"
             style={{ animationDelay: "0.1s" }}
           >
-            Precision in Business Architecture
+            Procesos · Evidencia · IA aplicada
           </div>
 
           {/* Heading */}
@@ -69,9 +98,9 @@ export function HeroSection() {
             className="text-[clamp(2rem,8vw,5rem)] font-black leading-[0.95] tracking-[-0.06em] text-foreground mb-4 md:mb-6 uppercase opacity-0 animate-fade-up"
             style={{ animationDelay: "0.25s" }}
           >
-            Arquitectura de negocios, <br />
-            <span className="text-primary">procesos e IA aplicada</span> <br />
-            para escalar.
+            Procesos claros, <br />
+            <span className="text-primary">trazables y asistidos</span> <br />
+            por IA.
           </h1>
 
           {/* Description */}
@@ -79,7 +108,7 @@ export function HeroSection() {
             className="text-muted-foreground text-[clamp(0.875rem,2vw,1.125rem)] font-medium leading-relaxed max-w-2xl mb-8 md:mb-12 opacity-0 animate-fade-up"
             style={{ animationDelay: "0.45s" }}
           >
-            Transformamos organizaciones caóticas en sistemas precisos y automatizados. Dejamos atrás las soluciones temporales para construir cimientos escalables.
+            Soy Orlando Linares, consultor en arquitectura de procesos e IA aplicada. Ayudo a organizaciones públicas y PYMES a transformar trabajo administrativo complejo en sistemas sostenibles.
           </p>
 
           {/* CTA Buttons */}
@@ -88,42 +117,42 @@ export function HeroSection() {
             style={{ animationDelay: "0.65s" }}
           >
             <a 
-              href="discovery-wizard.html"
+              href="/discovery-wizard"
               className="pointer-events-auto bg-primary text-primary-foreground px-8 py-4 md:px-10 md:py-5 text-[10px] uppercase tracking-widest rounded-xl cursor-pointer hover:brightness-110 shadow-2xl shadow-primary/20 transition-all active:scale-[0.97] text-center"
             >
-              Diagnóstico Agéntico estratégico
+              Iniciar diagnóstico
             </a>
             <a 
-              href="servicios.html#metodologia"
+              href="/enfoque"
               className="pointer-events-auto border border-white/10 bg-white/5 backdrop-blur-md text-foreground px-8 py-4 md:px-10 md:py-5 text-[10px] uppercase tracking-widest rounded-xl cursor-pointer hover:bg-white/10 transition-all flex items-center justify-center gap-2 active:scale-[0.97]"
             >
               <div className="inline-flex items-center gap-2">
                 <div className="w-4 h-4 rounded-full border border-current flex items-center justify-center">
                   <div className="w-0 h-0 border-t-[3px] border-t-transparent border-l-[5px] border-l-current border-b-[3px] border-b-transparent ml-0.5" />
                 </div>
-                Ver Metodología
+                Conocer mi enfoque
               </div>
             </a>
           </div>
 
-          {/* Stats Line */}
+          {/* Principles Line */}
           <div 
             className="flex gap-8 mt-12 md:mt-16 opacity-0 animate-fade-up"
             style={{ animationDelay: "0.85s" }}
           >
             <div>
-              <div className="text-primary text-xl md:text-2xl font-black tracking-tighter">2-4</div>
-              <div className="text-[9px] text-muted-foreground uppercase tracking-widest font-bold">Semanas</div>
+              <div className="text-primary text-sm md:text-base font-black tracking-tight">PROCESO</div>
+              <div className="text-[9px] text-muted-foreground uppercase tracking-widest font-bold">Antes que herramienta</div>
             </div>
             <div className="w-px h-8 bg-white/10" />
             <div>
-              <div className="text-foreground text-xl md:text-2xl font-black tracking-tighter">100%</div>
-              <div className="text-[9px] text-muted-foreground uppercase tracking-widest font-bold">Enfoque en Datos</div>
+              <div className="text-foreground text-sm md:text-base font-black tracking-tight">EVIDENCIA</div>
+              <div className="text-[9px] text-muted-foreground uppercase tracking-widest font-bold">Trazabilidad visible</div>
             </div>
             <div className="w-px h-8 bg-white/10 hidden sm:block" />
             <div className="hidden sm:block">
-              <div className="text-foreground text-xl md:text-2xl font-black tracking-tighter">+15</div>
-              <div className="text-[9px] text-muted-foreground uppercase tracking-widest font-bold">Organizaciones</div>
+              <div className="text-foreground text-sm md:text-base font-black tracking-tight">ADOPCIÓN</div>
+              <div className="text-[9px] text-muted-foreground uppercase tracking-widest font-bold">Cambio sostenible</div>
             </div>
           </div>
         </div>

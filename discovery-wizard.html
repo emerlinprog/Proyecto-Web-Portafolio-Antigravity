@@ -3,8 +3,11 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Clarificador Estratégico | Business Architecture Agency</title>
-  <meta name="description" content="Motor de diagnóstico agéntico para identificar fricciones operativas y trazar rutas de arquitectura e IA."/>
+  <title>Diagnóstico inicial de procesos | Orlando Linares</title>
+  <meta name="description" content="Formulario guiado para describir un proceso, identificar fricciones operativas y preparar una conversación de diagnóstico."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://orlandolinares.com/discovery-wizard"/>
+  <meta property="og:type" content="website"/><meta property="og:url" content="https://orlandolinares.com/discovery-wizard"/><meta property="og:title" content="Diagnóstico inicial de procesos | Orlando Linares"/><meta property="og:description" content="Formulario guiado para describir un proceso y preparar una conversación de diagnóstico."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -293,8 +296,10 @@
           <p class="text-xs text-on-surface-variant mb-8 uppercase tracking-widest">Para enviar el Brief Estratégico a su correo</p>
           
           <div class="space-y-4 max-w-sm mx-auto">
-            <input type="text" id="user-name" placeholder="SU NOMBRE" required class="w-full bg-surface-container border border-outline-variant rounded-xl px-6 py-4 text-xs font-bold uppercase tracking-widest focus:border-primary outline-none transition-all">
-            <input type="email" id="user-email" placeholder="EMAIL INSTITUCIONAL" required class="w-full bg-surface-container border border-outline-variant rounded-xl px-6 py-4 text-xs font-bold uppercase tracking-widest focus:border-primary outline-none transition-all">
+            <label for="user-name" class="sr-only">Nombre</label>
+            <input type="text" id="user-name" name="name" autocomplete="name" placeholder="SU NOMBRE" required class="w-full bg-surface-container border border-outline-variant rounded-xl px-6 py-4 text-xs font-bold uppercase tracking-widest focus:border-primary outline-none transition-all">
+            <label for="user-email" class="sr-only">Correo electrónico</label>
+            <input type="email" id="user-email" name="email" autocomplete="email" placeholder="EMAIL INSTITUCIONAL" required class="w-full bg-surface-container border border-outline-variant rounded-xl px-6 py-4 text-xs font-bold uppercase tracking-widest focus:border-primary outline-none transition-all">
             <button id="generate-btn" class="w-full bg-primary text-background font-black py-5 rounded-xl text-xs uppercase tracking-[0.2em] hover:opacity-90 transition-all shadow-2xl shadow-primary/20 mt-6">
               Generar Análisis Agéntico
             </button>
@@ -329,7 +334,7 @@
             <h4 class="text-sm font-black text-on-surface mb-1 uppercase tracking-tight">¿Siguiente paso?</h4>
             <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Validar este reporte en una sesión de 45 minutos.</p>
           </div>
-          <a href="agendar_diagnostico.html" class="bg-primary text-background font-black px-8 py-4 rounded-xl text-[10px] uppercase tracking-widest hover:scale-105 transition-transform shadow-xl shadow-primary/20">
+          <a href="/agendar-diagnostico" class="bg-primary text-background font-black px-8 py-4 rounded-xl text-[10px] uppercase tracking-widest hover:scale-105 transition-transform shadow-xl shadow-primary/20">
             Agendar Sesión
           </a>
         </div>

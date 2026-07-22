@@ -3,17 +3,10 @@
   publish = "dist"
   functions = "netlify/functions"
 
-[[redirects]]
-  # Permitir que los archivos HTML estáticos se sirvan primero
-  from = "/*.html"
-  to = "/:splat.html"
-  status = 200
-
-[[redirects]]
-  # Redirigir el resto al SPA de React
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# La canonicalización se controla de forma explícita en public/_redirects.
+# Evita que el postprocesado de Netlify cree una segunda convención de URLs.
+[build.processing.html]
+  pretty_urls = false
 
 [[headers]]
   for = "/*"
@@ -22,4 +15,3 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-

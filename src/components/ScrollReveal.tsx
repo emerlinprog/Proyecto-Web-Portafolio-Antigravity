@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 interface ScrollRevealProps {
   children: React.ReactNode;
@@ -8,12 +8,19 @@ interface ScrollRevealProps {
   direction?: "up" | "down" | "left" | "right";
 }
 
-export const ScrollReveal = ({ 
-  children, 
-  width = "100%", 
+export const ScrollReveal = ({
+  children,
+  width = "100%",
   delay = 0,
   direction = "up"
 }: ScrollRevealProps) => {
+  const reduceMotion = useReducedMotion();
+
+  // Reduced-motion: render in place, no transform/opacity choreography.
+  if (reduceMotion) {
+    return <div style={{ position: "relative", width }}>{children}</div>;
+  }
+
   const directionOffset = {
     up: { y: 40, x: 0 },
     down: { y: -40, x: 0 },
@@ -25,26 +32,27 @@ export const ScrollReveal = ({
     <div style={{ position: "relative", width, overflow: "visible" }}>
       <motion.div
         variants={{
-          hidden: { 
-            opacity: 0, 
+          // Only opacity + transform animate. No filter:blur — animating blur
+          // over full-height sections is the main scroll-jank source.
+          hidden: {
+            opacity: 0,
             y: directionOffset[direction].y,
             x: directionOffset[direction].x,
-            filter: "blur(10px)"
           },
-          visible: { 
-            opacity: 1, 
+          visible: {
+            opacity: 1,
             y: 0,
             x: 0,
-            filter: "blur(0px)"
           },
         }}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ 
-          duration: 0.8, 
+        // Trigger a touch earlier so tall blocks don't pop in late.
+        viewport={{ once: true, margin: "-15% 0px" }}
+        transition={{
+          duration: 0.7,
           delay: delay,
-          ease: [0.21, 1.11, 0.81, 0.99] // Smooth overshoot ease
+          ease: [0.16, 1, 0.3, 1] // ease-out-expo (DESIGN.md ease-premium) — no overshoot
         }}
       >
         {children}

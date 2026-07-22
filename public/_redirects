@@ -1,1 +1,41 @@
-/* /index.html 200
+# Redirecciones permanentes: variantes antiguas -> URL canónica limpia.
+/index.html                 /                         301!
+/orlando-linares.html       /orlando-linares          301!
+/enfoque.html               /enfoque                  301!
+/articulos.html             /articulos                301!
+/articulo-identificar-procesos-ia.html /articulos/identificar-procesos-adecuados-para-ia 301!
+/articulo-digitalizacion-automatizacion-ia.html /articulos/digitalizacion-automatizacion-ia-diferencias 301!
+/articulo-roi-automatizacion.html /articulos/calcular-roi-automatizacion-administrativa 301!
+/articulo-proceso-as-is.html /articulos/como-levantar-proceso-as-is 301!
+/servicios.html             /servicios                301!
+/mvp_studio.html            /mvp-studio               301!
+/mvp_studio                 /mvp-studio               301!
+/ai_lab.html                /ai-lab                   301!
+/ai_lab                     /ai-lab                   301!
+/casos_de_uso.html          /casos                    301!
+/casos_de_uso               /casos                    301!
+/casos-de-uso               /casos                    301!
+/protocol-ai.html           /protocol-ai              301!
+/discovery-wizard.html      /discovery-wizard         301!
+/agendar_diagnostico.html   /agendar-diagnostico      301!
+/agendar_diagnostico        /agendar-diagnostico      301!
+/privacy.html               /privacy                  301!
+/ia_aplicada.html           /servicios#ia             301!
+/ia-aplicada                /servicios#ia             301!
+
+# Rewrites internos: URL canónica limpia -> archivo estático generado por Vite.
+/orlando-linares            /orlando-linares.html      200
+/enfoque                    /enfoque.html              200
+/articulos                  /articulos.html            200
+/articulos/identificar-procesos-adecuados-para-ia /articulo-identificar-procesos-ia.html 200
+/articulos/digitalizacion-automatizacion-ia-diferencias /articulo-digitalizacion-automatizacion-ia.html 200
+/articulos/calcular-roi-automatizacion-administrativa /articulo-roi-automatizacion.html 200
+/articulos/como-levantar-proceso-as-is /articulo-proceso-as-is.html 200
+/servicios                  /servicios.html            200
+/mvp-studio                 /mvp_studio.html           200
+/ai-lab                     /ai_lab.html               200
+/casos                      /casos_de_uso.html         200
+/protocol-ai                /protocol-ai.html          200
+/discovery-wizard           /discovery-wizard.html     200
+/agendar-diagnostico        /agendar_diagnostico.html  200
+/privacy                    /privacy.html              200
