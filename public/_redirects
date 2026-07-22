@@ -1,19 +1,12 @@
 # Redirecciones permanentes: variantes antiguas -> URL canónica limpia.
 /index.html                 /                         301!
 /orlando-linares.html       /orlando-linares          301!
-/orlando-linares/           /orlando-linares          301!
 /enfoque.html               /enfoque                  301!
-/enfoque/                   /enfoque                  301!
 /articulos.html             /articulos                301!
-/articulos/                 /articulos                301!
 /articulo-identificar-procesos-ia.html /articulos/identificar-procesos-adecuados-para-ia 301!
-/articulos/identificar-procesos-adecuados-para-ia/ /articulos/identificar-procesos-adecuados-para-ia 301!
 /articulo-digitalizacion-automatizacion-ia.html /articulos/digitalizacion-automatizacion-ia-diferencias 301!
-/articulos/digitalizacion-automatizacion-ia-diferencias/ /articulos/digitalizacion-automatizacion-ia-diferencias 301!
 /articulo-roi-automatizacion.html /articulos/calcular-roi-automatizacion-administrativa 301!
-/articulos/calcular-roi-automatizacion-administrativa/ /articulos/calcular-roi-automatizacion-administrativa 301!
 /articulo-proceso-as-is.html /articulos/como-levantar-proceso-as-is 301!
-/articulos/como-levantar-proceso-as-is/ /articulos/como-levantar-proceso-as-is 301!
 /servicios.html             /servicios                301!
 /mvp_studio.html            /mvp-studio               301!
 /mvp_studio                 /mvp-studio               301!
