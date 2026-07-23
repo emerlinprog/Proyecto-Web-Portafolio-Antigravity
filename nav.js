@@ -21,13 +21,13 @@ import { PAGES, LEGAL_LINKS } from './site-nav.js';
   const navLinks = pages.map(p => {
     const active = isActivePage(p.href);
     return active
-      ? `<a class="text-primary font-black border-b-2 border-primary pb-1 text-[10px] uppercase tracking-[0.2em]" href="${p.href}">${p.label}</a>`
-      : `<a class="text-on-surface-variant hover:text-primary transition-all duration-300 text-[10px] font-bold uppercase tracking-[0.2em]" href="${p.href}">${p.label}</a>`;
+      ? `<a class="inline-flex min-h-11 items-center text-primary font-black border-b-2 border-primary pt-0.5 text-[10px] uppercase tracking-[0.2em]" href="${p.href}">${p.label}</a>`
+      : `<a class="inline-flex min-h-11 items-center text-on-surface-variant hover:text-primary transition-all duration-300 text-[10px] font-bold uppercase tracking-[0.2em]" href="${p.href}">${p.label}</a>`;
   }).join('\n');
 
   const navHTML = `
 <nav id="main-nav" class="bg-background/80 backdrop-blur-md border-b border-outline-variant/30 w-full sticky top-0 z-[100]">
-  <div class="flex justify-between items-center w-full px-6 py-5 max-w-7xl mx-auto">
+  <div class="flex justify-between items-center w-full px-6 xl:px-8 py-3.5 max-w-[1360px] mx-auto">
     <a href="/" class="flex items-center gap-3 group">
       <div class="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform">
         <span class="text-primary font-black text-sm tracking-tighter">OL</span>
@@ -41,11 +41,11 @@ import { PAGES, LEGAL_LINKS } from './site-nav.js';
       ${navLinks}
     </div>
     <div class="flex items-center gap-4">
-      <a href="/discovery-wizard" class="bg-primary text-background font-black px-5 py-2.5 rounded-xl hover:opacity-90 transition-all text-[10px] uppercase tracking-widest hidden sm:flex items-center gap-2 shadow-lg shadow-primary/20">
+      <a href="/discovery-wizard" class="bg-primary text-background font-black px-5 min-h-11 rounded-xl hover:opacity-90 transition-all text-[10px] uppercase tracking-widest hidden sm:flex items-center gap-2 shadow-lg shadow-primary/20">
         Diagnóstico
         <span class="material-symbols-outlined text-xs">bolt</span>
       </a>
-      <button id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden text-on-surface p-2 rounded-xl bg-surface-container-high border border-outline-variant/30">
+      <button id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden min-w-11 min-h-11 text-on-surface p-2 rounded-xl bg-surface-container-high border border-outline-variant/30">
         <span class="material-symbols-outlined">menu</span>
       </button>
     </div>
