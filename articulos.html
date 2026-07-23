@@ -22,46 +22,65 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <style>
     body { font-family: 'Geist', sans-serif; scroll-behavior: smooth; }
-    .editorial-shell { width: min(calc(100% - 2rem), 85rem); margin-inline: auto; }
+    .editorial-shell { width: min(calc(100% - 2rem), 82rem); margin-inline: auto; }
     .glass-panel { background: rgba(24,24,28,.72); border: 1px solid rgba(150,203,255,.12); backdrop-filter: blur(20px); box-shadow: 0 20px 50px rgba(0,0,0,.18); }
     .eyebrow { letter-spacing: .28em; text-transform: uppercase; font-size: .65rem; font-weight: 800; color: hsl(var(--primary)); }
-    .editorial-hero { padding-block: clamp(3.5rem, 7vh, 5rem) clamp(2.75rem, 6vh, 4rem); }
-    .editorial-title { max-width: 16ch; font-size: clamp(3.25rem, 5vw, 5.5rem); letter-spacing: -.06em; line-height: .93; }
-    .editorial-intro { max-width: 68ch; font-size: clamp(1.125rem, 1.35vw, 1.375rem); }
-    .editorial-index { display: grid; gap: 2.5rem; align-items: start; }
-    .editorial-guide { padding-block: 1.5rem; border-block: 1px solid rgba(150,203,255,.14); }
-    .editorial-guide__item { display: grid; grid-template-columns: 1.5rem minmax(0,1fr); gap: .75rem; color: hsl(var(--on-surface-variant)); font-size: .875rem; line-height: 1.55; }
-    .editorial-guide__item + .editorial-guide__item { margin-top: 1rem; }
-    .editorial-guide__item .material-symbols-outlined { color: hsl(var(--primary)); font-size: 1rem; margin-top: .2rem; }
+    .editorial-hero { padding-block: clamp(3.25rem, 6vh, 4.5rem) clamp(2.5rem, 5vh, 3.5rem); }
+    .editorial-title { max-width: 16ch; font-size: clamp(3rem, 4.6vw, 5.125rem); letter-spacing: -.055em; line-height: .94; }
+    .editorial-intro { max-width: 66ch; font-size: clamp(1.0625rem, 1.2vw, 1.25rem); }
+    .section-heading { max-width: 27ch; font-size: clamp(2rem, 3vw, 2.75rem); letter-spacing: -.04em; line-height: 1.02; }
+    .section-intro { max-width: 70ch; font-size: clamp(1rem, 1.1vw, 1.125rem); line-height: 1.65; }
+    .editorial-index { display: grid; gap: 2rem; align-items: start; }
+    .editorial-guide { padding-block: 1.25rem; border-block: 1px solid rgba(150,203,255,.18); }
+    .editorial-guide__title { max-width: 15ch; font-size: clamp(1.35rem, 1.8vw, 1.65rem); line-height: 1.1; letter-spacing: -.025em; }
+    .decision-index { display: grid; gap: .25rem; margin-top: 1.25rem; }
+    .decision-index__link { display: grid; grid-template-columns: 2rem minmax(0,1fr); gap: .75rem; align-items: center; min-height: 2.75rem; padding: .55rem .25rem; border-bottom: 1px solid rgba(150,203,255,.1); color: hsl(var(--on-surface-variant)); font-size: .875rem; line-height: 1.3; transition: color .2s ease, background-color .2s ease; }
+    .decision-index__link:hover { color: hsl(var(--on-surface)); background: rgba(150,203,255,.035); }
+    .decision-index__number { color: hsl(var(--primary)); font-size: .68rem; font-weight: 900; letter-spacing: .14em; }
+    .editorial-guide__links { display: flex; flex-direction: column; gap: .75rem; }
     .article-list { border-top: 1px solid rgba(150,203,255,.18); }
-    .article-row { display: grid; grid-template-columns: 3rem minmax(0,1fr); gap: 1rem; padding-block: 1.75rem; border-bottom: 1px solid rgba(150,203,255,.14); transition: background-color .3s ease, border-color .3s ease; }
+    .article-row { display: grid; grid-template-columns: 2.5rem minmax(0,1fr); gap: 1rem; padding-block: 1.5rem; border-bottom: 1px solid rgba(150,203,255,.14); scroll-margin-top: 6.5rem; transition: background-color .2s ease, border-color .2s ease; }
     .article-row:hover { background: rgba(150,203,255,.035); border-color: rgba(150,203,255,.28); }
+    .article-row:target { background: rgba(150,203,255,.055); border-color: rgba(150,203,255,.32); }
     .article-row__number { color: hsl(var(--primary)); font-size: .75rem; font-weight: 900; letter-spacing: .16em; padding-top: .3rem; }
-    .article-row__title { max-width: 24ch; font-size: clamp(1.55rem, 2.25vw, 2.35rem); line-height: 1.04; letter-spacing: -.035em; }
-    .article-row__details { display: grid; gap: .75rem; margin-top: 1rem; }
+    .article-row__title { max-width: 27ch; font-size: clamp(1.5rem, 1.9vw, 2.05rem); line-height: 1.08; letter-spacing: -.035em; }
+    .article-row__details { display: grid; gap: .625rem; margin-top: .875rem; }
+    .article-row__details p { font-size: 1rem; line-height: 1.6; }
     .article-row__action { grid-column: 2; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem; }
     .article-row__link { min-height: 2.75rem; display: inline-flex; align-items: center; gap: .5rem; color: hsl(var(--primary)); font-size: .7rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
-    .knowledge-row { display: grid; grid-template-columns: 3rem minmax(0,1fr); gap: 1rem; padding-block: 1.5rem; border-top: 1px solid rgba(150,203,255,.12); }
-    .knowledge-row:last-child { border-bottom: 1px solid rgba(150,203,255,.12); }
+    .knowledge-section { border-block: 1px solid rgba(150,203,255,.1); background: linear-gradient(180deg, rgba(24,24,28,.56), rgba(18,18,22,.38)); }
+    .knowledge-groups { display: grid; gap: 1.5rem; align-items: start; }
+    .knowledge-group { padding: 1.25rem; border: 1px solid rgba(150,203,255,.14); border-top: 2px solid hsl(var(--primary)); background: rgba(12,12,15,.48); }
+    .knowledge-group--planned { border-top-color: rgba(150,203,255,.24); background: rgba(12,12,15,.26); }
+    .knowledge-group__header { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-bottom: 1rem; }
+    .knowledge-group__title { font-size: 1.125rem; font-weight: 900; letter-spacing: -.02em; }
+    .knowledge-group__summary { color: hsl(var(--on-surface-variant)); font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+    .knowledge-row { display: grid; grid-template-columns: 2.5rem minmax(0,1fr); gap: .75rem; padding-block: 1.125rem; border-top: 1px solid rgba(150,203,255,.12); }
+    .knowledge-row--link { min-height: 2.75rem; transition: background-color .2s ease; }
+    .knowledge-row--link:hover { background: rgba(150,203,255,.035); }
+    .knowledge-row h4 { font-size: clamp(1rem, 1.15vw, 1.125rem); line-height: 1.3; }
+    .knowledge-row p { font-size: .9375rem; line-height: 1.55; }
+    .knowledge-row__meta { display: inline-flex; align-items: center; gap: .35rem; margin-top: .65rem; color: hsl(var(--primary)); font-size: .68rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
     .knowledge-index { color: hsl(var(--primary)); font-size: .72rem; font-weight: 900; letter-spacing: .16em; padding-top: .25rem; }
-    .status-pill { display: inline-flex; align-items: center; min-height: 1.75rem; border-radius: 999px; padding-inline: .75rem; font-size: .62rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; }
-    .status-pill--active { color: hsl(var(--background)); background: hsl(var(--primary)); }
-    .status-pill--planned { color: hsl(var(--on-surface-variant)); border: 1px solid rgba(150,203,255,.16); background: rgba(150,203,255,.04); }
+    .status-label { display: inline-block; margin-bottom: .45rem; color: hsl(var(--on-surface-variant)); font-size: .64rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
     .reveal { opacity: 1; transform: none; animation: editorial-enter .6s cubic-bezier(.16,1,.3,1) both; }
     @keyframes editorial-enter { from { opacity: .72; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @media (min-width: 48rem) {
-      .editorial-shell { width: min(calc(100% - 4rem), 85rem); }
-      .article-row { grid-template-columns: 4rem minmax(0,1fr) 11rem; gap: 1.5rem; padding: 2rem 1rem; }
-      .article-row__details { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.5rem; }
+      .editorial-shell { width: min(calc(100% - 4rem), 82rem); }
+      .article-row { grid-template-columns: 3.5rem minmax(0,1fr) 9.5rem; gap: 1.25rem; padding: 1.5rem .75rem; }
+      .article-row__details { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.25rem; }
+      .article-row__details p { font-size: .9375rem; }
       .article-row__action { grid-column: 3; grid-row: 1; align-self: stretch; flex-direction: column; align-items: flex-start; justify-content: space-between; padding-block: .15rem; }
-      .knowledge-row { grid-template-columns: 4rem minmax(0,1fr) auto; gap: 1.5rem; align-items: center; }
     }
     @media (min-width: 64rem) {
-      .editorial-index { grid-template-columns: minmax(14rem,17rem) minmax(0,1fr); gap: clamp(3rem,5vw,5rem); }
+      .editorial-index { grid-template-columns: minmax(13rem,15rem) minmax(0,1fr); gap: clamp(2.5rem,4vw,4rem); }
       .editorial-guide { position: sticky; top: 6.5rem; }
+      .knowledge-groups { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 1.75rem; }
+      .knowledge-group { padding: 1.5rem; }
     }
-    @media (max-width: 47.99rem) {
-      .knowledge-row .status-pill { grid-column: 2; justify-self: start; }
+    @media (min-width: 30rem) and (max-width: 63.99rem) {
+      .decision-index { grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 1.25rem; }
+      .editorial-guide__links { flex-direction: row; flex-wrap: wrap; gap: .75rem 1.5rem; }
     }
     @media (prefers-reduced-motion: reduce) {
       .reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
@@ -88,35 +107,40 @@
       <div class="editorial-shell">
         <div class="max-w-5xl mb-8 md:mb-10 reveal">
           <p class="eyebrow mb-4">Ruta recomendada</p>
-          <h2 id="route-heading" class="text-3xl md:text-5xl font-black tracking-tight leading-[1.02] mb-4">Cuatro decisiones, en el orden correcto.</h2>
-          <p class="text-base md:text-lg text-on-surface-variant leading-relaxed">Empieza por el proceso actual, elige la intervención menos compleja, comprueba si la IA tiene sentido y recién entonces construye el caso de valor.</p>
+          <h2 id="route-heading" class="section-heading font-black mb-4">Cuatro decisiones, en el orden correcto.</h2>
+          <p class="section-intro text-on-surface-variant">Empieza por el proceso actual, elige la intervención menos compleja, comprueba si la IA tiene sentido y recién entonces construye el caso de valor.</p>
         </div>
         <div class="editorial-index">
           <aside aria-labelledby="guide-heading" class="editorial-guide reveal">
-            <p class="eyebrow mb-4">Cómo usar esta ruta</p>
-            <h3 id="guide-heading" class="text-2xl font-black mb-6">Lee en secuencia o entra por tu decisión pendiente.</h3>
-            <div class="editorial-guide__item"><span class="material-symbols-outlined" aria-hidden="true">route</span><p>Si partes desde cero, sigue los pasos del 01 al 04.</p></div>
-            <div class="editorial-guide__item"><span class="material-symbols-outlined" aria-hidden="true">near_me</span><p>Si ya tienes una línea base, entra directamente por la pregunta que necesitas resolver.</p></div>
-            <div class="editorial-guide__item"><span class="material-symbols-outlined" aria-hidden="true">verified_user</span><p>Cada guía declara el resultado esperado, sus límites y el control humano requerido.</p></div>
-            <div class="mt-7 pt-6 border-t border-primary/10 flex flex-col gap-3"><a href="#lineas-editoriales" class="text-sm font-bold text-primary hover:underline">Ver líneas de conocimiento</a><a href="/orlando-linares" class="text-sm font-bold text-primary hover:underline">Conocer al autor</a></div>
+            <p class="eyebrow mb-3">Índice de decisiones</p>
+            <h3 id="guide-heading" class="editorial-guide__title font-black">Encuentra tu punto de entrada.</h3>
+            <nav aria-label="Índice de la ruta editorial">
+              <ol class="decision-index">
+                <li><a class="decision-index__link" href="#paso-01"><span class="decision-index__number">01</span><span>Comprender el proceso</span></a></li>
+                <li><a class="decision-index__link" href="#paso-02"><span class="decision-index__number">02</span><span>Elegir la intervención</span></a></li>
+                <li><a class="decision-index__link" href="#paso-03"><span class="decision-index__number">03</span><span>Evaluar el uso de IA</span></a></li>
+                <li><a class="decision-index__link" href="#paso-04"><span class="decision-index__number">04</span><span>Construir el caso de valor</span></a></li>
+              </ol>
+            </nav>
+            <div class="editorial-guide__links mt-6 pt-5 border-t border-primary/10"><a href="#lineas-editoriales" class="text-sm font-bold text-primary hover:underline">Ver líneas de conocimiento</a><a href="/orlando-linares" class="text-sm font-bold text-primary hover:underline">Conocer al autor</a></div>
           </aside>
           <div class="article-list reveal" role="list" aria-label="Guías publicadas en orden recomendado">
-            <article class="article-row" role="listitem">
+            <article id="paso-01" class="article-row" role="listitem">
               <span class="article-row__number">01</span>
               <div><div class="flex flex-wrap items-center gap-2 text-xs text-on-surface-variant mb-3"><span class="eyebrow">Arquitectura de procesos</span><span aria-hidden="true">·</span><span>Guía práctica</span></div><h3 class="article-row__title font-black"><a href="/articulos/como-levantar-proceso-as-is" class="hover:text-primary transition-colors">Cómo levantar un proceso AS-IS paso a paso</a></h3><div class="article-row__details"><p class="text-sm text-on-surface-variant leading-relaxed">Documenta cómo funciona realmente el proceso antes de diseñar soluciones.</p><p class="text-sm text-on-surface-variant leading-relaxed"><strong class="text-on-surface">Obtienes:</strong> una línea base de actores, decisiones, evidencias y problemas.</p></div></div>
               <div class="article-row__action"><time datetime="2026-07-22" class="text-xs text-on-surface-variant">22 jul 2026</time><a href="/articulos/como-levantar-proceso-as-is" class="article-row__link">Leer guía <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span></a></div>
             </article>
-            <article class="article-row" role="listitem">
+            <article id="paso-02" class="article-row" role="listitem">
               <span class="article-row__number">02</span>
               <div><div class="flex flex-wrap items-center gap-2 text-xs text-on-surface-variant mb-3"><span class="eyebrow">IA y procesos</span><span aria-hidden="true">·</span><span>Comparación</span></div><h3 class="article-row__title font-black"><a href="/articulos/digitalizacion-automatizacion-ia-diferencias" class="hover:text-primary transition-colors">Digitalización, automatización e IA: diferencias y cuándo usar cada una</a></h3><div class="article-row__details"><p class="text-sm text-on-surface-variant leading-relaxed">Elige la intervención menos compleja que resuelve el problema.</p><p class="text-sm text-on-surface-variant leading-relaxed"><strong class="text-on-surface">Obtienes:</strong> una decisión razonada entre rediseño, digitalización, automatización e IA.</p></div></div>
               <div class="article-row__action"><time datetime="2026-07-22" class="text-xs text-on-surface-variant">22 jul 2026</time><a href="/articulos/digitalizacion-automatizacion-ia-diferencias" class="article-row__link">Comparar <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span></a></div>
             </article>
-            <article class="article-row" role="listitem">
+            <article id="paso-03" class="article-row" role="listitem">
               <span class="article-row__number">03</span>
               <div><div class="flex flex-wrap items-center gap-2 text-xs text-on-surface-variant mb-3"><span class="eyebrow">IA y procesos</span><span aria-hidden="true">·</span><span>Evaluación</span></div><h3 class="article-row__title font-black"><a href="/articulos/identificar-procesos-adecuados-para-ia" class="hover:text-primary transition-colors">Cómo identificar procesos adecuados para utilizar inteligencia artificial</a></h3><div class="article-row__details"><p class="text-sm text-on-surface-variant leading-relaxed">Descarta malos candidatos y define una prueba con límites y responsables.</p><p class="text-sm text-on-surface-variant leading-relaxed"><strong class="text-on-surface">Obtienes:</strong> criterios de priorización y una decisión informada sobre el piloto.</p></div></div>
               <div class="article-row__action"><time datetime="2026-07-22" class="text-xs text-on-surface-variant">22 jul 2026</time><a href="/articulos/identificar-procesos-adecuados-para-ia" class="article-row__link">Evaluar <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span></a></div>
             </article>
-            <article class="article-row" role="listitem">
+            <article id="paso-04" class="article-row" role="listitem">
               <span class="article-row__number">04</span>
               <div><div class="flex flex-wrap items-center gap-2 text-xs text-on-surface-variant mb-3"><span class="eyebrow">IA y procesos</span><span aria-hidden="true">·</span><span>Método</span></div><h3 class="article-row__title font-black"><a href="/articulos/calcular-roi-automatizacion-administrativa" class="hover:text-primary transition-colors">Cómo calcular el ROI de una automatización administrativa</a></h3><div class="article-row__details"><p class="text-sm text-on-surface-variant leading-relaxed">Compara costos, beneficios y escenarios sin prometer cifras.</p><p class="text-sm text-on-surface-variant leading-relaxed"><strong class="text-on-surface">Obtienes:</strong> línea base, escenarios y un caso de valor trazable.</p></div></div>
               <div class="article-row__action"><time datetime="2026-07-22" class="text-xs text-on-surface-variant">22 jul 2026</time><a href="/articulos/calcular-roi-automatizacion-administrativa" class="article-row__link">Calcular <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span></a></div>
@@ -125,20 +149,30 @@
         </div>
       </div>
     </section>
-    <section id="lineas-editoriales" aria-labelledby="lines-heading" class="py-14 md:py-20 bg-surface-container-low/40">
+    <section id="lineas-editoriales" aria-labelledby="lines-heading" class="knowledge-section py-14 md:py-16">
       <div class="editorial-shell">
         <div class="max-w-4xl mb-8 md:mb-10 reveal">
           <p class="eyebrow mb-4">Líneas de conocimiento</p>
-          <h2 id="lines-heading" class="text-3xl md:text-5xl font-black tracking-tight leading-[1.02] mb-4">Cinco preguntas organizan el contenido.</h2>
-          <p class="text-base md:text-lg text-on-surface-variant leading-relaxed">Dos líneas ya tienen publicaciones. Las siguientes aparecen como hoja de ruta editorial para mostrar con claridad qué está disponible y qué sigue en preparación.</p>
+          <h2 id="lines-heading" class="section-heading font-black mb-4">Cinco preguntas organizan el contenido.</h2>
+          <p class="section-intro text-on-surface-variant">Dos líneas ya tienen publicaciones. Las siguientes aparecen como hoja de ruta editorial para mostrar con claridad qué está disponible y qué sigue en preparación.</p>
         </div>
-        <ol class="reveal">
-          <li class="knowledge-row"><span class="knowledge-index">01</span><div><h3 class="text-lg md:text-xl font-black mb-2">¿Qué procesos conviene apoyar con IA?</h3><p class="text-sm text-on-surface-variant leading-relaxed">Priorización, elección tecnológica y medición del valor.</p></div><a href="#empieza-aqui" class="status-pill status-pill--active">3 guías publicadas</a></li>
-          <li class="knowledge-row"><span class="knowledge-index">02</span><div><h3 class="text-lg md:text-xl font-black mb-2">¿Cómo comprender y rediseñar un proceso antes de digitalizarlo?</h3><p class="text-sm text-on-surface-variant leading-relaxed">AS-IS, TO-BE, evidencias, problemas y requisitos.</p></div><a href="/articulos/como-levantar-proceso-as-is" class="status-pill status-pill--active">1 guía publicada</a></li>
-          <li class="knowledge-row"><span class="knowledge-index">03</span><div><h3 class="text-lg md:text-xl font-black mb-2">¿Cómo aplicar IA con control en la contratación pública?</h3><p class="text-sm text-on-surface-variant leading-relaxed">Riesgos, trazabilidad y control humano en decisiones sensibles.</p></div><span class="status-pill status-pill--planned">En preparación</span></li>
-          <li class="knowledge-row"><span class="knowledge-index">04</span><div><h3 class="text-lg md:text-xl font-black mb-2">¿Cómo organizar evidencia y trazabilidad documental?</h3><p class="text-sm text-on-surface-variant leading-relaxed">Metadatos, versiones, permisos y continuidad operativa.</p></div><span class="status-pill status-pill--planned">En preparación</span></li>
-          <li class="knowledge-row"><span class="knowledge-index">05</span><div><h3 class="text-lg md:text-xl font-black mb-2">¿Cómo aplicar IA en recursos humanos públicos con controles adecuados?</h3><p class="text-sm text-on-surface-variant leading-relaxed">Criterios de uso, supervisión y responsabilidad institucional.</p></div><span class="status-pill status-pill--planned">En preparación</span></li>
-        </ol>
+        <div class="knowledge-groups reveal">
+          <section class="knowledge-group" aria-labelledby="available-lines-heading">
+            <div class="knowledge-group__header"><h3 id="available-lines-heading" class="knowledge-group__title">Disponibles ahora</h3><p class="knowledge-group__summary">2 líneas · 4 guías</p></div>
+            <ol>
+              <li><a href="#empieza-aqui" class="knowledge-row knowledge-row--link"><span class="knowledge-index">01</span><div><h4 class="font-black mb-2">¿Qué procesos conviene apoyar con IA?</h4><p class="text-on-surface-variant">Priorización, elección tecnológica y medición del valor.</p><span class="knowledge-row__meta">3 guías disponibles <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span></span></div></a></li>
+              <li><a href="/articulos/como-levantar-proceso-as-is" class="knowledge-row knowledge-row--link"><span class="knowledge-index">02</span><div><h4 class="font-black mb-2">¿Cómo comprender y rediseñar un proceso antes de digitalizarlo?</h4><p class="text-on-surface-variant">AS-IS, TO-BE, evidencias, problemas y requisitos.</p><span class="knowledge-row__meta">1 guía disponible <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span></span></div></a></li>
+            </ol>
+          </section>
+          <section class="knowledge-group knowledge-group--planned" aria-labelledby="planned-lines-heading">
+            <div class="knowledge-group__header"><h3 id="planned-lines-heading" class="knowledge-group__title">Próximas líneas</h3><p class="knowledge-group__summary">3 en preparación</p></div>
+            <ol start="3">
+              <li class="knowledge-row"><span class="knowledge-index">03</span><div><span class="status-label">En preparación</span><h4 class="font-black mb-2">¿Cómo aplicar IA con control en la contratación pública?</h4><p class="text-on-surface-variant">Riesgos, trazabilidad y control humano en decisiones sensibles.</p></div></li>
+              <li class="knowledge-row"><span class="knowledge-index">04</span><div><span class="status-label">En preparación</span><h4 class="font-black mb-2">¿Cómo organizar evidencia y trazabilidad documental?</h4><p class="text-on-surface-variant">Metadatos, versiones, permisos y continuidad operativa.</p></div></li>
+              <li class="knowledge-row"><span class="knowledge-index">05</span><div><span class="status-label">En preparación</span><h4 class="font-black mb-2">¿Cómo aplicar IA en recursos humanos públicos con controles adecuados?</h4><p class="text-on-surface-variant">Criterios de uso, supervisión y responsabilidad institucional.</p></div></li>
+            </ol>
+          </section>
+        </div>
       </div>
     </section>
     <section aria-labelledby="closing-heading" class="py-14 md:py-20">
