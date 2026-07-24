@@ -162,6 +162,30 @@
   }
 }
 
+/* Navegación secuencial de artículos.
+   Estas reglas quedan fuera de @layer para superar el estilo editorial
+   `.article-body a` sin afectar los enlaces de contenido y fuentes. */
+.article-body .article-nav a {
+  text-decoration: none;
+}
+
+.article-body .article-nav .article-nav__link--secondary {
+  color: hsl(var(--on-surface));
+  border: 1px solid hsl(var(--primary) / 0.45);
+}
+
+.article-body .article-nav .article-nav__link--primary {
+  color: hsl(var(--background));
+}
+
+.article-body .article-nav .article-nav__link--secondary:hover {
+  background: hsl(var(--surface-container-high));
+}
+
+.article-body .article-nav .article-nav__link--primary:hover {
+  filter: brightness(1.08);
+}
+
 /* Perf: omitir el pintado de secciones fuera del viewport en equipos modestos.
    El navegador saltea layout+paint de lo off-screen (Spline, glows blur-[140px],
    backdrop-filter) y reserva el alto con contain-intrinsic-size para no saltar el scroll. */

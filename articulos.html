@@ -41,6 +41,7 @@
     .article-list { border-top: 1px solid rgba(150,203,255,.18); }
     .article-row { display: grid; grid-template-columns: 2.5rem minmax(0,1fr); gap: 1rem; padding-block: 1.5rem; border-bottom: 1px solid rgba(150,203,255,.14); scroll-margin-top: 6.5rem; transition: background-color .2s ease, border-color .2s ease; }
     .article-row:hover { background: rgba(150,203,255,.035); border-color: rgba(150,203,255,.28); }
+    .article-row:focus-within { background: rgba(150,203,255,.035); border-color: rgba(150,203,255,.28); }
     .article-row:target { background: rgba(150,203,255,.055); border-color: rgba(150,203,255,.32); }
     .article-row__number { color: hsl(var(--primary)); font-size: .75rem; font-weight: 900; letter-spacing: .16em; padding-top: .3rem; }
     .article-row__title { max-width: 27ch; font-size: clamp(1.5rem, 1.9vw, 2.05rem); line-height: 1.08; letter-spacing: -.035em; }
@@ -63,6 +64,7 @@
     .knowledge-row__meta { display: inline-flex; align-items: center; gap: .35rem; margin-top: .65rem; color: hsl(var(--primary)); font-size: .68rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
     .knowledge-index { color: hsl(var(--primary)); font-size: .72rem; font-weight: 900; letter-spacing: .16em; padding-top: .25rem; }
     .status-label { display: inline-block; margin-bottom: .45rem; color: hsl(var(--on-surface-variant)); font-size: .64rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    #empieza-aqui, #lineas-editoriales { scroll-margin-top: 6.5rem; }
     .reveal { opacity: 1; transform: none; animation: editorial-enter .6s cubic-bezier(.16,1,.3,1) both; }
     @keyframes editorial-enter { from { opacity: .72; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @media (min-width: 48rem) {
@@ -81,6 +83,10 @@
     @media (min-width: 30rem) and (max-width: 63.99rem) {
       .decision-index { grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 1.25rem; }
       .editorial-guide__links { flex-direction: row; flex-wrap: wrap; gap: .75rem 1.5rem; }
+    }
+    @media (max-width: 29.99rem) {
+      .knowledge-group__header { flex-wrap: wrap; align-items: flex-start; }
+      .knowledge-group__summary { white-space: normal; }
     }
     @media (prefers-reduced-motion: reduce) {
       .reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
@@ -160,8 +166,8 @@
           <section class="knowledge-group" aria-labelledby="available-lines-heading">
             <div class="knowledge-group__header"><h3 id="available-lines-heading" class="knowledge-group__title">Disponibles ahora</h3><p class="knowledge-group__summary">2 líneas · 4 guías</p></div>
             <ol>
-              <li><a href="#empieza-aqui" class="knowledge-row knowledge-row--link"><span class="knowledge-index">01</span><div><h4 class="font-black mb-2">¿Qué procesos conviene apoyar con IA?</h4><p class="text-on-surface-variant">Priorización, elección tecnológica y medición del valor.</p><span class="knowledge-row__meta">3 guías disponibles <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span></span></div></a></li>
-              <li><a href="/articulos/como-levantar-proceso-as-is" class="knowledge-row knowledge-row--link"><span class="knowledge-index">02</span><div><h4 class="font-black mb-2">¿Cómo comprender y rediseñar un proceso antes de digitalizarlo?</h4><p class="text-on-surface-variant">AS-IS, TO-BE, evidencias, problemas y requisitos.</p><span class="knowledge-row__meta">1 guía disponible <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span></span></div></a></li>
+              <li><a href="#paso-02" class="knowledge-row knowledge-row--link"><span class="knowledge-index">01</span><div><h4 class="font-black mb-2">¿Cuándo conviene utilizar IA en un proceso y cómo evaluar su valor?</h4><p class="text-on-surface-variant">Elección de la intervención, criterios para saber si la IA tiene sentido y evaluación del ROI.</p><span class="knowledge-row__meta">Ver 3 guías · pasos 02–04 <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span></span></div></a></li>
+              <li><a href="/articulos/como-levantar-proceso-as-is" class="knowledge-row knowledge-row--link"><span class="knowledge-index">02</span><div><h4 class="font-black mb-2">¿Cómo comprender y documentar un proceso antes de digitalizarlo?</h4><p class="text-on-surface-variant">AS-IS, actores, evidencias, problemas y validación.</p><span class="knowledge-row__meta">Leer guía AS-IS <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span></span></div></a></li>
             </ol>
           </section>
           <section class="knowledge-group knowledge-group--planned" aria-labelledby="planned-lines-heading">
