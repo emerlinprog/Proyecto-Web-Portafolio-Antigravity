@@ -23,120 +23,259 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
   <style>
     body { font-family: 'Geist', sans-serif; scroll-behavior: smooth; }
-    .glass-panel { background: rgba(24, 24, 28, .68); border: 1px solid rgba(150, 203, 255, .12); backdrop-filter: blur(20px); }
-    .eyebrow { letter-spacing: .32em; text-transform: uppercase; font-size: .65rem; font-weight: 800; color: hsl(var(--primary)); }
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-    .principle-number { color: hsl(var(--primary)); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .75rem; }
+    .focus-page { --focus-green: 157 58% 72%; }
+    .focus-shell { width: min(1240px, calc(100% - 3rem)); margin-inline: auto; }
+    .focus-section { padding-block: clamp(4.5rem, 8vw, 7rem); border-top: 1px solid hsl(var(--outline-variant) / .18); }
+    .focus-eyebrow { color: hsl(var(--primary)); font-size: .625rem; font-weight: 900; letter-spacing: .28em; text-transform: uppercase; }
+    .focus-panel { background: linear-gradient(145deg, hsl(var(--surface-container) / .92), hsl(var(--surface-container-lowest) / .9)); border: 1px solid hsl(var(--outline-variant) / .72); box-shadow: 0 28px 70px rgba(0, 0, 0, .24); }
+    .focus-reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; will-change: transform; }
+    .focus-reveal.active { opacity: 1; transform: translateY(0); }
+
+    .focus-hero { min-height: min(760px, calc(100svh - 68px)); padding-block: clamp(3.5rem, 7vw, 6.25rem); display: grid; align-items: center; overflow: hidden; }
+    .focus-hero-grid { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(340px, .88fr); gap: clamp(2.5rem, 6vw, 5rem); align-items: center; }
+    .focus-title { margin: 0; max-width: 760px; font-size: clamp(3.6rem, 6.15vw, 5.75rem); line-height: .91; letter-spacing: -.065em; font-weight: 900; text-wrap: balance; }
+    .focus-lead { max-width: 660px; color: hsl(var(--on-surface-variant)); font-size: clamp(1rem, 1.5vw, 1.2rem); line-height: 1.65; }
+    .focus-thesis { max-width: 660px; display: flex; gap: .9rem; align-items: flex-start; padding: 1.1rem 1.25rem; border-left: 2px solid hsl(var(--primary)); background: linear-gradient(90deg, hsl(var(--primary) / .09), transparent); }
+    .focus-thesis strong { color: hsl(var(--primary)); white-space: nowrap; }
+    .focus-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; color: hsl(var(--on-surface-variant)); font-size: .72rem; }
+
+    .decision-map { position: relative; padding: clamp(1.15rem, 2.5vw, 1.8rem); border-radius: 1.75rem; }
+    .decision-map::before { content: ''; position: absolute; inset: -1px; z-index: -1; border-radius: inherit; background: linear-gradient(135deg, hsl(var(--primary) / .36), transparent 38%, hsl(var(--tertiary) / .22)); }
+    .decision-map__label { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem; color: hsl(var(--on-surface-variant)); font-size: .56rem; font-weight: 900; letter-spacing: .2em; text-transform: uppercase; }
+    .decision-flow { display: grid; gap: .65rem; }
+    .decision-node { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr) auto; gap: .85rem; align-items: center; padding: .9rem; border: 1px solid hsl(var(--outline-variant) / .62); border-radius: 1rem; background: hsl(var(--surface-container-lowest) / .86); }
+    .decision-node:last-child { border-color: hsl(var(--focus-green) / .4); background: linear-gradient(90deg, hsl(var(--focus-green) / .1), hsl(var(--surface-container-lowest) / .9)); }
+    .decision-node__number { width: 2.25rem; height: 2.25rem; display: grid; place-items: center; border-radius: .7rem; color: hsl(var(--primary)); background: hsl(var(--primary) / .12); font: 800 .65rem ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .decision-node:last-child .decision-node__number { color: hsl(var(--focus-green)); background: hsl(var(--focus-green) / .12); }
+    .decision-node strong { display: block; font-size: .9rem; }
+    .decision-node small { display: block; margin-top: .2rem; color: hsl(var(--on-surface-variant)); font-size: .72rem; line-height: 1.45; }
+    .decision-node__arrow { color: hsl(var(--on-surface-variant) / .55); }
+
+    .focus-section-head { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: end; margin-bottom: clamp(2rem, 4vw, 3.25rem); }
+    .focus-section-title { margin: 0; max-width: 680px; font-size: clamp(2.65rem, 5vw, 4.25rem); line-height: .96; letter-spacing: -.055em; font-weight: 900; text-wrap: balance; }
+    .focus-section-copy { max-width: 620px; margin: 0; color: hsl(var(--on-surface-variant)); font-size: clamp(1rem, 1.4vw, 1.08rem); line-height: 1.65; }
+
+    .principle-pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.15rem; }
+    .principle-pillar { --pillar-color: var(--primary); position: relative; min-height: 390px; padding: clamp(1.5rem, 3vw, 2rem); overflow: hidden; border-radius: 1.5rem; transition: transform .35s ease, border-color .35s ease; }
+    .principle-pillar:hover { transform: translateY(-5px); border-color: hsl(var(--pillar-color) / .55); }
+    .principle-pillar::after { content: ''; position: absolute; width: 12rem; height: 12rem; right: -6rem; top: -6rem; border-radius: 50%; background: hsl(var(--pillar-color)); filter: blur(58px); opacity: .1; pointer-events: none; }
+    .principle-pillar--violet { --pillar-color: var(--tertiary); }
+    .principle-pillar--green { --pillar-color: var(--focus-green); }
+    .principle-icon { width: 2.9rem; height: 2.9rem; display: grid; place-items: center; border-radius: .9rem; color: hsl(var(--pillar-color)); background: hsl(var(--pillar-color) / .11); border: 1px solid hsl(var(--pillar-color) / .18); }
+    .principle-pillar h3 { margin: 1.45rem 0 .7rem; font-size: clamp(1.35rem, 2.2vw, 1.75rem); line-height: 1.08; letter-spacing: -.035em; font-weight: 900; }
+    .principle-pillar > p { min-height: 4.8rem; margin: 0 0 1.3rem; color: hsl(var(--on-surface-variant)); font-size: .9rem; line-height: 1.6; }
+    .principle-rule { display: grid; grid-template-columns: 1.8rem minmax(0, 1fr); gap: .65rem; padding: .9rem 0; border-top: 1px solid hsl(var(--outline-variant) / .48); font-size: .84rem; }
+    .principle-rule span { color: hsl(var(--pillar-color)); font: 800 .62rem ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+    .focus-method { display: grid; grid-template-columns: minmax(300px, .72fr) minmax(0, 1.28fr); gap: clamp(3rem, 7vw, 6rem); align-items: start; }
+    .focus-method__intro { position: sticky; top: 7rem; }
+    .focus-method__intro p:not(.focus-eyebrow) { max-width: 430px; color: hsl(var(--on-surface-variant)); line-height: 1.7; }
+    .focus-method__rule { margin-top: 2rem; padding: 1.2rem; border: 1px solid hsl(var(--primary) / .2); border-radius: 1rem; background: hsl(var(--primary) / .05); color: hsl(var(--on-surface-variant)); font-size: .82rem; }
+    .focus-method__rule strong { display: block; margin-bottom: .4rem; color: hsl(var(--primary)); font-size: .62rem; letter-spacing: .17em; text-transform: uppercase; }
+    .focus-timeline { position: relative; display: grid; gap: .85rem; }
+    .focus-timeline::before { content: ''; position: absolute; left: 2.85rem; top: 2.2rem; bottom: 2.2rem; width: 1px; background: linear-gradient(hsl(var(--primary)), hsl(var(--tertiary)), hsl(var(--focus-green))); }
+    .focus-step { position: relative; display: grid; grid-template-columns: 3.55rem minmax(0, 1fr); gap: 1.15rem; padding: clamp(1.2rem, 2.6vw, 1.7rem); border-radius: 1.25rem; transition: transform .35s ease, border-color .35s ease; }
+    .focus-step:hover { transform: translateX(5px); border-color: hsl(var(--primary) / .42); }
+    .focus-step__number { position: relative; z-index: 1; width: 3.55rem; height: 3.55rem; display: grid; place-items: center; border: 1px solid hsl(var(--primary) / .2); border-radius: 1.1rem; color: hsl(var(--primary)); background: hsl(var(--primary) / .11); font: 800 .7rem ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .focus-step h3 { margin: .1rem 0 .4rem; font-size: clamp(1.2rem, 2vw, 1.45rem); line-height: 1.15; font-weight: 900; }
+    .focus-step p { margin: 0; color: hsl(var(--on-surface-variant)); font-size: .86rem; line-height: 1.6; }
+    .focus-step__output { display: inline-block; margin-top: .75rem; color: hsl(var(--primary)); font-size: .56rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+
+    .intervention-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.15rem; }
+    .intervention-card { display: flex; flex-direction: column; min-height: 360px; padding: clamp(1.5rem, 3vw, 2rem); border-radius: 1.4rem; transition: transform .35s ease, border-color .35s ease; }
+    .intervention-card:hover { transform: translateY(-5px); border-color: hsl(var(--primary) / .48); }
+    .intervention-card__top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+    .intervention-card__tag { color: hsl(var(--primary)); font-size: .55rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; text-align: right; }
+    .intervention-card h3 { margin: 0 0 .7rem; font-size: clamp(1.35rem, 2.4vw, 1.7rem); line-height: 1.12; font-weight: 900; }
+    .intervention-card > p { margin: 0; color: hsl(var(--on-surface-variant)); font-size: .9rem; line-height: 1.65; }
+    .intervention-card__warning { margin-top: auto; padding-top: 1.35rem; border-top: 1px solid hsl(var(--outline-variant) / .5); color: hsl(var(--on-surface-variant)); font-size: .78rem; line-height: 1.55; }
+    .intervention-card__warning strong { display: block; margin-bottom: .4rem; color: hsl(0 70% 78%); font-size: .56rem; letter-spacing: .15em; text-transform: uppercase; }
+
+    .governance-grid { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; border-radius: 1.75rem; }
+    .governance-column { padding: clamp(1.7rem, 4vw, 2.75rem); }
+    .governance-column + .governance-column { border-left: 1px solid hsl(var(--outline-variant) / .65); background: linear-gradient(145deg, hsl(var(--primary) / .055), transparent); }
+    .governance-column h3 { margin: 0 0 1.5rem; font-size: clamp(1.6rem, 3vw, 2rem); line-height: 1.1; font-weight: 900; }
+    .governance-item { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr); gap: .7rem; padding: .9rem 0; border-top: 1px solid hsl(var(--outline-variant) / .48); color: hsl(var(--on-surface-variant)); font-size: .86rem; line-height: 1.6; }
+    .governance-icon { color: hsl(var(--focus-green)); font-size: 1rem; font-weight: 900; padding-top: .1rem; }
+
+    .focus-cta { padding-block: clamp(5.5rem, 10vw, 8rem); text-align: center; }
+    .focus-cta h2 { max-width: 920px; margin: 0 auto 1.25rem; font-size: clamp(2.75rem, 6vw, 4.75rem); line-height: .95; letter-spacing: -.055em; font-weight: 900; text-wrap: balance; }
+    .focus-cta p { max-width: 620px; margin: 0 auto 2rem; color: hsl(var(--on-surface-variant)); line-height: 1.7; }
+    .focus-cta__actions { display: flex; justify-content: center; gap: .75rem; }
+    .focus-button { min-height: 3rem; display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: 0 1.5rem; border-radius: .8rem; font-size: .65rem; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; transition: transform .35s ease, filter .35s ease, background-color .35s ease; }
+    .focus-button:hover { transform: translateY(-2px); filter: brightness(1.08); }
+    .focus-button--primary { color: hsl(var(--background)); background: hsl(var(--primary)); box-shadow: 0 14px 34px hsl(var(--primary) / .18); }
+    .focus-button--secondary { color: hsl(var(--on-surface)); border: 1px solid hsl(var(--outline-variant)); background: transparent; }
+
+    @media (max-width: 900px) {
+      .focus-hero { min-height: auto; }
+      .focus-hero-grid, .focus-section-head, .focus-method, .governance-grid { grid-template-columns: 1fr; }
+      .focus-hero-grid, .focus-method { gap: 2.75rem; }
+      .principle-pillars, .intervention-grid { grid-template-columns: 1fr; }
+      .principle-pillar, .intervention-card { min-height: auto; }
+      .principle-pillar > p { min-height: auto; }
+      .focus-method__intro { position: static; }
+      .focus-section-head { gap: 1.25rem; }
+      .governance-column + .governance-column { border-left: 0; border-top: 1px solid hsl(var(--outline-variant) / .65); }
+    }
+    @media (max-width: 520px) {
+      .focus-shell { width: min(100% - 1.875rem, 1240px); }
+      .focus-section { padding-block: 4.5rem; }
+      .focus-hero { padding-block: 3rem 3.75rem; }
+      .focus-title { font-size: clamp(3rem, 13.2vw, 3.55rem); }
+      .focus-thesis { display: block; }
+      .focus-thesis strong { display: block; margin-bottom: .35rem; }
+      .decision-map { padding: 1rem; }
+      .decision-node { grid-template-columns: 2.25rem minmax(0, 1fr); padding: .8rem; }
+      .decision-node__arrow { display: none; }
+      .focus-section-title { font-size: clamp(2.5rem, 12vw, 3.15rem); }
+      .focus-step { grid-template-columns: 3rem minmax(0, 1fr); padding: 1.15rem; }
+      .focus-step__number { width: 3rem; height: 3rem; }
+      .focus-timeline::before { left: 2.65rem; }
+      .focus-cta__actions { flex-direction: column; }
+      .focus-button { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      body { scroll-behavior: auto; }
+      .focus-reveal { opacity: 1; transform: none; transition: none; will-change: auto; }
+      .principle-pillar, .focus-step, .intervention-card, .focus-button { transition: none; }
+      .principle-pillar:hover, .focus-step:hover, .intervention-card:hover, .focus-button:hover { transform: none; }
+    }
   </style>
 </head>
 <body class="bg-background text-on-surface antialiased min-h-screen">
-  <main>
-    <section class="relative pt-16 md:pt-24 pb-20 px-6 overflow-hidden">
-      <div class="absolute top-0 right-0 w-[700px] h-[500px] bg-primary/10 blur-[150px] -z-10 rounded-full"></div>
-      <div class="max-w-6xl mx-auto">
-        <nav aria-label="Migas de pan" class="mb-12 text-xs text-on-surface-variant reveal">
-          <ol class="flex flex-wrap items-center gap-2">
-            <li><a href="/" class="hover:text-primary">Inicio</a></li>
-            <li aria-hidden="true">/</li>
-            <li aria-current="page" class="text-primary">Enfoque</li>
-          </ol>
-        </nav>
-        <div class="max-w-5xl reveal">
-          <p class="eyebrow mb-6">Filosofía profesional</p>
-          <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-[-0.06em] leading-[.94] mb-10">
-            Cómo entiendo la transformación con <span class="text-primary">inteligencia artificial.</span>
-          </h1>
-          <div class="glass-panel rounded-[2rem] p-7 md:p-10 max-w-4xl">
-            <p class="text-lg md:text-2xl leading-relaxed text-on-surface">
-              El cliente no paga por la IA, los prompts ni la herramienta. Paga por transformar de forma segura, medible y sostenible cómo realiza un trabajo importante. Por eso, primero se comprende y rediseña el proceso; después se decide si necesita automatización, datos, inteligencia artificial o una solución más simple.
-            </p>
+  <main class="focus-page">
+    <section class="focus-hero" aria-labelledby="focus-title">
+      <div class="focus-shell focus-hero-grid">
+        <div class="focus-reveal">
+          <nav aria-label="Migas de pan" class="focus-meta mb-8">
+            <ol class="flex flex-wrap items-center gap-2">
+              <li><a href="/" class="hover:text-primary transition-colors">Inicio</a></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" class="text-primary">Enfoque</li>
+            </ol>
+          </nav>
+          <p class="focus-eyebrow mb-5">Filosofía profesional · 01</p>
+          <h1 id="focus-title" class="focus-title">Primero el trabajo. <span class="text-primary">Luego la tecnología.</span></h1>
+          <p class="focus-lead mt-7">Transformar con IA no comienza eligiendo una herramienta. Comienza entendiendo qué trabajo importa, qué lo frena y cómo sabremos que realmente mejoró.</p>
+          <div class="focus-thesis mt-7">
+            <strong>Mi criterio:</strong>
+            <span>la IA solo tiene sentido cuando convierte un proceso complejo en una operación más clara, trazable y sostenible.</span>
           </div>
-          <div class="mt-8 flex flex-wrap gap-5 text-xs text-on-surface-variant">
+          <div class="focus-meta mt-7">
             <span>Autor: Orlando Linares</span><span aria-hidden="true">·</span><span>Última revisión: 20 de julio de 2026</span>
           </div>
         </div>
+
+        <aside class="decision-map focus-panel focus-reveal" aria-label="Sistema de decisión para una intervención">
+          <div class="decision-map__label"><span>Sistema de decisión</span><span>OL · Framework</span></div>
+          <div class="decision-flow">
+            <div class="decision-node"><span class="decision-node__number">01</span><div><strong>Fricción observable</strong><small>¿Qué impide realizar bien el trabajo?</small></div><span class="decision-node__arrow" aria-hidden="true">↓</span></div>
+            <div class="decision-node"><span class="decision-node__number">02</span><div><strong>Proceso y evidencia</strong><small>Roles, reglas, datos, excepciones y controles.</small></div><span class="decision-node__arrow" aria-hidden="true">↓</span></div>
+            <div class="decision-node"><span class="decision-node__number">03</span><div><strong>Intervención adecuada</strong><small>Rediseñar, automatizar o asistir con IA.</small></div><span class="decision-node__arrow" aria-hidden="true">↓</span></div>
+            <div class="decision-node"><span class="decision-node__number">04</span><div><strong>Valor verificable</strong><small>Tiempo, riesgo, calidad, adopción y trazabilidad.</small></div><span class="decision-node__arrow" aria-hidden="true">✓</span></div>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section class="py-16 md:py-24 px-6">
-      <div class="max-w-7xl mx-auto">
-        <div class="max-w-3xl mb-14 reveal">
-          <p class="eyebrow mb-4">Siete principios</p>
-          <h2 class="text-4xl md:text-6xl font-black tracking-tight mb-6">Criterios antes que herramientas.</h2>
-          <p class="text-on-surface-variant leading-relaxed">Estos principios orientan el diagnóstico, el diseño de la solución y la forma de evaluar si una intervención realmente mejora el trabajo.</p>
+    <section class="focus-section" aria-labelledby="principles-title">
+      <div class="focus-shell">
+        <div class="focus-section-head focus-reveal">
+          <div><p class="focus-eyebrow mb-4">Tres pilares</p><h2 id="principles-title" class="focus-section-title">Criterios que organizan la decisión.</h2></div>
+          <p class="focus-section-copy">Los siete principios se agrupan en tres preguntas: qué comprender, quién responde y cómo demostrar que una intervención mejora el trabajo.</p>
         </div>
-        <ol class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <li class="glass-panel rounded-3xl p-8 reveal"><span class="principle-number">01</span><h3 class="text-2xl font-black mt-5 mb-3">Primero el proceso</h3><p class="text-sm text-on-surface-variant leading-relaxed">Una herramienta no corrige por sí sola roles confusos, reglas contradictorias, datos incompletos o decisiones sin responsable.</p></li>
-          <li class="glass-panel rounded-3xl p-8 reveal"><span class="principle-number">02</span><h3 class="text-2xl font-black mt-5 mb-3">Responsabilidad humana</h3><p class="text-sm text-on-surface-variant leading-relaxed">La IA puede asistir, comparar, extraer o alertar. La decisión y la responsabilidad permanecen en personas autorizadas.</p></li>
-          <li class="glass-panel rounded-3xl p-8 reveal"><span class="principle-number">03</span><h3 class="text-2xl font-black mt-5 mb-3">Evidencia trazable</h3><p class="text-sm text-on-surface-variant leading-relaxed">Cada hallazgo relevante debe poder explicarse y rastrearse hasta el documento, dato, regla o fuente que lo respalda.</p></li>
-          <li class="glass-panel rounded-3xl p-8 reveal"><span class="principle-number">04</span><h3 class="text-2xl font-black mt-5 mb-3">No automatizar el defecto</h3><p class="text-sm text-on-surface-variant leading-relaxed">Automatizar un proceso deficiente puede multiplicar sus errores, acelerar decisiones incorrectas y ocultar problemas de diseño.</p></li>
-          <li class="glass-panel rounded-3xl p-8 reveal"><span class="principle-number">05</span><h3 class="text-2xl font-black mt-5 mb-3">Valor observable</h3><p class="text-sm text-on-surface-variant leading-relaxed">El valor se demuestra mediante tiempo, riesgo, calidad, control o reprocesos; no mediante la novedad de la tecnología utilizada.</p></li>
-          <li class="glass-panel rounded-3xl p-8 reveal"><span class="principle-number">06</span><h3 class="text-2xl font-black mt-5 mb-3">Integración al trabajo real</h3><p class="text-sm text-on-surface-variant leading-relaxed">Una solución debe encajar en las decisiones, herramientas, responsabilidades y restricciones cotidianas de sus usuarios.</p></li>
-          <li class="glass-panel rounded-3xl p-8 reveal md:col-span-2"><span class="principle-number">07</span><h3 class="text-2xl font-black mt-5 mb-3">Adopción, no solo implementación</h3><p class="text-sm text-on-surface-variant leading-relaxed max-w-3xl">La transformación necesita comprensión, participación, aprendizaje y seguimiento. Entregar una herramienta no equivale a cambiar una forma de trabajar.</p></li>
+        <div class="principle-pillars">
+          <article class="principle-pillar focus-panel focus-reveal">
+            <div class="principle-icon" aria-hidden="true">⌁</div>
+            <h3>Comprender antes de construir</h3>
+            <p>El problema se define desde el trabajo real, no desde la herramienta disponible.</p>
+            <div class="principle-rule"><span>01</span><strong>Primero el proceso</strong></div>
+            <div class="principle-rule"><span>04</span><strong>No automatizar el defecto</strong></div>
+          </article>
+          <article class="principle-pillar principle-pillar--violet focus-panel focus-reveal">
+            <div class="principle-icon" aria-hidden="true">◎</div>
+            <h3>Gobernar con responsabilidad</h3>
+            <p>La asistencia tecnológica no elimina las decisiones ni la responsabilidad humana.</p>
+            <div class="principle-rule"><span>02</span><strong>Responsabilidad humana</strong></div>
+            <div class="principle-rule"><span>03</span><strong>Evidencia trazable</strong></div>
+          </article>
+          <article class="principle-pillar principle-pillar--green focus-panel focus-reveal">
+            <div class="principle-icon" aria-hidden="true">↗</div>
+            <h3>Demostrar valor en operación</h3>
+            <p>El éxito se observa en el trabajo y se sostiene mediante adopción y seguimiento.</p>
+            <div class="principle-rule"><span>05</span><strong>Valor observable</strong></div>
+            <div class="principle-rule"><span>06</span><strong>Integración al trabajo real</strong></div>
+            <div class="principle-rule"><span>07</span><strong>Adopción sostenible</strong></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="focus-section bg-surface-container-low/30" aria-labelledby="method-title">
+      <div class="focus-shell focus-method">
+        <div class="focus-method__intro focus-reveal">
+          <p class="focus-eyebrow mb-4">Método de intervención</p>
+          <h2 id="method-title" class="focus-section-title">De la fricción al cambio sostenible.</h2>
+          <p class="mt-6">Una secuencia que impide saltar desde un síntoma operativo hacia una tecnología elegida de antemano.</p>
+          <div class="focus-method__rule"><strong>Regla de avance</strong>Cada etapa debe dejar una decisión, evidencia o criterio verificable antes de continuar.</div>
+        </div>
+        <ol class="focus-timeline">
+          <li class="focus-step focus-panel focus-reveal"><span class="focus-step__number">01</span><div><h3>Delimitar el trabajo importante</h3><p>Definir objetivo, inicio, fin, usuarios, responsables, restricciones y resultado esperado.</p><span class="focus-step__output">Salida · alcance acordado</span></div></li>
+          <li class="focus-step focus-panel focus-reveal"><span class="focus-step__number">02</span><div><h3>Comprender el proceso actual</h3><p>Observar actividades, decisiones, documentos, datos, excepciones, controles y puntos de espera.</p><span class="focus-step__output">Salida · mapa de fricciones</span></div></li>
+          <li class="focus-step focus-panel focus-reveal"><span class="focus-step__number">03</span><div><h3>Priorizar causas y oportunidades</h3><p>Separar síntomas de causas y comparar impacto, factibilidad, riesgo y capacidad de medición.</p><span class="focus-step__output">Salida · oportunidad priorizada</span></div></li>
+          <li class="focus-step focus-panel focus-reveal"><span class="focus-step__number">04</span><div><h3>Diseñar solución y controles</h3><p>Definir proceso futuro, roles, requisitos, evidencia, revisión humana y alternativas tecnológicas.</p><span class="focus-step__output">Salida · intervención diseñada</span></div></li>
+          <li class="focus-step focus-panel focus-reveal"><span class="focus-step__number">05</span><div><h3>Validar, adoptar y medir</h3><p>Probar con alcance controlado, atender casos borde y medir si la solución mejora el trabajo real.</p><span class="focus-step__output">Salida · evidencia de valor</span></div></li>
         </ol>
       </div>
     </section>
 
-    <section class="py-16 md:py-24 px-6 bg-surface-container-low/40">
-      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div class="lg:col-span-4 reveal">
-          <p class="eyebrow mb-4">Método de intervención</p>
-          <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-6">De la fricción al cambio sostenible.</h2>
-          <p class="text-on-surface-variant leading-relaxed">La secuencia evita saltar desde un síntoma operativo hacia una herramienta elegida de antemano.</p>
+    <section class="focus-section" aria-labelledby="intervention-title">
+      <div class="focus-shell">
+        <div class="focus-section-head focus-reveal">
+          <div><p class="focus-eyebrow mb-4">Elegir la intervención</p><h2 id="intervention-title" class="focus-section-title">No todo problema necesita IA.</h2></div>
+          <p class="focus-section-copy">La tecnología se decide después de comprender el problema. Tres alternativas, tres criterios de uso y tres señales de alerta.</p>
         </div>
-        <ol class="lg:col-span-8 space-y-4">
-          <li class="glass-panel rounded-2xl p-6 md:p-8 grid grid-cols-[auto_1fr] gap-5 reveal"><span class="principle-number pt-1">01</span><div><h3 class="text-xl font-black mb-2">Delimitar el trabajo importante</h3><p class="text-sm text-on-surface-variant leading-relaxed">Definir objetivo, inicio, fin, usuarios, responsables, restricciones y resultado esperado.</p></div></li>
-          <li class="glass-panel rounded-2xl p-6 md:p-8 grid grid-cols-[auto_1fr] gap-5 reveal"><span class="principle-number pt-1">02</span><div><h3 class="text-xl font-black mb-2">Comprender el proceso actual</h3><p class="text-sm text-on-surface-variant leading-relaxed">Observar actividades, decisiones, documentos, datos, excepciones, controles y puntos de espera.</p></div></li>
-          <li class="glass-panel rounded-2xl p-6 md:p-8 grid grid-cols-[auto_1fr] gap-5 reveal"><span class="principle-number pt-1">03</span><div><h3 class="text-xl font-black mb-2">Priorizar causas y oportunidades</h3><p class="text-sm text-on-surface-variant leading-relaxed">Separar síntomas de causas y comparar impacto, factibilidad, riesgo y capacidad de medición.</p></div></li>
-          <li class="glass-panel rounded-2xl p-6 md:p-8 grid grid-cols-[auto_1fr] gap-5 reveal"><span class="principle-number pt-1">04</span><div><h3 class="text-xl font-black mb-2">Diseñar solución y controles</h3><p class="text-sm text-on-surface-variant leading-relaxed">Definir proceso futuro, roles, requisitos, evidencia, revisión humana y alternativas tecnológicas.</p></div></li>
-          <li class="glass-panel rounded-2xl p-6 md:p-8 grid grid-cols-[auto_1fr] gap-5 reveal"><span class="principle-number pt-1">05</span><div><h3 class="text-xl font-black mb-2">Validar, adoptar y medir</h3><p class="text-sm text-on-surface-variant leading-relaxed">Probar con alcance controlado, atender casos borde y medir si la solución mejora el trabajo real.</p></div></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="py-16 md:py-24 px-6">
-      <div class="max-w-6xl mx-auto">
-        <div class="max-w-3xl mb-12 reveal">
-          <p class="eyebrow mb-4">Elegir la intervención correcta</p>
-          <h2 class="text-4xl md:text-5xl font-black tracking-tight">No todo problema necesita IA.</h2>
-        </div>
-        <div class="overflow-x-auto glass-panel rounded-3xl reveal">
-          <table class="w-full text-left min-w-[760px]"><caption class="sr-only">Comparación de intervenciones según el problema observado</caption>
-            <thead class="border-b border-outline-variant/40">
-              <tr><th scope="col" class="p-6 text-xs uppercase tracking-widest text-primary">Intervención</th><th scope="col" class="p-6 text-xs uppercase tracking-widest text-primary">Cuándo aporta</th><th scope="col" class="p-6 text-xs uppercase tracking-widest text-primary">Señal de alerta</th></tr>
-            </thead>
-            <tbody class="text-sm text-on-surface-variant">
-              <tr class="border-b border-outline-variant/20"><th scope="row" class="p-6 text-on-surface">Rediseño de proceso</th><td class="p-6">Roles, reglas, transferencias o controles están mal definidos.</td><td class="p-6">Comprar software antes de acordar cómo debe funcionar el trabajo.</td></tr>
-              <tr class="border-b border-outline-variant/20"><th scope="row" class="p-6 text-on-surface">Automatización convencional</th><td class="p-6">Las reglas son estables, explícitas y repetibles.</td><td class="p-6">Usar IA para decisiones que pueden resolverse con reglas claras.</td></tr>
-              <tr><th scope="row" class="p-6 text-on-surface">Inteligencia artificial</th><td class="p-6">Existe variabilidad, información no estructurada o necesidad de asistencia analítica.</td><td class="p-6">Datos insuficientes, alto impacto sin revisión humana o resultado imposible de evaluar.</td></tr>
-            </tbody>
-          </table>
+        <div class="intervention-grid">
+          <article class="intervention-card focus-panel focus-reveal"><div class="intervention-card__top"><span class="text-primary" aria-hidden="true">◇</span><span class="intervention-card__tag">Base operativa</span></div><h3>Rediseñar el proceso</h3><p>Cuando roles, reglas, transferencias o controles todavía no están claros.</p><div class="intervention-card__warning"><strong>Señal de alerta</strong>Comprar software antes de acordar cómo debe funcionar el trabajo.</div></article>
+          <article class="intervention-card focus-panel focus-reveal"><div class="intervention-card__top"><span class="text-primary" aria-hidden="true">⚙</span><span class="intervention-card__tag">Reglas estables</span></div><h3>Automatizar</h3><p>Cuando las decisiones son explícitas, repetibles y tienen pocas excepciones.</p><div class="intervention-card__warning"><strong>Señal de alerta</strong>Usar IA para resolver algo que ya puede expresarse con reglas claras.</div></article>
+          <article class="intervention-card focus-panel focus-reveal"><div class="intervention-card__top"><span class="text-primary" aria-hidden="true">✦</span><span class="intervention-card__tag">Variabilidad asistida</span></div><h3>Incorporar IA</h3><p>Cuando existe información no estructurada o necesidad de asistencia analítica.</p><div class="intervention-card__warning"><strong>Señal de alerta</strong>Datos insuficientes, alto impacto sin revisión humana o resultado imposible de evaluar.</div></article>
         </div>
       </div>
     </section>
 
-    <section class="py-16 md:py-24 px-6">
-      <div class="max-w-5xl mx-auto glass-panel rounded-[2.5rem] p-8 md:p-14 reveal">
-        <p class="eyebrow mb-4">Riesgos y límites</p>
-        <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-8">Una solución responsable también explica lo que no puede concluir.</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-on-surface-variant leading-relaxed">
-          <p>Una salida generada por IA puede contener errores, omisiones o inferencias incorrectas. Debe existir revisión proporcional al impacto de la decisión.</p>
-          <p>Los datos personales, documentos sensibles y fuentes normativas requieren controles de acceso, propósito, actualización y trazabilidad.</p>
-          <p>Un piloto exitoso no demuestra por sí solo viabilidad operativa. También importan integración, costos, mantenimiento y capacidad institucional.</p>
-          <p>La automatización no reemplaza al propietario del proceso. Alguien debe responder por las reglas, excepciones y resultados.</p>
+    <section class="focus-section" aria-labelledby="governance-title">
+      <div class="focus-shell">
+        <div class="focus-section-head focus-reveal">
+          <div><p class="focus-eyebrow mb-4">Riesgos y límites</p><h2 id="governance-title" class="focus-section-title">Una solución responsable también explica sus límites.</h2></div>
+          <p class="focus-section-copy">La capacidad tecnológica y la responsabilidad operativa deben diseñarse juntas, con controles proporcionales al impacto.</p>
+        </div>
+        <div class="governance-grid focus-panel focus-reveal">
+          <div class="governance-column">
+            <p class="focus-eyebrow mb-4">Capacidad</p><h3>Lo que la solución puede asistir.</h3>
+            <div class="governance-item"><span class="governance-icon" aria-hidden="true">✓</span><span>Comparar, extraer, clasificar y detectar patrones.</span></div>
+            <div class="governance-item"><span class="governance-icon" aria-hidden="true">✓</span><span>Reducir tareas repetitivas y organizar evidencia.</span></div>
+            <div class="governance-item"><span class="governance-icon" aria-hidden="true">✓</span><span>Proponer alternativas sujetas a revisión.</span></div>
+          </div>
+          <div class="governance-column">
+            <p class="focus-eyebrow mb-4">Responsabilidad</p><h3>Lo que debe permanecer gobernado.</h3>
+            <div class="governance-item"><span class="governance-icon" aria-hidden="true">●</span><span>Una salida de IA puede contener errores u omisiones; la revisión debe ser proporcional al impacto.</span></div>
+            <div class="governance-item"><span class="governance-icon" aria-hidden="true">●</span><span>Los datos personales, documentos sensibles y fuentes normativas requieren acceso y trazabilidad.</span></div>
+            <div class="governance-item"><span class="governance-icon" aria-hidden="true">●</span><span>Un piloto exitoso no demuestra por sí solo integración, costo, mantenimiento o viabilidad operativa.</span></div>
+            <div class="governance-item"><span class="governance-icon" aria-hidden="true">●</span><span>La automatización no reemplaza al propietario del proceso ni su responsabilidad por las excepciones.</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="py-16 md:py-24 px-6 text-center">
-      <div class="max-w-3xl mx-auto reveal">
-        <p class="eyebrow mb-5">Aplicar el enfoque</p>
-        <h2 class="text-4xl md:text-6xl font-black tracking-tight mb-6">Comencemos por el proceso, no por la herramienta.</h2>
-        <p class="text-on-surface-variant mb-9">El diagnóstico inicial ayuda a delimitar la fricción, identificar evidencia disponible y decidir qué intervención tiene sentido.</p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="/discovery-wizard" class="bg-primary text-background font-black px-9 py-5 rounded-xl text-xs uppercase tracking-widest hover:brightness-110 transition-all">Iniciar diagnóstico</a>
-          <a href="/orlando-linares" class="border border-outline-variant text-on-surface font-black px-9 py-5 rounded-xl text-xs uppercase tracking-widest hover:bg-surface-container transition-colors">Conocer a Orlando</a>
+    <section class="focus-cta" aria-labelledby="focus-cta-title">
+      <div class="focus-shell focus-reveal">
+        <p class="focus-eyebrow mb-5">Aplicar el enfoque</p>
+        <h2 id="focus-cta-title">Comencemos por entender el trabajo.</h2>
+        <p>El diagnóstico inicial delimita la fricción, identifica la evidencia disponible y determina qué intervención tiene sentido.</p>
+        <div class="focus-cta__actions">
+          <a href="/discovery-wizard" class="focus-button focus-button--primary">Iniciar diagnóstico <span aria-hidden="true">↗</span></a>
+          <a href="/orlando-linares" class="focus-button focus-button--secondary">Conocer a Orlando</a>
         </div>
       </div>
     </section>
@@ -147,7 +286,7 @@
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('active'); });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+    document.querySelectorAll('.focus-reveal').forEach((element) => revealObserver.observe(element));
   </script>
 </body>
 </html>
