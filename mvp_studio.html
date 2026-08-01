@@ -120,6 +120,21 @@
       filter: blur(0);
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      body { animation: none !important; }
+      .scanline { display: none; }
+      .reveal,
+      .reveal.active {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+      }
+      .glass-card,
+      .magnetic { transition: none; }
+    }
+
 
   </style>
 </head>
@@ -180,7 +195,7 @@
               </div>
             </div>
             <a href="/casos" class="mt-8 inline-flex items-center gap-2 text-tertiary text-[10px] font-black uppercase tracking-widest hover:gap-4 transition-all">
-              Ver casos de impacto (AsistenteOECE, Arrendia y más) <span class="material-symbols-outlined text-xs">arrow_forward</span>
+              Ver casos de impacto (ContrataCheck, Arrendia y más) <span class="material-symbols-outlined text-xs">arrow_forward</span>
             </a>
           </div>
         </div>

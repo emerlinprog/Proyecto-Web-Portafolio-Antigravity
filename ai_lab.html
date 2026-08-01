@@ -118,6 +118,20 @@
       filter: blur(0);
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      body { animation: none !important; }
+      .scanline { display: none; }
+      .reveal,
+      .reveal.active {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+      }
+      .glass-card { transition: none; }
+    }
+
     .magnetic {
       display: inline-block;
       transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
@@ -193,7 +207,7 @@
           </div>
         </div>
 
-        <!-- Tool: AsistenteOECE (Flagship Product) -->
+        <!-- Tool: ContrataCheck (Flagship Product) -->
         <div class="md:col-span-4 glass-card rounded-[2.5rem] p-6 md:p-10 flex flex-col justify-between group border border-primary/20 bg-primary/5 hover:border-primary/40 transition-all reveal">
           <div class="spotlight"></div>
           <div>
@@ -201,15 +215,15 @@
               <span class="material-symbols-outlined text-primary">account_balance</span>
             </div>
             <div class="flex items-center gap-2 mb-6">
-              <h2 class="text-3xl font-black tracking-tight text-on-surface leading-tight">Asistente<br>OECE</h2>
+              <h2 class="text-3xl font-black tracking-tight text-on-surface leading-tight">ContrataCheck</h2>
               <span class="px-2 py-0.5 rounded-full bg-primary/15 text-[8px] font-black border border-primary/30 text-primary uppercase tracking-widest self-start mt-1">Beta</span>
             </div>
             <p class="text-on-surface-variant leading-relaxed mb-8">
               Copiloto de contrataciones públicas alineado a la Ley 32069. Interpreta la normativa de la OECE (ex-OSCE), asiste en la revisión de bases y anticipa observaciones.
             </p>
           </div>
-          <a href="https://di9z3868.insforge.site/" target="_blank" rel="noopener" class="text-primary text-[10px] font-black uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">
-            Probar el demo <span class="material-symbols-outlined text-xs">open_in_new</span>
+          <a href="https://contratacheck.com/" target="_blank" rel="noopener noreferrer" class="text-primary text-[10px] font-black uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">
+            Visitar ContrataCheck <span class="material-symbols-outlined text-xs">open_in_new</span>
           </a>
         </div>
 

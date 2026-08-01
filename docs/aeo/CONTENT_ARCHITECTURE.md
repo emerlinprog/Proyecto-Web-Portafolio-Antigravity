@@ -4,7 +4,8 @@
 **Horizonte:** 60 días.
 **Audiencias prioritarias:** responsables de organizaciones públicas y dueños o gerentes de PYMES con procesos administrativos complejos.
 **Fuentes analizadas:** contenido actual del repositorio, PRD existente y material AEO entregado por el usuario.
-**Alcance activo confirmado:** trabajar únicamente la autoridad personal y el contenido de `orlandolinares.com`. ContrataCheck y cualquier referencia a su denominación anterior quedan diferidos y fuera del alcance activo. Business Architecture Agency es una futura oferta de servicio de Orlando dentro de `/servicios/`, no una empresa, agencia independiente ni entidad `Organization`.
+**Alcance base del ciclo de 60 días:** trabajar únicamente la autoridad personal y el contenido de `orlandolinares.com`. Business Architecture Agency es una futura oferta de servicio de Orlando dentro de `/servicios/`, no una empresa, agencia independiente ni entidad `Organization`.
+**Actualización aprobada el 2026-08-01:** `ContrataCheck` es el nombre vigente del producto antes presentado como `AsistenteOECE`, y `https://contratacheck.com/` es su sitio oficial. Se autorizan el renombrado y los enlaces contextuales desde AI Lab, Casos y referencias editoriales existentes. Esta excepción no reactiva auditorías, schema, redirects, medición, cambios ni despliegues sobre el dominio externo.
 **Regla de evidencia:** toda cifra, credencial, relación laboral, resultado, función de una herramienta o afirmación normativa debe validarse antes de publicarse.
 
 ## 1. Diagnóstico breve
@@ -107,8 +108,8 @@ Las URLs son arquitectura objetivo. Su implementación pertenece a otro lote. El
 ### Fuera de alcance y diferido
 
 - No se programa `/proyectos/contratacheck/`.
-- No se crean enlaces, fichas, CTAs, contenidos, dependencias ni actividades sobre ContrataCheck durante los primeros 60 días.
-- Las referencias existentes a ContrataCheck o a su denominación anterior se tratarán en un lote futuro independiente, sin bloquear este plan.
+- La excepción aprobada el 2026-08-01 permite identificar `ContrataCheck` y enlazar su sitio oficial desde AI Lab, Casos y referencias editoriales existentes; no autoriza nuevas dependencias, campañas ni actividades multidominio.
+- La denominación anterior se retira del contenido visible y se conserva únicamente en documentación histórica cuando sea necesaria para explicar la transición.
 - El inventario o rendimiento de dominios externos no forma parte de los criterios de inicio, publicación o aceptación de `orlandolinares.com`.
 
 ## 5. Inventario de adaptación del contenido actual
@@ -411,7 +412,7 @@ El clúster se construye como conocimiento profesional general de Orlando. Sus p
 | Artículos con checklist | `/recursos/` | Nombre específico del recurso | Facilitar aplicación y captación ética. |
 | Entradas del glosario | Pilar y artículo relevante | Término definido | Evitar definiciones huérfanas. |
 
-**Límites:** no usar anclas idénticas de forma mecánica; no enlazar páginas no publicadas; no crear cruces si el destino no aporta una ampliación real. Cualquier enlace o ficha de ContrataCheck queda diferido y fuera de esta matriz.
+**Límites:** no usar anclas idénticas de forma mecánica; no enlazar páginas no publicadas; no crear cruces si el destino no aporta una ampliación real. Para ContrataCheck solo se permiten los enlaces contextuales al sitio oficial aprobados el 2026-08-01; cualquier ampliación permanece diferida.
 
 ## 10. Calendario editorial realista de 60 días
 
@@ -437,7 +438,7 @@ La capacidad propuesta es **una pieza profunda cada dos semanas**, acompañada d
 - Existe un posicionamiento principal y las especialidades están subordinadas.
 - Cada página responde una pregunta distinta y evita duplicar la propuesta de otra.
 - La voz distingue claramente a Orlando y Business Architecture Agency como futura oferta dentro de sus servicios.
-- No existe ficha, CTA, dependencia o enlace de ContrataCheck en el alcance activo.
+- ContrataCheck aparece con su nombre vigente y enlace oficial únicamente en los contextos aprobados; no se presenta como dependencia editorial ni como fuente de evidencia de Orlando.
 
 ### Estructura AEO
 
@@ -471,7 +472,7 @@ La capacidad propuesta es **una pieza profunda cada dos semanas**, acompañada d
 
 | Decisión | Estado editorial resultante |
 |---|---|
-| ContrataCheck queda fuera del alcance activo. | No programar ficha, enlace, contenido, dependencia o actividad durante los primeros 60 días. Cualquier tratamiento futuro se realizará en un lote independiente. |
+| ContrataCheck tiene una reactivación limitada aprobada el 2026-08-01. | Usar el nombre vigente y enlazar `https://contratacheck.com/` desde AI Lab, Casos y referencias editoriales existentes. Auditoría multidominio, schema, medición, redirects y despliegues externos siguen fuera de alcance. |
 | Business Architecture Agency es un servicio o futura línea de servicio de Orlando. | Modelar dentro de `/servicios/`, con estado visible; no crear entidad, empresa, agencia, biografía o perfiles independientes. |
 | `orlandolinares.com` es el centro de autoridad personal. | Autoría, biografía, casos profesionales, enfoque y conocimiento se consolidan en este dominio. |
 
@@ -521,7 +522,7 @@ No se requieren comandos de build, preview o despliegue para validar este entreg
 - Se contrastaron el mapa y la narrativa con los componentes React y páginas HTML actuales.
 - Se inventariaron PRONIED, MADIMSA, AI Lab, Clarificador y Protocol AI como activos posibles de la autoridad personal.
 - Se marcaron las cifras y credenciales existentes como dependencias, no como hechos aprobados.
-- Se retiró ContrataCheck de la arquitectura, enlaces, backlog, calendario, dependencias y criterios activos de los primeros 60 días.
+- Se mantuvo ContrataCheck fuera del backlog, calendario y dependencias; desde el 2026-08-01 se permite únicamente su nombre vigente y el enlace oficial en los contextos aprobados.
 - Se cerró la relación de marca: Business Architecture Agency es una futura oferta dentro de los servicios de Orlando, no una entidad independiente.
 - Se definieron cinco clústeres, diez contenidos, cuatro briefs H1–H3, enlaces internos y un ciclo de 60 días.
 - No se asignaron volúmenes de búsqueda ni resultados esperados sin datos.
