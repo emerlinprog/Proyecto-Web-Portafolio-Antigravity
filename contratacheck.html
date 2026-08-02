@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>ContrataCheck | Control preventivo con IA para contratación pública</title>
+  <meta name="description" content="ContrataCheck revisa expedientes de contratación pública peruana antes de la aprobación o la firma: detecta omisiones, inconsistencias y riesgos de cumplimiento con trazabilidad y decisión humana final."/>
+  <meta name="author" content="Orlando Linares"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://orlandolinares.com/contratacheck"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:locale" content="es_PE"/>
+  <meta property="og:url" content="https://orlandolinares.com/contratacheck"/>
+  <meta property="og:title" content="ContrataCheck | Control preventivo con IA para contratación pública"/>
+  <meta property="og:description" content="Revisión asistida de expedientes de contratación pública: omisiones, inconsistencias y riesgos detectados antes de firmar, con evidencia trazable."/>
+  <meta property="og:image" content="https://orlandolinares.com/og-image.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="ContrataCheck | Control preventivo con IA para contratación pública"/>
+  <meta name="twitter:description" content="Revisión asistida de expedientes de contratación pública, con trazabilidad y decisión humana final."/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://orlandolinares.com/contratacheck#webpage",
+        "url": "https://orlandolinares.com/contratacheck",
+        "name": "ContrataCheck | Control preventivo con IA para contratación pública",
+        "description": "Ficha del desarrollo ContrataCheck: qué resuelve, cómo funciona, en qué estado está y cómo se accede.",
+        "inLanguage": "es-PE",
+        "isPartOf": { "@id": "https://orlandolinares.com/#website" },
+        "about": { "@id": "https://orlandolinares.com/contratacheck#software" },
+        "author": { "@id": "https://orlandolinares.com/orlando-linares#person" },
+        "breadcrumb": { "@id": "https://orlandolinares.com/contratacheck#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://orlandolinares.com/contratacheck#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://orlandolinares.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Casos y aplicaciones", "item": "https://orlandolinares.com/casos" },
+          { "@type": "ListItem", "position": 3, "name": "ContrataCheck" }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://orlandolinares.com/contratacheck#software",
+        "name": "ContrataCheck",
+        "url": "https://contratacheck.com/",
+        "sameAs": "https://contratacheck.com/",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "GovTech · Control preventivo en contratación pública",
+        "operatingSystem": "Navegador web",
+        "inLanguage": "es-PE",
+        "description": "Plataforma asistida por IA que revisa documentación de contratación pública peruana para detectar documentos faltantes, inconsistencias, brechas de cumplimiento y riesgos antes de la aprobación o la firma, manteniendo registro de evidencia y la decisión final bajo control humano.",
+        "author": { "@id": "https://orlandolinares.com/orlando-linares#person" },
+        "creator": { "@id": "https://orlandolinares.com/orlando-linares#person" },
+        "publisher": { "@id": "https://orlandolinares.com/#organization" },
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Órganos encargados de las contrataciones, áreas usuarias, especialistas legales y comités de selección del sector público peruano"
+        },
+        "areaServed": { "@type": "Country", "name": "Perú" },
+        "featureList": [
+          "Revisión de riesgo sobre un documento individual",
+          "Comparación de cumplimiento entre documentos de un mismo expediente",
+          "Lex: asistente conversacional sobre la Ley 32069 y su reglamento, con fuentes citadas",
+          "Gestión de expedientes organizada por fases",
+          "Tablero ejecutivo con indicadores de estado",
+          "Registro de actividad auditable"
+        ],
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "PEN",
+          "availability": "https://schema.org/LimitedAvailability",
+          "description": "Acceso mediante habilitación manual de cuentas dentro de un programa de validación voluntario y gratuito, sin derechos económicos ni comerciales asociados."
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://orlandolinares.com/contratacheck#faq",
+        "isPartOf": { "@id": "https://orlandolinares.com/contratacheck#webpage" },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué es ContrataCheck?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ContrataCheck es una plataforma de control preventivo para contratación pública peruana. Revisa la documentación de un expediente con asistencia de IA para identificar documentos faltantes, inconsistencias entre piezas del mismo expediente y brechas de cumplimiento, antes de que se apruebe o se firme. Fue creada por Orlando Linares."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Para quién está pensado ContrataCheck?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Para quienes revisan expedientes antes de una decisión: órganos encargados de las contrataciones, áreas usuarias que formulan requerimientos, especialistas legales y comités de selección."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿ContrataCheck decide por el especialista?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. La plataforma señala hallazgos y los respalda con la referencia correspondiente, pero la aprobación, la observación y la firma permanecen en manos de la persona responsable. El criterio de diseño es que la IA asista y la responsabilidad siga siendo humana."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Sobre qué normativa trabaja ContrataCheck?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sobre la Ley 32069, Ley General de Contrataciones Públicas del Perú, y su reglamento. El asistente conversacional Lex responde consultas normativas citando la fuente sobre la que se apoya."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo se accede a ContrataCheck?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El acceso es restringido y las cuentas se habilitan manualmente. Opera con un grupo cerrado de entidades y especialistas dentro de un programa de validación voluntario y gratuito, sin derechos económicos ni comerciales asociados."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿ContrataCheck publica cifras de precisión o de ahorro?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. No se publican métricas de precisión, ahorro o impacto mientras no exista una medición verificable con fuente, periodo, método de cálculo y autorización de las entidades involucradas. Lo que puede revisarse hoy es la plataforma y su alcance funcional."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/index.css"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root { color-scheme: dark; }
+
+    body { font-family: 'Geist', sans-serif; }
+
+    .product-shell { width: min(100% - 2rem, 80rem); margin-inline: auto; }
+
+    .product-kicker,
+    .product-label,
+    .product-index {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.625rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .product-hero { padding-top: clamp(3.5rem, 8vh, 6rem); padding-bottom: clamp(3.5rem, 8vh, 5.5rem); }
+
+    .product-title {
+      font-size: clamp(3.2rem, 8vw, 6.5rem);
+      font-weight: 900;
+      letter-spacing: -0.065em;
+      line-height: 0.86;
+      text-wrap: balance;
+    }
+
+    .product-lede { max-width: 46rem; font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.6; }
+
+    .section-rule { border-top: 1px solid rgba(150, 203, 255, 0.12); }
+
+    main :is(h1, h2)[id] { scroll-margin-top: 6rem; }
+
+    .section-title {
+      font-size: clamp(1.9rem, 4.5vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      line-height: 0.96;
+      text-wrap: balance;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      min-height: 2rem;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid rgba(150, 203, 255, 0.24);
+      border-radius: 999px;
+      background: rgba(150, 203, 255, 0.07);
+      color: #96cbff;
+    }
+
+    .status-dot {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      flex: none;
+      background: #96cbff;
+      box-shadow: 0 0 14px rgba(150, 203, 255, 0.4);
+    }
+
+    .fact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1px solid rgba(150, 203, 255, 0.12);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      background: rgba(14, 14, 16, 0.72);
+    }
+
+    .fact-item { padding: 1.4rem 1.5rem; }
+    .fact-item + .fact-item { border-left: 1px solid rgba(150, 203, 255, 0.12); }
+
+    .feature-row {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1.25rem;
+      padding-block: 1.5rem;
+      border-top: 1px solid rgba(150, 203, 255, 0.12);
+    }
+
+    .flow-list { border-top: 1px solid rgba(150, 203, 255, 0.18); }
+
+    .flow-row {
+      display: grid;
+      grid-template-columns: 8rem 1fr;
+      gap: 1rem;
+      padding-block: 1.15rem;
+      border-bottom: 1px solid rgba(150, 203, 255, 0.12);
+    }
+
+    .faq-item {
+      border-top: 1px solid rgba(150, 203, 255, 0.12);
+      padding-block: 1.75rem;
+    }
+
+    .faq-item:last-child { border-bottom: 1px solid rgba(150, 203, 255, 0.12); }
+
+    .faq-question {
+      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 0.9rem;
+    }
+
+    .faq-answer { max-width: 62ch; font-size: 0.9375rem; line-height: 1.7; }
+
+    .product-link,
+    .product-link-secondary {
+      display: inline-flex;
+      min-height: 3rem;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      border-radius: 1rem;
+      padding: 0.85rem 1.35rem;
+      font-size: 0.625rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      line-height: 1.4;
+      text-align: center;
+      text-transform: uppercase;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease-out;
+    }
+
+    .product-link { background: #96cbff; color: #0a0a0c; }
+
+    .product-link-secondary {
+      border: 1px solid rgba(150, 203, 255, 0.25);
+      background: rgba(255, 255, 255, 0.025);
+      color: #e7e0ef;
+    }
+
+    .product-link:hover,
+    .product-link-secondary:hover { transform: translateY(-2px); }
+    .product-link-secondary:hover { border-color: rgba(150, 203, 255, 0.55); }
+
+    .evidence-note {
+      border: 1px solid rgba(150, 203, 255, 0.14);
+      border-radius: 1.5rem;
+      background: rgba(14, 14, 16, 0.7);
+      padding: clamp(1.5rem, 4vw, 2.75rem);
+    }
+
+    @media (max-width: 900px) {
+      .fact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .fact-item:nth-child(3) { border-left: 0; }
+      .fact-item:nth-child(n+3) { border-top: 1px solid rgba(150, 203, 255, 0.12); }
+    }
+
+    @media (max-width: 680px) {
+      .product-shell { width: min(100% - 1.5rem, 80rem); }
+      .product-hero { padding-top: 2.75rem; padding-bottom: 3rem; }
+      .product-title { font-size: clamp(2.75rem, 14vw, 4rem); }
+      .fact-grid { grid-template-columns: 1fr; }
+      .fact-item + .fact-item { border-left: 0; border-top: 1px solid rgba(150, 203, 255, 0.12); }
+      .flow-row { grid-template-columns: 1fr; gap: 0.35rem; }
+      .feature-row { grid-template-columns: 1fr; gap: 0.5rem; }
+      .product-link, .product-link-secondary { width: 100%; min-height: 3.25rem; }
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col">
+  <main class="flex-grow">
+    <section class="product-shell product-hero" aria-labelledby="product-title">
+      <nav aria-label="Migas de pan" class="mb-9 text-[11px] text-on-surface-variant">
+        <ol class="flex flex-wrap items-center gap-2">
+          <li><a href="/" class="rounded-sm hover:text-primary transition-colors">Inicio</a></li>
+          <li aria-hidden="true" class="text-outline-variant">/</li>
+          <li><a href="/casos" class="rounded-sm hover:text-primary transition-colors">Casos y aplicaciones</a></li>
+          <li aria-hidden="true" class="text-outline-variant">/</li>
+          <li aria-current="page" class="text-primary">ContrataCheck</li>
+        </ol>
+      </nav>
+
+      <div class="flex flex-wrap items-center gap-3 mb-7">
+        <span class="product-kicker text-primary">Desarrollo propio · GovTech</span>
+        <span class="status-pill"><span class="status-dot" aria-hidden="true"></span><span class="product-label">Acceso restringido</span></span>
+      </div>
+
+      <h1 id="product-title" class="product-title text-on-surface">ContrataCheck</h1>
+
+      <p class="product-lede text-on-surface-variant mt-8">
+        Control preventivo asistido por IA para contratación pública peruana: revisa el expediente <strong class="text-on-surface">antes</strong> de la aprobación o la firma, no después de la observación.
+      </p>
+
+      <p class="mt-5 max-w-3xl text-base leading-relaxed text-on-surface-variant">
+        Detecta documentos faltantes, inconsistencias entre piezas del mismo expediente y brechas de cumplimiento, dejando registro de cada hallazgo. La decisión final permanece en la persona responsable.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3 mt-9">
+        <a class="product-link" href="https://contratacheck.com/" target="_blank" rel="noopener noreferrer">
+          Sitio oficial de ContrataCheck <span class="text-base" aria-hidden="true">↗</span>
+        </a>
+        <a class="product-link-secondary" href="/discovery-wizard">
+          Evaluar un proceso <span class="text-base" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="product-shell pb-14" aria-label="Ficha rápida de ContrataCheck">
+      <div class="fact-grid">
+        <div class="fact-item">
+          <p class="product-label text-on-surface-variant mb-3">Categoría</p>
+          <p class="text-sm leading-relaxed text-on-surface">GovTech · control preventivo</p>
+        </div>
+        <div class="fact-item">
+          <p class="product-label text-on-surface-variant mb-3">Normativa</p>
+          <p class="text-sm leading-relaxed text-on-surface">Ley 32069 y su reglamento</p>
+        </div>
+        <div class="fact-item">
+          <p class="product-label text-on-surface-variant mb-3">Ámbito</p>
+          <p class="text-sm leading-relaxed text-on-surface">Perú · sector público</p>
+        </div>
+        <div class="fact-item">
+          <p class="product-label text-on-surface-variant mb-3">Autoría</p>
+          <p class="text-sm leading-relaxed text-on-surface"><a href="/orlando-linares" class="hover:text-primary transition-colors">Orlando Linares</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-shell section-rule py-16 md:py-24" aria-labelledby="problem-title">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+        <header class="lg:col-span-5">
+          <p class="product-kicker text-primary mb-6">El problema</p>
+          <h2 id="problem-title" class="section-title text-on-surface">La observación llega cuando ya cuesta corregirla.</h2>
+        </header>
+        <div class="lg:col-span-7">
+          <p class="text-base leading-relaxed text-on-surface-variant mb-6">
+            En una contratación pública, la información que sostiene una decisión está repartida entre requerimientos, términos de referencia, informes, bases y normativa. Revisar esa consistencia a mano es lento y depende de la memoria de quien revisa.
+          </p>
+          <p class="text-base leading-relaxed text-on-surface-variant">
+            Cuando la inconsistencia aparece en una etapa posterior —o en un control externo— el costo ya no es documental: es tiempo, retrabajo y exposición. ContrataCheck mueve esa revisión hacia adelante en el proceso.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-shell section-rule py-16 md:py-24" aria-labelledby="features-title">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+        <header class="lg:col-span-5">
+          <p class="product-kicker text-primary mb-6">Qué hace</p>
+          <h2 id="features-title" class="section-title text-on-surface">Seis funciones, una misma lógica de control.</h2>
+          <p class="mt-6 max-w-md text-sm leading-relaxed text-on-surface-variant">Cada módulo existe para que un hallazgo pueda rastrearse hasta el documento y la norma que lo sustentan.</p>
+        </header>
+        <div class="lg:col-span-7">
+          <div class="feature-row">
+            <span class="product-index text-primary">01</span>
+            <div>
+              <h3 class="text-lg font-black tracking-tight text-on-surface mb-2">Revisión de riesgo por documento</h3>
+              <p class="text-sm leading-relaxed text-on-surface-variant">Análisis de una pieza individual del expediente para identificar vacíos, contradicciones internas y elementos exigibles que no aparecen.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="product-index text-primary">02</span>
+            <div>
+              <h3 class="text-lg font-black tracking-tight text-on-surface mb-2">Comparación de cumplimiento</h3>
+              <p class="text-sm leading-relaxed text-on-surface-variant">Contraste entre documentos del mismo expediente para verificar que lo requerido, lo ofertado y lo aprobado se sostienen entre sí.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="product-index text-primary">03</span>
+            <div>
+              <h3 class="text-lg font-black tracking-tight text-on-surface mb-2">Lex — consulta normativa con fuente</h3>
+              <p class="text-sm leading-relaxed text-on-surface-variant">Asistente conversacional sobre la Ley 32069 y su reglamento que responde citando el artículo o la disposición en la que se apoya.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="product-index text-primary">04</span>
+            <div>
+              <h3 class="text-lg font-black tracking-tight text-on-surface mb-2">Expedientes organizados por fase</h3>
+              <p class="text-sm leading-relaxed text-on-surface-variant">La documentación se agrupa según el momento del proceso, de modo que el estado de cada expediente sea legible sin abrir cada archivo.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="product-index text-primary">05</span>
+            <div>
+              <h3 class="text-lg font-black tracking-tight text-on-surface mb-2">Tablero ejecutivo</h3>
+              <p class="text-sm leading-relaxed text-on-surface-variant">Indicadores de estado para responder qué expedientes avanzan, cuáles están detenidos y dónde se concentran los hallazgos.</p>
+            </div>
+          </div>
+          <div class="feature-row" style="border-bottom: 1px solid rgba(150, 203, 255, 0.12);">
+            <span class="product-index text-primary">06</span>
+            <div>
+              <h3 class="text-lg font-black tracking-tight text-on-surface mb-2">Registro de actividad auditable</h3>
+              <p class="text-sm leading-relaxed text-on-surface-variant">Bitácora de quién revisó qué y cuándo, para que el control preventivo también pueda ser controlado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-shell section-rule py-16 md:py-24" aria-labelledby="reading-title">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+        <header class="lg:col-span-5">
+          <p class="product-kicker text-primary mb-6">Lectura ejecutiva</p>
+          <h2 id="reading-title" class="section-title text-on-surface">Del problema a la decisión.</h2>
+        </header>
+        <div class="lg:col-span-7">
+          <dl class="flow-list">
+            <div class="flow-row">
+              <dt class="product-label text-on-surface-variant">Problema</dt>
+              <dd class="text-sm leading-relaxed text-on-surface">Información normativa y tareas de revisión distribuidas en múltiples fuentes y momentos.</dd>
+            </div>
+            <div class="flow-row">
+              <dt class="product-label text-on-surface-variant">Intervención</dt>
+              <dd class="text-sm leading-relaxed text-on-surface">Unificar consulta, análisis asistido y comparación dentro de un mismo flujo de trabajo.</dd>
+            </div>
+            <div class="flow-row">
+              <dt class="product-label text-on-surface-variant">Control</dt>
+              <dd class="text-sm leading-relaxed text-on-surface">Cada hallazgo queda asociado a su documento y a la referencia normativa que lo sustenta.</dd>
+            </div>
+            <div class="flow-row">
+              <dt class="product-label text-on-surface-variant">Decisión</dt>
+              <dd class="text-sm leading-relaxed text-on-surface">La aprobación, la observación y la firma siguen siendo actos de la persona responsable.</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-shell section-rule py-16 md:py-24" aria-labelledby="faq-title">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+        <header class="lg:col-span-4">
+          <p class="product-kicker text-primary mb-6">Preguntas frecuentes</p>
+          <h2 id="faq-title" class="section-title text-on-surface">Lo que suelen preguntar.</h2>
+        </header>
+        <div class="lg:col-span-8">
+          <div class="faq-item">
+            <h3 class="faq-question text-on-surface">¿Qué es ContrataCheck?</h3>
+            <p class="faq-answer text-on-surface-variant">ContrataCheck es una plataforma de control preventivo para contratación pública peruana. Revisa la documentación de un expediente con asistencia de IA para identificar documentos faltantes, inconsistencias entre piezas del mismo expediente y brechas de cumplimiento, antes de que se apruebe o se firme. Fue creada por <a href="/orlando-linares" class="text-primary hover:text-on-surface transition-colors">Orlando Linares</a>.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question text-on-surface">¿Para quién está pensado ContrataCheck?</h3>
+            <p class="faq-answer text-on-surface-variant">Para quienes revisan expedientes antes de una decisión: órganos encargados de las contrataciones, áreas usuarias que formulan requerimientos, especialistas legales y comités de selección.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question text-on-surface">¿ContrataCheck decide por el especialista?</h3>
+            <p class="faq-answer text-on-surface-variant">No. La plataforma señala hallazgos y los respalda con la referencia correspondiente, pero la aprobación, la observación y la firma permanecen en manos de la persona responsable. El criterio de diseño es que la IA asista y la responsabilidad siga siendo humana.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question text-on-surface">¿Sobre qué normativa trabaja ContrataCheck?</h3>
+            <p class="faq-answer text-on-surface-variant">Sobre la Ley 32069, Ley General de Contrataciones Públicas del Perú, y su reglamento. El asistente conversacional Lex responde consultas normativas citando la fuente sobre la que se apoya.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question text-on-surface">¿Cómo se accede a ContrataCheck?</h3>
+            <p class="faq-answer text-on-surface-variant">El acceso es restringido y las cuentas se habilitan manualmente. Opera con un grupo cerrado de entidades y especialistas dentro de un programa de validación voluntario y gratuito, sin derechos económicos ni comerciales asociados.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question text-on-surface">¿ContrataCheck publica cifras de precisión o de ahorro?</h3>
+            <p class="faq-answer text-on-surface-variant">No. No se publican métricas de precisión, ahorro o impacto mientras no exista una medición verificable con fuente, periodo, método de cálculo y autorización de las entidades involucradas. Lo que puede revisarse hoy es la plataforma y su alcance funcional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-shell py-16 md:py-20">
+      <div class="evidence-note">
+        <p class="product-kicker text-primary mb-5">Nota de evidencia</p>
+        <p class="max-w-3xl text-sm leading-relaxed text-on-surface-variant">
+          Esta ficha describe la plataforma y su alcance funcional observable. No atribuye resultados de adopción, ahorro ni desempeño a ninguna entidad. Cuando exista una medición verificable y autorizada, se publicará indicando fuente, periodo y método de cálculo. Ver la <a href="/casos" class="text-primary hover:text-on-surface transition-colors">política de evidencia completa</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="product-shell pb-24 md:pb-32" aria-labelledby="cta-title">
+      <div class="grid grid-cols-1 gap-8 border-t border-primary/20 pt-12 md:grid-cols-12 md:items-end md:pt-16">
+        <div class="md:col-span-8">
+          <p class="product-kicker text-primary mb-6">Siguiente decisión</p>
+          <h2 id="cta-title" class="section-title text-on-surface">¿Tu proceso de revisión también llega tarde?</h2>
+          <p class="mt-6 max-w-2xl text-base leading-relaxed text-on-surface-variant">El mismo método que sostiene ContrataCheck se puede aplicar a otro proceso: delimitar el problema, ordenar la evidencia y decidir qué merece una prueba controlada antes de automatizar.</p>
+        </div>
+        <div class="md:col-span-4 md:justify-self-end md:w-full">
+          <a href="/discovery-wizard" class="product-link w-full">
+            Iniciar diagnóstico <span class="text-base" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/nav.js" type="module"></script>
+</body>
+</html>

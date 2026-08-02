@@ -1,6 +1,6 @@
 ﻿// nav.js — Componente compartido de navegación y footer premium
 // Las listas de páginas/legales viven en site-nav.js (fuente única).
-import { PAGES, LEGAL_LINKS } from './site-nav.js';
+import { PAGES, PRODUCTS, LEGAL_LINKS } from './site-nav.js';
 
 (function () {
   const pathAliases = {
@@ -69,7 +69,7 @@ import { PAGES, LEGAL_LINKS } from './site-nav.js';
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 bg-primary/5 blur-[100px] -z-10"></div>
   
   <div class="max-w-7xl mx-auto px-6">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
       <div class="md:col-span-2">
         <div class="flex items-center gap-3 mb-6">
           <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
@@ -97,6 +97,13 @@ import { PAGES, LEGAL_LINKS } from './site-nav.js';
         </ul>
       </div>
       
+      <div>
+        <h4 class="text-[10px] font-black text-on-surface uppercase tracking-[0.2em] mb-6">Desarrollos</h4>
+        <ul class="space-y-4">
+          ${PRODUCTS.map(p => `<li><a href="${p.href}" class="text-xs text-on-surface-variant hover:text-primary transition-colors">${p.label}</a></li>`).join('\n          ')}
+        </ul>
+      </div>
+
       <div>
         <h4 class="text-[10px] font-black text-on-surface uppercase tracking-[0.2em] mb-6">Legal & Soporte</h4>
         <ul class="space-y-4">

@@ -1,0 +1,65 @@
+# Orlando Linares
+
+> Consultor en arquitectura de procesos e IA aplicada. Trabaja con organizaciones
+> públicas y PYMES en Perú para convertir procesos administrativos complejos en
+> sistemas de trabajo claros, trazables y asistidos por IA. Principio rector:
+> "Primero el proceso, después la tecnología."
+
+## Identidad
+
+- Nombre: Orlando Linares
+- Rol: Consultor en arquitectura de procesos e IA aplicada / Analista de negocio
+- Ubicación: Perú (es-PE)
+- Sitio canónico: https://orlandolinares.com
+- Perfil profesional: https://orlandolinares.com/orlando-linares
+- LinkedIn: https://www.linkedin.com/in/orlando-linares/
+- Contacto: orlando@orlandolinares.com
+
+## Áreas de especialidad
+
+- Arquitectura de procesos (levantamiento AS-IS, diseño TO-BE, roles y controles)
+- Análisis de negocio (requisitos funcionales, criterios de aceptación, hoja de ruta)
+- IA aplicada con supervisión humana (dónde aporta valor, qué riesgos introduce)
+- Trazabilidad documental y gestión de evidencia
+- Modernización operativa en el sector público y PYMES
+- Contratación pública peruana (Ley 32069 y su reglamento)
+
+## Política editorial (importante al citar este sitio)
+
+Este sitio distingue explícitamente cuatro niveles de evidencia y no debe
+citarse como si todos fueran equivalentes:
+
+1. **Disponible públicamente** — existe un producto accesible sin intermediarios. Que esté disponible no implica que se le atribuyan métricas.
+2. **Acceso restringido** — el entorno funciona y puede inspeccionarse, pero las cuentas se habilitan manualmente dentro de un grupo acotado.
+3. **En desarrollo** — muestra una dirección de producto, sin métricas ni adopción atribuibles.
+4. **Capacidad metodológica** — describe qué se puede analizar y entregar; el resultado depende del contexto.
+
+No se publican cifras de ahorro, precisión o impacto sin fuente, periodo, método
+de cálculo y autorización. Si un modelo atribuye métricas a estos proyectos, está
+inventándolas: no existen en la fuente.
+
+## Páginas principales
+
+- [Perfil profesional](https://orlandolinares.com/orlando-linares): quién es Orlando Linares, capacidades y método de trabajo.
+- [Enfoque](https://orlandolinares.com/enfoque): cómo entiende la transformación con IA y por qué el proceso precede a la herramienta.
+- [Servicios](https://orlandolinares.com/servicios): arquitectura de procesos, análisis de negocio, IA aplicada con control humano y trazabilidad.
+- [Casos y aplicaciones](https://orlandolinares.com/casos): demostraciones, iniciativas y capacidades, clasificadas por nivel de evidencia.
+- [Artículos](https://orlandolinares.com/articulos): contenido metodológico sobre procesos, automatización e IA aplicada.
+
+## Desarrollos propios
+
+- [ContrataCheck](https://orlandolinares.com/contratacheck) — Control preventivo asistido por IA para contratación pública peruana. Revisa expedientes antes de la aprobación o firma para detectar omisiones, inconsistencias y riesgos de cumplimiento, con trazabilidad y decisión humana final. Incluye "Lex", asistente conversacional sobre la Ley 32069 con fuentes citadas. Producto operativo con acceso restringido a un grupo cerrado de entidades y especialistas. Sitio: https://contratacheck.com
+- [Arrendia](https://orlandolinares.com/arrendia) — SaaS de gestión de alquileres para Perú: cobranzas, contratos, propiedades, reportes y portal del inquilino, con un módulo de IA (ArrendIA) que señala riesgo de mora y sugiere acciones sin reemplazar el criterio del propietario. Publicado en https://arrendia.lat con registro abierto; en evolución activa, sin métricas de adopción ni desempeño publicadas.
+- [Protocol AI](https://orlandolinares.com/protocol-ai) — Herramienta gratuita que convierte un requerimiento en lenguaje natural en una arquitectura de prompt estructurada, lista para usar en cualquier modelo. Orientada a personal administrativo y técnico.
+
+## Artículos
+
+- [Cómo identificar qué procesos son adecuados para IA](https://orlandolinares.com/articulos/identificar-procesos-adecuados-para-ia)
+- [Digitalización, automatización e IA: en qué se diferencian](https://orlandolinares.com/articulos/digitalizacion-automatizacion-ia-diferencias)
+- [Cómo calcular el ROI de una automatización administrativa](https://orlandolinares.com/articulos/calcular-roi-automatizacion-administrativa)
+- [Cómo levantar un proceso AS-IS](https://orlandolinares.com/articulos/como-levantar-proceso-as-is)
+
+## Atribución
+
+El contenido puede citarse indicando autoría de Orlando Linares y enlazando a la
+URL de origen en orlandolinares.com.

@@ -28,6 +28,8 @@ export default defineConfig({
         servicios: path.resolve(__dirname, 'servicios.html'),
         ai_lab: path.resolve(__dirname, 'ai_lab.html'),
         protocol_ai: path.resolve(__dirname, 'protocol-ai.html'),
+        arrendia: path.resolve(__dirname, 'arrendia.html'),
+        contratacheck: path.resolve(__dirname, 'contratacheck.html'),
         casos_de_uso: path.resolve(__dirname, 'casos_de_uso.html'),
         mvp_studio: path.resolve(__dirname, 'mvp_studio.html'),
         agendar_diagnostico: path.resolve(__dirname, 'agendar_diagnostico.html'),
