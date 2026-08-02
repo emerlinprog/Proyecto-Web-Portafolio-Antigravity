@@ -6,7 +6,7 @@ import { SkillsSection } from "./components/SkillsSection";
 import { FinalCTA } from "./components/FinalCTA";
 import { TrustBar } from "./components/TrustBar";
 import { ScrollReveal } from "./components/ScrollReveal";
-import { PAGES, LEGAL_LINKS } from "../site-nav.js";
+import { PAGES, PRODUCTS, LEGAL_LINKS } from "../site-nav.js";
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 bg-primary/5 blur-[100px] -z-10"></div>
         
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
             <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
@@ -66,6 +66,15 @@ function App() {
               </ul>
             </div>
             
+            <div>
+              <h4 className="text-[10px] font-black text-foreground uppercase tracking-[0.2em] mb-6">Desarrollos</h4>
+              <ul className="space-y-4">
+                {PRODUCTS.map((p) => (
+                  <li key={p.href}><a href={p.href} className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium">{p.label}</a></li>
+                ))}
+              </ul>
+            </div>
+
             <div>
               <h4 className="text-[10px] font-black text-foreground uppercase tracking-[0.2em] mb-6">Legal & Soporte</h4>
               <ul className="space-y-4">

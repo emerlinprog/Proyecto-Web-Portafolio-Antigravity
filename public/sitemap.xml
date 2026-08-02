@@ -2,46 +2,88 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://orlandolinares.com/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://orlandolinares.com/orlando-linares</loc>
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://orlandolinares.com/enfoque</loc>
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://orlandolinares.com/servicios</loc>
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orlandolinares.com/casos</loc>
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Desarrollos propios -->
+  <url>
+    <loc>https://orlandolinares.com/contratacheck</loc>
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://orlandolinares.com/arrendia</loc>
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://orlandolinares.com/protocol-ai</loc>
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contenido editorial -->
   <url>
     <loc>https://orlandolinares.com/articulos</loc>
     <lastmod>2026-07-22</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://orlandolinares.com/articulos/identificar-procesos-adecuados-para-ia</loc>
     <lastmod>2026-07-22</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://orlandolinares.com/articulos/digitalizacion-automatizacion-ia-diferencias</loc>
     <lastmod>2026-07-22</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://orlandolinares.com/articulos/calcular-roi-automatizacion-administrativa</loc>
     <lastmod>2026-07-22</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://orlandolinares.com/articulos/como-levantar-proceso-as-is</loc>
     <lastmod>2026-07-22</lastmod>
+    <priority>0.6</priority>
   </url>
-  <url>
-    <loc>https://orlandolinares.com/servicios</loc>
-  </url>
-  <url>
-    <loc>https://orlandolinares.com/casos</loc>
-  </url>
+
+  <!-- Conversión -->
   <url>
     <loc>https://orlandolinares.com/discovery-wizard</loc>
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://orlandolinares.com/agendar-diagnostico</loc>
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://orlandolinares.com/privacy</loc>
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.2</priority>
   </url>
 </urlset>

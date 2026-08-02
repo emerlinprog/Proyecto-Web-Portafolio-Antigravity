@@ -11,6 +11,85 @@
   <meta property="og:url" content="https://orlandolinares.com/casos"/>
   <meta property="og:title" content="Casos y aplicaciones de procesos e IA | Orlando Linares"/>
   <meta property="og:description" content="Demostraciones, iniciativas y capacidades publicadas según la evidencia disponible."/>
+  <meta name="author" content="Orlando Linares"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://orlandolinares.com/casos#webpage",
+        "url": "https://orlandolinares.com/casos",
+        "name": "Casos y aplicaciones de procesos e IA | Orlando Linares",
+        "description": "Casos, iniciativas y capacidades de arquitectura de procesos e IA aplicada, diferenciados según la evidencia disponible.",
+        "inLanguage": "es-PE",
+        "isPartOf": { "@id": "https://orlandolinares.com/#website" },
+        "author": { "@id": "https://orlandolinares.com/orlando-linares#person" },
+        "breadcrumb": { "@id": "https://orlandolinares.com/casos#breadcrumb" },
+        "mainEntity": { "@id": "https://orlandolinares.com/casos#products" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://orlandolinares.com/casos#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://orlandolinares.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Casos y aplicaciones" }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://orlandolinares.com/casos#products",
+        "name": "Desarrollos propios de Orlando Linares",
+        "itemListOrder": "https://schema.org/ItemListOrderAscending",
+        "numberOfItems": 3,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://orlandolinares.com/contratacheck",
+            "item": {
+              "@type": "SoftwareApplication",
+              "@id": "https://orlandolinares.com/contratacheck#software",
+              "name": "ContrataCheck",
+              "url": "https://contratacheck.com/",
+              "applicationCategory": "BusinessApplication",
+              "description": "Control preventivo asistido por IA para contratación pública peruana. Operativo con acceso restringido.",
+              "author": { "@id": "https://orlandolinares.com/orlando-linares#person" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://orlandolinares.com/arrendia",
+            "item": {
+              "@type": "SoftwareApplication",
+              "@id": "https://orlandolinares.com/arrendia#software",
+              "name": "Arrendia",
+              "url": "https://arrendia.lat",
+              "applicationCategory": "BusinessApplication",
+              "description": "Gestión de alquileres para Perú: cobranzas, contratos, propiedades y portal del inquilino. Disponible en arrendia.lat; sin métricas publicadas.",
+              "author": { "@id": "https://orlandolinares.com/orlando-linares#person" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://orlandolinares.com/protocol-ai",
+            "item": {
+              "@type": "SoftwareApplication",
+              "@id": "https://orlandolinares.com/protocol-ai#software",
+              "name": "Protocol AI",
+              "url": "https://orlandolinares.com/protocol-ai",
+              "applicationCategory": "DeveloperApplication",
+              "description": "Convierte un requerimiento en lenguaje natural en una arquitectura de prompt estructurada. Herramienta pública y gratuita.",
+              "author": { "@id": "https://orlandolinares.com/orlando-linares#person" }
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -106,7 +185,7 @@
 
     .evidence-legend {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       border: 1px solid rgba(150, 203, 255, 0.12);
       border-radius: 1.5rem;
       overflow: hidden;
@@ -328,6 +407,11 @@
 
       .hero-aside { margin-top: 1.5rem; }
       .featured-flow { margin-top: 1rem; }
+
+      /* Cuatro niveles no entran en una fila a este ancho: 2x2. */
+      .evidence-legend { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .evidence-item:nth-child(3) { border-left: 0; }
+      .evidence-item:nth-child(n + 3) { border-top: 1px solid rgba(150, 203, 255, 0.12); }
     }
 
     @media (max-width: 680px) {
@@ -418,17 +502,22 @@
       <div class="section-heading mb-10 md:mb-14">
         <p class="cases-kicker text-on-surface-variant">Cómo leer esta página</p>
         <div>
-          <h2 id="legend-title" class="section-title text-on-surface">Tres niveles para decidir con contexto.</h2>
+          <h2 id="legend-title" class="section-title text-on-surface">Cuatro niveles para decidir con contexto.</h2>
           <p class="mt-5 max-w-2xl text-base leading-relaxed text-on-surface-variant">
-            Distingo una demostración, una iniciativa y una capacidad profesional para no presentar ninguna como un resultado acreditado.
+            Distingo un producto disponible, uno de acceso restringido, una iniciativa en curso y una capacidad profesional, para no presentar ninguna como un resultado acreditado.
           </p>
         </div>
       </div>
       <div class="evidence-legend" role="list" aria-label="Estados de evidencia">
         <article class="evidence-item" role="listitem">
-          <div class="flex items-center gap-3 mb-5"><span class="status-dot" aria-hidden="true"></span><span class="status-label text-primary">Demostración disponible</span></div>
-          <h3 class="text-xl font-black text-on-surface mb-3">Puede inspeccionarse</h3>
-          <p class="text-sm leading-relaxed text-on-surface-variant">Existe un entorno o artefacto accesible para revisar el planteamiento y su alcance visible.</p>
+          <div class="flex items-center gap-3 mb-5"><span class="status-dot" aria-hidden="true"></span><span class="status-label text-primary">Disponible públicamente</span></div>
+          <h3 class="text-xl font-black text-on-surface mb-3">Puede usarse hoy</h3>
+          <p class="text-sm leading-relaxed text-on-surface-variant">Existe un producto accesible sin intermediarios. Que esté disponible no implica que se le atribuyan métricas.</p>
+        </article>
+        <article class="evidence-item" role="listitem">
+          <div class="flex items-center gap-3 mb-5"><span class="status-dot" aria-hidden="true"></span><span class="status-label text-primary">Acceso restringido</span></div>
+          <h3 class="text-xl font-black text-on-surface mb-3">Operativo con habilitación</h3>
+          <p class="text-sm leading-relaxed text-on-surface-variant">El entorno funciona y puede inspeccionarse, pero las cuentas se habilitan de forma manual dentro de un grupo acotado.</p>
         </article>
         <article class="evidence-item" role="listitem">
           <div class="flex items-center gap-3 mb-5"><span class="status-dot status-dot--outline" aria-hidden="true"></span><span class="status-label text-primary">En desarrollo</span></div>
@@ -449,7 +538,7 @@
           <div class="featured-copy">
             <div class="flex flex-wrap items-center gap-3 mb-8">
               <span class="case-index text-primary">Caso 01 / GovTech</span>
-              <span class="status-pill"><span class="status-dot" aria-hidden="true"></span><span class="status-label">Demostración disponible</span></span>
+              <span class="status-pill"><span class="status-dot" aria-hidden="true"></span><span class="status-label">Acceso restringido</span></span>
             </div>
             <h2 id="featured-title" class="case-title text-on-surface">ContrataCheck</h2>
             <p class="mt-7 max-w-xl text-base leading-relaxed text-on-surface-variant">
@@ -459,11 +548,11 @@
               La demostración permite revisar la interfaz y el enfoque funcional. Las cifras de precisión, ahorro o impacto solo se publican cuando existe una medición verificable.
             </p>
             <div class="flex flex-col sm:flex-row gap-3 mt-9">
-              <a class="case-link" href="https://contratacheck.com/" target="_blank" rel="noopener noreferrer">
-                Visitar ContrataCheck <span class="text-base" aria-hidden="true">↗</span>
+              <a class="case-link" href="/contratacheck">
+                Ver ficha completa <span class="text-base" aria-hidden="true">→</span>
               </a>
-              <a class="case-link-secondary" href="/discovery-wizard">
-                Evaluar un proceso <span class="text-base" aria-hidden="true">→</span>
+              <a class="case-link-secondary" href="https://contratacheck.com/" target="_blank" rel="noopener noreferrer">
+                Sitio oficial de ContrataCheck <span class="text-base" aria-hidden="true">↗</span>
               </a>
             </div>
           </div>
@@ -494,27 +583,45 @@
 
     <section class="cases-shell section-rule py-16 md:py-24 reveal" aria-labelledby="initiatives-title">
       <div class="section-heading mb-12 md:mb-16">
-        <p class="cases-kicker text-on-surface-variant">Iniciativas</p>
+        <p class="cases-kicker text-on-surface-variant">Desarrollos propios</p>
         <div>
-          <h2 id="initiatives-title" class="section-title text-on-surface">Productos que todavía están tomando forma.</h2>
-          <p class="mt-5 max-w-2xl text-base leading-relaxed text-on-surface-variant">Se muestran para conversar sobre el problema y el diseño, no como evidencia de resultados alcanzados.</p>
+          <h2 id="initiatives-title" class="section-title text-on-surface">Otros productos donde aplico el mismo método.</h2>
+          <p class="mt-5 max-w-2xl text-base leading-relaxed text-on-surface-variant">Cada uno declara su estado real. Los que están en desarrollo se muestran para conversar sobre el problema y el diseño, no como evidencia de resultados alcanzados.</p>
         </div>
       </div>
       <article class="initiative-row">
         <div>
           <span class="case-index text-primary">02</span>
-          <div class="flex items-center gap-2 mt-4"><span class="status-dot status-dot--outline" aria-hidden="true"></span><span class="status-label text-primary">En desarrollo</span></div>
+          <div class="flex items-center gap-2 mt-4"><span class="status-dot" aria-hidden="true"></span><span class="status-label text-primary">Disponible públicamente</span></div>
         </div>
         <div>
           <p class="cases-kicker text-on-surface-variant mb-4">PropTech · Operaciones</p>
-          <h3 class="row-title text-on-surface">Arrendia</h3>
+          <h3 class="row-title text-on-surface"><a href="/arrendia" class="hover:text-primary transition-colors">Arrendia</a></h3>
         </div>
         <div>
-          <p class="text-sm leading-relaxed text-on-surface-variant">Concepto de producto para ordenar pagos, mantenimiento y comunicación entre quienes administran y ocupan un inmueble.</p>
-          <p class="mt-4 text-xs leading-relaxed text-on-surface-variant"><strong class="text-on-surface">Evidencia disponible:</strong> definición funcional en evolución; sin métricas publicadas.</p>
+          <p class="text-sm leading-relaxed text-on-surface-variant">Gestión de alquileres para Perú: cobranzas, contratos, propiedades y portal del inquilino, con IA que señala riesgo de mora sin decidir por el propietario.</p>
+          <p class="mt-4 text-xs leading-relaxed text-on-surface-variant"><strong class="text-on-surface">Evidencia disponible:</strong> plataforma accesible en arrendia.lat con registro abierto; sin métricas de adopción o desempeño publicadas.</p>
         </div>
-        <a href="mailto:orlando@orlandolinares.com?subject=Inter%C3%A9s%20en%20Arrendia" aria-label="Conversar sobre Arrendia" class="min-w-11 min-h-11 rounded-xl border border-primary/20 inline-flex items-center justify-center text-primary hover:bg-primary/10 transition-colors">
-          <span class="text-base font-black" aria-hidden="true">↗</span>
+        <a href="/arrendia" aria-label="Ver la ficha completa de Arrendia" class="min-w-11 min-h-11 rounded-xl border border-primary/20 inline-flex items-center justify-center text-primary hover:bg-primary/10 transition-colors">
+          <span class="text-base font-black" aria-hidden="true">→</span>
+        </a>
+      </article>
+
+      <article class="initiative-row">
+        <div>
+          <span class="case-index text-primary">03</span>
+          <div class="flex items-center gap-2 mt-4"><span class="status-dot" aria-hidden="true"></span><span class="status-label text-primary">Disponible públicamente</span></div>
+        </div>
+        <div>
+          <p class="cases-kicker text-on-surface-variant mb-4">IA aplicada · Ingeniería de instrucciones</p>
+          <h3 class="row-title text-on-surface"><a href="/protocol-ai" class="hover:text-primary transition-colors">Protocol AI</a></h3>
+        </div>
+        <div>
+          <p class="text-sm leading-relaxed text-on-surface-variant">Convierte un requerimiento escrito en lenguaje natural en una arquitectura de prompt estructurada, lista para usar en cualquier modelo.</p>
+          <p class="mt-4 text-xs leading-relaxed text-on-surface-variant"><strong class="text-on-surface">Evidencia disponible:</strong> herramienta accesible y utilizable en el navegador, con plan gratuito limitado.</p>
+        </div>
+        <a href="/protocol-ai" aria-label="Usar Protocol AI" class="min-w-11 min-h-11 rounded-xl border border-primary/20 inline-flex items-center justify-center text-primary hover:bg-primary/10 transition-colors">
+          <span class="text-base font-black" aria-hidden="true">→</span>
         </a>
       </article>
     </section>

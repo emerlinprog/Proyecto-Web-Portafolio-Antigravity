@@ -23,13 +23,62 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "@id": "https://orlandolinares.com/#website",
-      "url": "https://orlandolinares.com/",
-      "name": "Orlando Linares",
-      "description": "Consultoría en arquitectura de procesos e IA aplicada para organizaciones públicas y PYMES. Procesos claros, trazables y sostenibles.",
-      "inLanguage": "es-PE",
-      "about": { "@id": "https://orlandolinares.com/orlando-linares#person" }
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://orlandolinares.com/#website",
+          "url": "https://orlandolinares.com/",
+          "name": "Orlando Linares",
+          "description": "Consultoría en arquitectura de procesos e IA aplicada para organizaciones públicas y PYMES. Procesos claros, trazables y sostenibles.",
+          "inLanguage": "es-PE",
+          "about": { "@id": "https://orlandolinares.com/orlando-linares#person" },
+          "publisher": { "@id": "https://orlandolinares.com/#organization" }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://orlandolinares.com/#organization",
+          "name": "Orlando Linares — Arquitectura de procesos e IA aplicada",
+          "alternateName": "Business Architecture Agency",
+          "url": "https://orlandolinares.com/",
+          "description": "Práctica profesional de arquitectura de procesos, análisis de negocio e IA aplicada con supervisión humana, dirigida a organizaciones públicas y PYMES.",
+          "email": "orlando@orlandolinares.com",
+          "founder": { "@id": "https://orlandolinares.com/orlando-linares#person" },
+          "areaServed": [
+            { "@type": "Country", "name": "Perú" },
+            { "@type": "Place", "name": "América Latina" }
+          ],
+          "availableLanguage": ["es"],
+          "knowsAbout": [
+            "Arquitectura de procesos de negocio",
+            "Análisis de negocio",
+            "Inteligencia artificial aplicada",
+            "Trazabilidad documental",
+            "Modernización de la gestión pública",
+            "Contratación pública en Perú"
+          ],
+          "sameAs": ["https://www.linkedin.com/in/orlando-linares/"],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Servicios de arquitectura de procesos e IA aplicada",
+            "url": "https://orlandolinares.com/servicios",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Arquitectura de procesos", "serviceType": "Levantamiento AS-IS, diseño TO-BE, roles, reglas y controles" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Análisis de negocio", "serviceType": "Requisitos funcionales, prioridades, criterios de aceptación y hoja de ruta" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IA aplicada con control humano", "serviceType": "Evaluación de casos de uso, límites, supervisión y prueba controlada" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Trazabilidad y evidencia", "serviceType": "Inventario de fuentes, gobierno documental, versiones y consulta asistida" } }
+            ]
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://orlandolinares.com/#webpage",
+          "url": "https://orlandolinares.com/",
+          "name": "Orlando Linares | Arquitectura de procesos e IA aplicada",
+          "isPartOf": { "@id": "https://orlandolinares.com/#website" },
+          "about": { "@id": "https://orlandolinares.com/orlando-linares#person" },
+          "inLanguage": "es-PE"
+        }
+      ]
     }
     </script>
     

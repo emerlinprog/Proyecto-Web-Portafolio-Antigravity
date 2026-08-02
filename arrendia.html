@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Arrendia | Software de gestión de alquileres en Perú</title>
+  <meta name="description" content="Arrendia es un SaaS de gestión de alquileres para propietarios y administradores en Perú: cobranzas, contratos, propiedades, reportes y portal del inquilino, con IA que señala riesgo de mora sin decidir por el usuario. Disponible en arrendia.lat."/>
+  <meta name="author" content="Orlando Linares"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://orlandolinares.com/arrendia"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:locale" content="es_PE"/>
+  <meta property="og:url" content="https://orlandolinares.com/arrendia"/>
+  <meta property="og:title" content="Arrendia | Software de gestión de alquileres en Perú"/>
+  <meta property="og:description" content="Cobranzas, contratos, propiedades y portal del inquilino en un solo lugar, con IA que señala riesgo de mora. Disponible en arrendia.lat, sin métricas publicadas."/>
+  <meta property="og:image" content="https://orlandolinares.com/og-image.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Arrendia | Software de gestión de alquileres en Perú"/>
+  <meta name="twitter:description" content="SaaS de gestión de alquileres para Perú, disponible en arrendia.lat. Sin métricas publicadas."/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://orlandolinares.com/arrendia#webpage",
+        "url": "https://orlandolinares.com/arrendia",
+        "name": "Arrendia | Software de gestión de alquileres en Perú",
+        "description": "Ficha del desarrollo Arrendia: qué problema aborda, qué incluye, en qué estado se encuentra y qué no puede afirmarse todavía.",
+        "inLanguage": "es-PE",
+        "isPartOf": { "@id": "https://orlandolinares.com/#website" },
+        "about": { "@id": "https://orlandolinares.com/arrendia#software" },
+        "author": { "@id": "https://orlandolinares.com/orlando-linares#person" },
+        "breadcrumb": { "@id": "https://orlandolinares.com/arrendia#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://orlandolinares.com/arrendia#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://orlandolinares.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Casos y aplicaciones", "item": "https://orlandolinares.com/casos" },
+          { "@type": "ListItem", "position": 3, "name": "Arrendia" }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://orlandolinares.com/arrendia#software",
+        "name": "Arrendia",
+        "url": "https://arrendia.lat",
+        "sameAs": "https://arrendia.lat",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "PropTech · Gestión de alquileres",
+        "operatingSystem": "Navegador web",
+        "inLanguage": "es-PE",
+        "description": "SaaS de gestión de alquileres pensado para Perú, disponible en arrendia.lat. Centraliza cobranzas, contratos, propiedades y reportes, e incorpora un módulo de IA (ArrendIA) que señala riesgo de mora y sugiere acciones sin reemplazar el criterio humano. Producto en evolución activa; no se publican métricas de adopción ni de desempeño.",
+        "author": { "@id": "https://orlandolinares.com/orlando-linares#person" },
+        "creator": { "@id": "https://orlandolinares.com/orlando-linares#person" },
+        "publisher": { "@id": "https://orlandolinares.com/#organization" },
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Propietarios con carteras pequeñas de inmuebles y administradores profesionales de alquileres en Perú"
+        },
+        "areaServed": { "@type": "Country", "name": "Perú" },
+        "featureList": [
+          "Registro de propiedades y unidades arrendadas",
+          "Gestión de contratos de arrendamiento",
+          "Seguimiento de cobranzas y conciliación de pagos",
+          "Portal para el inquilino con su propia información de contrato y pagos",
+          "Reportes de cartera",
+          "ArrendIA: señales de riesgo de mora con sugerencia de acción y decisión humana"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://orlandolinares.com/arrendia#faq",
+        "isPartOf": { "@id": "https://orlandolinares.com/arrendia#webpage" },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué es Arrendia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Arrendia es un SaaS de gestión de alquileres pensado para Perú. Centraliza cobranzas, contratos, propiedades y reportes en un solo lugar, e incorpora un módulo de IA llamado ArrendIA que señala riesgo de mora y sugiere acciones. Es un desarrollo propio de Orlando Linares y se encuentra en construcción."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Arrendia ya está disponible?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. Arrendia está publicada en arrendia.lat, con registro abierto y planes vigentes. Sigue en evolución activa: se muestra aquí para conversar sobre el problema y el diseño del producto, no como evidencia de resultados alcanzados. No hay métricas de adopción ni de desempeño publicadas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Para quién está pensado Arrendia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Para dos perfiles: el propietario con una cartera pequeña, que hoy persigue pagos por mensajería y guarda contratos en archivos sueltos; y el administrador profesional que gestiona inmuebles de terceros y necesita reportes, control de roles y una presentación ordenada frente a su cliente."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿La IA de Arrendia decide sobre los inquilinos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. ArrendIA señala riesgo de mora y propone una acción posible, pero quien decide es el propietario o el administrador. El criterio de diseño es el mismo que rige el resto del trabajo de Orlando Linares: la IA asiste y la responsabilidad permanece en las personas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Arrendia sirve para conseguir inquilinos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Arrendia no es un portal de avisos ni un buscador de inmuebles. Opera del lado de la administración: ordena lo que ocurre después de que el contrato existe, es decir cobranzas, contratos, mantenimiento y comunicación."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué incluye el portal del inquilino?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El inquilino accede únicamente a su propia información: su contrato, su historial de pagos y sus comunicaciones. El acceso está restringido a los datos de su relación contractual y no expone la cartera del propietario ni la de otros inquilinos."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/index.css"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root { color-scheme: dark; }
+
+    body { font-family: 'Geist', sans-serif; }
+
+    .product-shell { width: min(100% - 2rem, 80rem); margin-inline: auto; }
+
+    .product-kicker,
+    .product-label,
+    .product-index {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.625rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .product-hero { padding-top: clamp(3.5rem, 8vh, 6rem); padding-bottom: clamp(3.5rem, 8vh, 5.5rem); }
+
+    .product-title {
+      font-size: clamp(3.2rem, 8vw, 6.5rem);
+      font-weight: 900;
+      letter-spacing: -0.065em;
+      line-height: 0.86;
+      text-wrap: balance;
+    }
+
+    .product-lede { max-width: 46rem; font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.6; }
+
+    .section-rule { border-top: 1px solid rgba(150, 203, 255, 0.12); }
+
+    main :is(h1, h2)[id] { scroll-margin-top: 6rem; }
+
+    .section-title {
+      font-size: clamp(1.9rem, 4.5vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      line-height: 0.96;
+      text-wrap: balance;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      min-height: 2rem;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid rgba(150, 203, 255, 0.24);
+      border-radius: 999px;
+      background: rgba(150, 203, 255, 0.05);
+      color: #96cbff;
+    }
+
+    .status-dot {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      flex: none;
+      background: transparent;
+      border: 1px solid #96cbff;
+    }
+
+    .fact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1px solid rgba(150, 203, 255, 0.12);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      background: rgba(14, 14, 16, 0.72);
+    }
+
+    .fact-item { padding: 1.4rem 1.5rem; }
+    .fact-item + .fact-item { border-left: 1px solid rgba(150, 203, 255, 0.12); }
+
+    .feature-row {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1.25rem;
+      padding-block: 1.5rem;
+      border-top: 1px solid rgba(150, 203, 255, 0.12);
+    }
+
+    .audience-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+
+    .audience-card {
+      border: 1px solid rgba(150, 203, 255, 0.14);
+      border-radius: 1.5rem;
+      background: rgba(14, 14, 16, 0.7);
+      padding: clamp(1.4rem, 3vw, 2.25rem);
+    }
+
+    .faq-item {
+      border-top: 1px solid rgba(150, 203, 255, 0.12);
+      padding-block: 1.75rem;
+    }
+
+    .faq-item:last-child { border-bottom: 1px solid rgba(150, 203, 255, 0.12); }
+
+    .faq-question {
+      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 0.9rem;
+    }
+
+    .faq-answer { max-width: 62ch; font-size: 0.9375rem; line-height: 1.7; }
+
+    .product-link,
+    .product-link-secondary {
+      display: inline-flex;
+      min-height: 3rem;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      border-radius: 1rem;
+      padding: 0.85rem 1.35rem;
+      font-size: 0.625rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      line-height: 1.4;
+      text-align: center;
+      text-transform: uppercase;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease-out;
+    }
+
+    .product-link { background: #96cbff; color: #0a0a0c; }
+
+    .product-link-secondary {
+      border: 1px solid rgba(150, 203, 255, 0.25);
+      background: rgba(255, 255, 255, 0.025);
+      color: #e7e0ef;
+    }
+
+    .product-link:hover,
+    .product-link-secondary:hover { transform: translateY(-2px); }
+    .product-link-secondary:hover { border-color: rgba(150, 203, 255, 0.55); }
+
+    .evidence-note {
+      border: 1px solid rgba(150, 203, 255, 0.14);
+      border-radius: 1.5rem;
+      background: rgba(14, 14, 16, 0.7);
+      padding: clamp(1.5rem, 4vw, 2.75rem);
+    }
+
+    @media (max-width: 900px) {
+      .fact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .fact-item:nth-child(3) { border-left: 0; }
+      .fact-item:nth-child(n+3) { border-top: 1px solid rgba(150, 203, 255, 0.12); }
+      .audience-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .product-shell { width: min(100% - 1.5rem, 80rem); }
+      .product-hero { padding-top: 2.75rem; padding-bottom: 3rem; }
+      .product-title { font-size: clamp(2.75rem, 14vw, 4rem); }
+      .fact-grid { grid-template-columns: 1fr; }
+      .fact-item + .fact-item { border-left: 0; border-top: 1px solid rgba(150, 203, 255, 0.12); }
+      .feature-row { grid-template-columns: 1fr; gap: 0.5rem; }
+      .product-link, .product-link-secondary { width: 100%; min-height: 3.25rem; }
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col">
+  <main class="flex-grow">
+    <section class="product-shell product-hero" aria-labelledby="product-title">
+      <nav aria-label="Migas de pan" class="mb-9 text-[11px] text-on-surface-variant">
+        <ol class="flex flex-wrap items-center gap-2">
+          <li><a href="/" class="rounded-sm hover:text-primary transition-colors">Inicio</a></li>
+          <li aria-hidden="true" class="text-outline-variant">/</li>
+          <li><a href="/casos" class="rounded-sm hover:text-primary transition-colors">Casos y aplicaciones</a></li>
+          <li aria-hidden="true" class="text-outline-variant">/</li>
+          <li aria-current="page" class="text-primary">Arrendia</li>
+        </ol>
+      </nav>
+
+      <div class="flex flex-wrap items-center gap-3 mb-7">
+        <span class="product-kicker text-primary">Desarrollo propio · PropTech</span>
+        <span class="status-pill"><span class="status-dot" aria-hidden="true"></span><span class="product-label">Disponible públicamente</span></span>
+      </div>
+
+      <h1 id="product-title" class="product-title text-on-surface">Arrendia</h1>
+
+      <p class="product-lede text-on-surface-variant mt-8">
+        Gestión de alquileres para Perú: cobranzas, contratos, propiedades y portal del inquilino en un mismo lugar, con IA que <strong class="text-on-surface">señala</strong> riesgo de mora en lugar de decidir por el propietario.
+      </p>
+
+      <p class="mt-5 max-w-3xl text-base leading-relaxed text-on-surface-variant">
+        Está publicada en arrendia.lat, con registro abierto, y sigue en evolución activa. No se le atribuyen aquí métricas de adopción, ahorro ni desempeño.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3 mt-9">
+        <a class="product-link" href="https://arrendia.lat" target="_blank" rel="noopener noreferrer">
+          Sitio oficial de Arrendia <span class="text-base" aria-hidden="true">↗</span>
+        </a>
+        <a class="product-link-secondary" href="/casos">
+          Ver los tres niveles de evidencia <span class="text-base" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="product-shell pb-14" aria-label="Ficha rápida de Arrendia">
+      <div class="fact-grid">
+        <div class="fact-item">
+          <p class="product-label text-on-surface-variant mb-3">Categoría</p>
+          <p class="text-sm leading-relaxed text-on-surface">PropTech · administración de alquileres</p>
+        </div>
+        <div class="fact-item">
+          <p class="product-label text-on-surface-variant mb-3">Estado</p>
+          <p class="text-sm leading-relaxed text-on-surface">Publicado en <a href="https://arrendia.lat" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">arrendia.lat</a></p>
+        </div>
+        <div class="fact-item">
+          <p class="product-label text-on-surface-variant mb-3">Ámbito</p>
+          <p class="text-sm leading-relaxed text-on-surface">Perú, con proyección a Latinoamérica</p>
+        </div>
+        <div class="fact-item">
+          <p class="product-label text-on-surface-variant mb-3">Autoría</p>
+          <p class="text-sm leading-relaxed text-on-surface"><a href="/orlando-linares" class="hover:text-primary transition-colors">Orlando Linares</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-shell section-rule py-16 md:py-24" aria-labelledby="problem-title">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+        <header class="lg:col-span-5">
+          <p class="product-kicker text-primary mb-6">El problema</p>
+          <h2 id="problem-title" class="section-title text-on-surface">La cobranza vive en la memoria de alguien.</h2>
+        </header>
+        <div class="lg:col-span-7">
+          <p class="text-base leading-relaxed text-on-surface-variant mb-6">
+            En una cartera pequeña de inmuebles, el proceso real suele estar repartido entre conversaciones de mensajería, contratos en archivos sueltos y una hoja de cálculo o una libreta personal. Funciona mientras la persona que lo lleva recuerde el detalle.
+          </p>
+          <p class="text-base leading-relaxed text-on-surface-variant">
+            El problema no es la falta de una aplicación: es que el proceso nunca fue escrito. Arrendia parte de ordenarlo —quién cobra, cuándo, contra qué contrato y con qué evidencia— y recién después lo convierte en software.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-shell section-rule py-16 md:py-24" aria-labelledby="audience-title">
+      <header class="mb-10 md:mb-14">
+        <p class="product-kicker text-primary mb-6">Para quién</p>
+        <h2 id="audience-title" class="section-title text-on-surface max-w-3xl">Dos perfiles con el mismo peso.</h2>
+      </header>
+      <div class="audience-grid">
+        <article class="audience-card">
+          <p class="product-label text-primary mb-5">Perfil 01</p>
+          <h3 class="text-2xl font-black tracking-tight text-on-surface mb-4">Propietario con cartera pequeña</h3>
+          <p class="text-sm leading-relaxed text-on-surface-variant">Administra unos pocos inmuebles como ingreso complementario. Persigue pagos por mensajería, guarda contratos dispersos y lleva el control en un archivo propio. Necesita dejar de recordar y empezar a consultar.</p>
+        </article>
+        <article class="audience-card">
+          <p class="product-label text-primary mb-5">Perfil 02</p>
+          <h3 class="text-2xl font-black tracking-tight text-on-surface mb-4">Administrador profesional</h3>
+          <p class="text-sm leading-relaxed text-on-surface-variant">Gestiona inmuebles de terceros y responde ante sus clientes. Necesita reportes presentables, separación entre carteras y control de quién puede ver o hacer qué dentro del sistema.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="product-shell section-rule py-16 md:py-24" aria-labelledby="features-title">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+        <header class="lg:col-span-5">
+          <p class="product-kicker text-primary mb-6">Qué incluye</p>
+          <h2 id="features-title" class="section-title text-on-surface">Alcance funcional en construcción.</h2>
+          <p class="mt-6 max-w-md text-sm leading-relaxed text-on-surface-variant">Este es el alcance definido del producto. Su implementación avanza por etapas y no todas las piezas están terminadas.</p>
+        </header>
+        <div class="lg:col-span-7">
+          <div class="feature-row">
+            <span class="product-index text-primary">01</span>
+            <div>
+              <h3 class="text-lg font-black tracking-tight text-on-surface mb-2">Propiedades y unidades</h3>
+              <p class="text-sm leading-relaxed text-on-surface-variant">Registro del inmueble y de cada unidad arrendable, con su estado de ocupación como punto de partida de todo lo demás.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="product-index text-primary">02</span>
+            <div>
+              <h3 class="text-lg font-black tracking-tight text-on-surface mb-2">Contratos</h3>
+              <p class="text-sm leading-relaxed text-on-surface-variant">Condiciones, vigencias y renovaciones asociadas a la unidad y al inquilino, para que el contrato deje de ser un archivo suelto.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="product-index text-primary">03</span>
+            <div>
+              <h3 class="text-lg font-black tracking-tight text-on-surface mb-2">Cobranzas y conciliación</h3>
+              <p class="text-sm leading-relaxed text-on-surface-variant">Seguimiento de lo que corresponde cobrar, lo cobrado y lo pendiente, con trazabilidad del pago contra el contrato que lo origina.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="product-index text-primary">04</span>
+            <div>
+              <h3 class="text-lg font-black tracking-tight text-on-surface mb-2">Portal del inquilino</h3>
+              <p class="text-sm leading-relaxed text-on-surface-variant">Acceso del inquilino únicamente a su propia información: su contrato, sus pagos y sus comunicaciones. Sin visibilidad sobre la cartera del propietario ni sobre otros inquilinos.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="product-index text-primary">05</span>
+            <div>
+              <h3 class="text-lg font-black tracking-tight text-on-surface mb-2">Reportes de cartera</h3>
+              <p class="text-sm leading-relaxed text-on-surface-variant">Estado consolidado para dejar de armar el reporte a mano cada vez que alguien lo pide.</p>
+            </div>
+          </div>
+          <div class="feature-row" style="border-bottom: 1px solid rgba(150, 203, 255, 0.12);">
+            <span class="product-index text-primary">06</span>
+            <div>
+              <h3 class="text-lg font-black tracking-tight text-on-surface mb-2">ArrendIA — señales de riesgo</h3>
+              <p class="text-sm leading-relaxed text-on-surface-variant">Módulo de IA que identifica señales de riesgo de mora y sugiere una acción posible. No ejecuta cobros, no clasifica personas y no decide: quien decide es el propietario o el administrador.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-shell section-rule py-16 md:py-24" aria-labelledby="faq-title">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+        <header class="lg:col-span-4">
+          <p class="product-kicker text-primary mb-6">Preguntas frecuentes</p>
+          <h2 id="faq-title" class="section-title text-on-surface">Lo que suelen preguntar.</h2>
+        </header>
+        <div class="lg:col-span-8">
+          <div class="faq-item">
+            <h3 class="faq-question text-on-surface">¿Qué es Arrendia?</h3>
+            <p class="faq-answer text-on-surface-variant">Arrendia es un SaaS de gestión de alquileres pensado para Perú. Centraliza cobranzas, contratos, propiedades y reportes en un solo lugar, e incorpora un módulo de IA llamado ArrendIA que señala riesgo de mora y sugiere acciones. Es un desarrollo propio de <a href="/orlando-linares" class="text-primary hover:text-on-surface transition-colors">Orlando Linares</a> y se encuentra en construcción.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question text-on-surface">¿Arrendia ya está disponible?</h3>
+            <p class="faq-answer text-on-surface-variant">Sí. Arrendia está publicada en <a href="https://arrendia.lat" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-on-surface transition-colors">arrendia.lat</a>, con registro abierto y planes vigentes. Sigue en evolución activa: se muestra aquí para conversar sobre el problema y el diseño del producto, no como evidencia de resultados alcanzados. No hay métricas de adopción ni de desempeño publicadas.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question text-on-surface">¿Para quién está pensado Arrendia?</h3>
+            <p class="faq-answer text-on-surface-variant">Para dos perfiles: el propietario con una cartera pequeña, que hoy persigue pagos por mensajería y guarda contratos en archivos sueltos; y el administrador profesional que gestiona inmuebles de terceros y necesita reportes, control de roles y una presentación ordenada frente a su cliente.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question text-on-surface">¿La IA de Arrendia decide sobre los inquilinos?</h3>
+            <p class="faq-answer text-on-surface-variant">No. ArrendIA señala riesgo de mora y propone una acción posible, pero quien decide es el propietario o el administrador. El criterio de diseño es el mismo que rige el resto del trabajo: la IA asiste y la responsabilidad permanece en las personas.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question text-on-surface">¿Arrendia sirve para conseguir inquilinos?</h3>
+            <p class="faq-answer text-on-surface-variant">No. Arrendia no es un portal de avisos ni un buscador de inmuebles. Opera del lado de la administración: ordena lo que ocurre después de que el contrato existe, es decir cobranzas, contratos, mantenimiento y comunicación.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question text-on-surface">¿Qué incluye el portal del inquilino?</h3>
+            <p class="faq-answer text-on-surface-variant">El inquilino accede únicamente a su propia información: su contrato, su historial de pagos y sus comunicaciones. El acceso está restringido a los datos de su relación contractual y no expone la cartera del propietario ni la de otros inquilinos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-shell py-16 md:py-20">
+      <div class="evidence-note">
+        <p class="product-kicker text-primary mb-5">Nota de evidencia</p>
+        <p class="max-w-3xl text-sm leading-relaxed text-on-surface-variant">
+          Arrendia es un <strong class="text-on-surface">producto publicado y en evolución activa</strong>. Esta ficha describe el problema que aborda y su alcance funcional; no le atribuye adopción, usuarios, ahorro ni desempeño, porque todavía no existe una medición que pueda respaldarse con fuente, periodo y método. Ver la <a href="/casos" class="text-primary hover:text-on-surface transition-colors">política de evidencia completa</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="product-shell pb-24 md:pb-32" aria-labelledby="cta-title">
+      <div class="grid grid-cols-1 gap-8 border-t border-primary/20 pt-12 md:grid-cols-12 md:items-end md:pt-16">
+        <div class="md:col-span-8">
+          <p class="product-kicker text-primary mb-6">Siguiente conversación</p>
+          <h2 id="cta-title" class="section-title text-on-surface">¿Administras inmuebles y el proceso vive en tu cabeza?</h2>
+          <p class="mt-6 max-w-2xl text-base leading-relaxed text-on-surface-variant">Antes de elegir una herramienta conviene escribir el proceso: quién cobra, contra qué contrato, con qué evidencia y qué pasa cuando algo falla. Ese es el punto de partida del diagnóstico.</p>
+        </div>
+        <div class="md:col-span-4 md:justify-self-end md:w-full">
+          <a href="/discovery-wizard" class="product-link w-full">
+            Iniciar diagnóstico <span class="text-base" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/nav.js" type="module"></script>
+</body>
+</html>

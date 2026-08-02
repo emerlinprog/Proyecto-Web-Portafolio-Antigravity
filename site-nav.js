@@ -11,6 +11,14 @@ export const PAGES = [
   { href: '/casos',           label: 'Casos' },
 ];
 
+// Desarrollos propios. Se listan en el footer de todas las páginas para que la
+// relación autor -> producto quede explícita en el sitio, no solo en el schema.
+export const PRODUCTS = [
+  { href: '/contratacheck', label: 'ContrataCheck' },
+  { href: '/arrendia',      label: 'Arrendia' },
+  { href: '/protocol-ai',   label: 'Protocol AI' },
+];
+
 export const LEGAL_LINKS = [
   { href: '/privacy',          label: 'Privacidad' },
   { href: '/discovery-wizard', label: 'Diagnóstico Estratégico' },

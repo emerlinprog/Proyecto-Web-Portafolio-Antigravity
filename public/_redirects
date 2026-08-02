@@ -16,6 +16,8 @@
 /casos_de_uso               /casos                    301!
 /casos-de-uso               /casos                    301!
 /protocol-ai.html           /protocol-ai              301!
+/arrendia.html              /arrendia                 301!
+/contratacheck.html         /contratacheck            301!
 /discovery-wizard.html      /discovery-wizard         301!
 /agendar_diagnostico.html   /agendar-diagnostico      301!
 /agendar_diagnostico        /agendar-diagnostico      301!
@@ -36,6 +38,8 @@
 /ai-lab                     /ai_lab.html               200
 /casos                      /casos_de_uso.html         200
 /protocol-ai                /protocol-ai.html          200
+/arrendia                   /arrendia.html             200
+/contratacheck              /contratacheck.html        200
 /discovery-wizard           /discovery-wizard.html     200
 /agendar-diagnostico        /agendar_diagnostico.html  200
 /privacy                    /privacy.html              200

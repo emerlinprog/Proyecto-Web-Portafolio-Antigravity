@@ -33,9 +33,38 @@
         "@type": "Person",
         "@id": "https://orlandolinares.com/orlando-linares#person",
         "name": "Orlando Linares",
+        "givenName": "Orlando",
+        "familyName": "Linares",
         "url": "https://orlandolinares.com/orlando-linares",
-        "description": "Consultor en arquitectura de procesos e IA aplicada.",
-        "sameAs": ["https://www.linkedin.com/in/orlando-linares/"]
+        "mainEntityOfPage": { "@id": "https://orlandolinares.com/orlando-linares#profilepage" },
+        "image": "https://orlandolinares.com/assets/orlando-profile.jpg",
+        "description": "Consultor en arquitectura de procesos e IA aplicada. Ayuda a organizaciones públicas y PYMES a transformar procesos administrativos complejos en sistemas de trabajo claros, trazables y asistidos por IA.",
+        "jobTitle": "Consultor en arquitectura de procesos e IA aplicada",
+        "email": "orlando@orlandolinares.com",
+        "nationality": { "@type": "Country", "name": "Perú" },
+        "worksFor": { "@id": "https://orlandolinares.com/#organization" },
+        "knowsLanguage": ["es"],
+        "knowsAbout": [
+          "Arquitectura de procesos de negocio",
+          "Levantamiento de procesos AS-IS",
+          "Diseño de procesos TO-BE",
+          "Análisis de negocio",
+          "Inteligencia artificial aplicada con supervisión humana",
+          "Trazabilidad documental y gestión de evidencia",
+          "Modernización de la gestión pública",
+          "Contratación pública en Perú",
+          "Automatización de procesos administrativos"
+        ],
+        "sameAs": ["https://www.linkedin.com/in/orlando-linares/"],
+        "owns": [
+          { "@id": "https://orlandolinares.com/contratacheck#software" },
+          { "@id": "https://orlandolinares.com/arrendia#software" },
+          { "@id": "https://orlandolinares.com/protocol-ai#software" }
+        ],
+        "subjectOf": [
+          { "@id": "https://orlandolinares.com/contratacheck#webpage" },
+          { "@id": "https://orlandolinares.com/arrendia#webpage" }
+        ]
       }
     ]
   }
@@ -276,6 +305,45 @@
               </ul>
               <a href="/enfoque" class="mt-8 inline-flex min-h-11 items-center gap-2 text-[10px] font-black uppercase tracking-[.18em] text-primary hover:text-on-surface transition-colors">Conocer mi enfoque completo <span aria-hidden="true">→</span></a>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-outline-variant/30 py-20 md:py-28" aria-labelledby="products-title">
+      <div class="profile-shell">
+        <div class="grid grid-cols-1 gap-9 lg:grid-cols-12 lg:gap-16">
+          <header class="lg:col-span-4">
+            <p class="profile-label mb-5">Desarrollos propios</p>
+            <h2 id="products-title" class="text-4xl md:text-5xl font-black tracking-[-0.045em] leading-[.95] mb-6">Productos donde aplico el mismo método.</h2>
+            <p class="max-w-md text-sm md:text-base leading-relaxed text-on-surface-variant">Cada uno nace de un proceso concreto que necesitaba orden antes que software. Publico su estado real, sin atribuirles resultados que todavía no puedo respaldar.</p>
+          </header>
+
+          <div class="lg:col-span-8 border-t border-outline-variant/50">
+            <article class="profile-capability grid grid-cols-[auto_1fr] gap-5 border-b border-outline-variant/50 py-7 md:grid-cols-12 md:gap-8 md:px-4">
+              <span class="profile-index font-mono text-xs text-on-surface-variant transition-colors md:col-span-1">01</span>
+              <h3 class="text-xl font-black tracking-tight md:col-span-4">
+                <a href="/contratacheck" class="hover:text-primary transition-colors">ContrataCheck <span aria-hidden="true">→</span></a>
+                <span class="mt-2 block text-[10px] font-black uppercase tracking-[.18em] text-primary">Acceso restringido</span>
+              </h3>
+              <p class="col-start-2 text-sm leading-relaxed text-on-surface-variant md:col-span-7 md:col-start-auto">Control preventivo asistido por IA para contratación pública peruana: revisa expedientes antes de la aprobación o la firma y deja trazabilidad de cada observación.</p>
+            </article>
+            <article class="profile-capability grid grid-cols-[auto_1fr] gap-5 border-b border-outline-variant/50 py-7 md:grid-cols-12 md:gap-8 md:px-4">
+              <span class="profile-index font-mono text-xs text-on-surface-variant transition-colors md:col-span-1">02</span>
+              <h3 class="text-xl font-black tracking-tight md:col-span-4">
+                <a href="/arrendia" class="hover:text-primary transition-colors">Arrendia <span aria-hidden="true">→</span></a>
+                <span class="mt-2 block text-[10px] font-black uppercase tracking-[.18em] text-primary">Disponible públicamente</span>
+              </h3>
+              <p class="col-start-2 text-sm leading-relaxed text-on-surface-variant md:col-span-7 md:col-start-auto">Gestión de alquileres para propietarios y administradores en Perú: cobranzas, contratos, propiedades y portal del inquilino, con IA que señala riesgo de mora sin decidir por nadie.</p>
+            </article>
+            <article class="profile-capability grid grid-cols-[auto_1fr] gap-5 border-b border-outline-variant/50 py-7 md:grid-cols-12 md:gap-8 md:px-4">
+              <span class="profile-index font-mono text-xs text-on-surface-variant transition-colors md:col-span-1">03</span>
+              <h3 class="text-xl font-black tracking-tight md:col-span-4">
+                <a href="/protocol-ai" class="hover:text-primary transition-colors">Protocol AI <span aria-hidden="true">→</span></a>
+                <span class="mt-2 block text-[10px] font-black uppercase tracking-[.18em] text-primary">Disponible públicamente</span>
+              </h3>
+              <p class="col-start-2 text-sm leading-relaxed text-on-surface-variant md:col-span-7 md:col-start-auto">Convierte un requerimiento escrito en lenguaje natural en una arquitectura de prompt estructurada, lista para usar en cualquier modelo.</p>
+            </article>
           </div>
         </div>
       </div>
